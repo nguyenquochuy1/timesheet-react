@@ -1,22 +1,91 @@
-.App {
+
+.doubleUnderline{
+  text-decoration-line: underline;
+  text-decoration-style: double ;
+}
+.doubleUnderline2{
+  text-decoration-line: underline;
+  text-decoration-style: double ;
+}
+.form-group{
+  border-bottom: double;
+  width: 70%;
+}
+.form-group > select{
+  margin-top : 20px;
+  border:0px;
+  outline:0px;
+  padding-left: 30px;
+}
+.sltFirstMonthDay > select{
+  border:0px;
+  outline:0px;
+}
+.sltSecondMonthDay > select{
+  border:0px;
+  outline:0px;
+}
+
+.line1 > input{
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 80%;
+}
+
+.line2 > input{
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 80%;
+}
+
+.line3 > input{
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 80%;
+}
+
+.allLine > div {
+  margin-top : 20px;
+}
+.line1{
+  border : 1px ;
+  border-bottom: 1px solid;
+}
+.line2{
+  border : 1px ;
+  border-bottom: 1px solid;
+}
+.line3{
+  border : 1px ;
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}
+.newtable{
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid ;
+}
+.table>tbody>tr>td{
+  border: 2px solid ;
+}
+.newtable>tbody>tr>td{
+  vertical-align: middle;
+}
+.warning{
+  display: inline-flex;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.breakTime>select{  
+  border: 0px;
+  outline: 0px;
+}
+.txtHour{
+  width: 100px;
+  height: 40px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
