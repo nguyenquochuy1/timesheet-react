@@ -1,14 +1,43 @@
 import React from 'react'
-
+const minOffset = 0;
+const maxOffset = 60;
 class Time extends React.Component {
+
+    
+
+    constructor() {
+        super();
+        
+        const thisYear = (new Date()).getFullYear();
+        
+        this.state = {
+          thisYear: thisYear,
+          selectedYear: thisYear
+        }
+    }
+    onHandleChange = (evt) => {
+        // Handle Change Here
+        // alert(evt.target.value);
+        this.setState({ selectedYear: evt.target.value });
+    };
+
     render() {
-        return(
+
+    const { thisYear, selectedYear } = this.state;
+    const options = [];
+    
+    for (let i = minOffset; i <= maxOffset; i++) {
+      const year = thisYear - i;
+      options.push(<option value={year}>{year}</option>);
+    }
+    return(
             
         <div className="col-sm-8">
                     <div className="form-group">
-                        <select>
+                    <select value={this.selectedYear} onChange={this.onHandleChange}>
                             <option>Year</option>
-                            <option value={2020}>2020</option>
+                            {options}
+                            {/* <option value={2020}>2020</option>
                             <option value={2019}>2019</option>
                             <option value={2018}>2018</option>
                             <option value={2017}>2017</option>
@@ -98,7 +127,7 @@ class Time extends React.Component {
                             <option value={1933}>1933</option>
                             <option value={1932}>1932</option>
                             <option value={1931}>1931</option>
-                            <option value={1930}>1930</option>
+                            <option value={1930}>1930</option> */}
                         </select>
                         <label>年</label>
                         <select>
