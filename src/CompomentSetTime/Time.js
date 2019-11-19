@@ -9,26 +9,41 @@ class Time extends React.Component {
         super();
         
         const thisYear = (new Date()).getFullYear();
+        const thisMonth = (new Date()).getMonth()+1;
         
         this.state = {
           thisYear: thisYear,
-          selectedYear: thisYear
+          selectedYear: thisYear,
+
+          thisMonth : thisMonth,
+          selectedMonth : thisMonth
+
         }
     }
     onHandleChange = (evt) => {
         // Handle Change Here
         // alert(evt.target.value);
         this.setState({ selectedYear: evt.target.value });
+
+        this.setState({ selectedMonth: evt.target.value });
     };
 
     render() {
 
     const { thisYear, selectedYear } = this.state;
-    const options = [];
+    const { thisMonth, selectedMonth } = this.state;
+    const optionsYear = [];
+    const optionsMonth = [];
     
     for (let i = minOffset; i <= maxOffset; i++) {
       const year = thisYear - i;
-      options.push(<option value={year}>{year}</option>);
+      optionsYear.push(<option value={year}>{year}</option>);
+    }
+
+    for (let i = 0; i <= 12;i++){
+      //const month = thisMonth - i;
+      const month = thisMonth;
+      optionsMonth.push(<option value={month}>{month}</option>);  
     }
     return(
             
@@ -36,7 +51,7 @@ class Time extends React.Component {
                     <div className="form-group">
                     <select value={this.selectedYear} onChange={this.onHandleChange}>
                             <option>Year</option>
-                            {options}
+                            {optionsYear}
                             {/* <option value={2020}>2020</option>
                             <option value={2019}>2019</option>
                             <option value={2018}>2018</option>
@@ -132,7 +147,8 @@ class Time extends React.Component {
                         <label>年</label>
                         <select>
                             <option>Month</option>
-                            <option value="January">January</option>
+                            {optionsMonth}
+                            {/* <option value="January">January</option>
                             <option value="Febuary">Febuary</option>
                             <option value="March">March</option>
                             <option value="April">April</option>
@@ -143,7 +159,7 @@ class Time extends React.Component {
                             <option value="September">September</option>
                             <option value="October">October</option>
                             <option value="November">November</option>
-                            <option value="December">December</option>
+                            <option value="December">December</option> */}
                         </select>
                         <label>月分</label>
                     </div>
