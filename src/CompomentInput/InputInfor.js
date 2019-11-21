@@ -27,15 +27,9 @@ class InputInfor extends React.Component {
                 }
             ]
 
-            //isActive : true 
         }
 
     }
-
-    // getInfor = () => {
-    //     console.log(this.refs.name.value);
-    // }
-
 
     render() {
         let elements = this.state.nameOfInputs.map((nameOfInput , index) => {
@@ -48,12 +42,10 @@ class InputInfor extends React.Component {
             );
         });
         return(
-        <div className="col-sm-4">
+        <div className="col-sm-4" style={{paddingBottom : '20px'}}>
             <div className="allLine">
 
                 {elements}
-                
-                {/* <button type="button" class="btn btn-danger" onClick ={this.getInfor}>button</button> */}
                 
             </div>
         </div>   
