@@ -1,26 +1,62 @@
 import React from 'react';
 
+const name_column1 = '事業所' ;
+const name_column2 = '部者';
+const name_column3 = '氏名';
+
+
 class InputInfor extends React.Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            nameOfInputs : [
+                {
+                    id: 1,
+                    name  : '事業所'
+                },
+
+                {
+                    id: 2,
+                    name  : '部者'
+                },
+
+                {
+                    id: 3,
+                    name  : '氏名'
+                }
+            ]
+
+            //isActive : true 
+        }
+
+    }
+
+    // getInfor = () => {
+    //     console.log(this.refs.name.value);
+    // }
+
+
     render() {
+        let elements = this.state.nameOfInputs.map((nameOfInput , index) => {
+            return (
+            <div className="line1">
+                <label className="text-right control-label" key = {nameOfInput.id}>{nameOfInput.name}</label>
+                <input type="text" className="form-underline" ref="name" />
+            </div>
+            
+            );
+        });
         return(
         <div className="col-sm-4">
             <div className="allLine">
-                <div className="line1">
-                    <label className="text-right control-label">事業所</label>
-                    <input type="text" className="form-underline" />
-                </div>
-                <div className="line2">
-                    <label className="text-right control-label">部者</label>
-                    <input type="text" className="form-underline" />
-                </div>
-                <div className="line3">
-                    <label className="text-right  control-label">氏名</label>
-                    <input type="text" className="form-underline" />
-                </div>
-            </div>
-        </div>
+
+                {elements}
                 
-            
+                {/* <button type="button" class="btn btn-danger" onClick ={this.getInfor}>button</button> */}
+                
+            </div>
+        </div>   
         )
     }
 }

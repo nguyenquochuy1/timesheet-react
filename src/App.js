@@ -11,24 +11,26 @@ import TableAgree from './CompomentTableAgreement/TableAgree';
       
 
 class App extends React.Component{
+
+
   render() {
     return (
       <div className="allPage">
         <div className="container-fluid newstyle">
-        <Title/>
-        <div className="container">
-          <div className="row">
-            <Time/>
-            <InputInfor/>
-            <TableTime/>
-            <Warning/>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <ProsessingTest/>
-              <TableAgree/>
+            <Title/>
+            <div className="container">
+              <div className="row">
+                <Time/>
+                <InputInfor/>
+                <TableTime/>
+                <Warning/>
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <ProsessingTest/>
+                  <TableAgree/>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
       </div>
   
       
