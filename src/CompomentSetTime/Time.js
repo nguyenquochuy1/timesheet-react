@@ -9,6 +9,7 @@ constructor() {
     const thisYear = (new Date().getFullYear());
     const thisMonth = (new Date().getMonth()+1);
     const thisDay =  (new Date().getDate());
+
         this.state = {
           thisYear: thisYear,
           selectedYear: thisYear,
@@ -28,6 +29,8 @@ constructor() {
 
         //alert()
         this.setState({ selectedMonth: evt.target.value });
+
+        this.setState({ selectedDay: evt.target.value});
     };
 
     render() {
@@ -50,9 +53,9 @@ constructor() {
         optionsYear.push(<option value={n_year}>{n_year}</option>);
     }
 
-    for (let i = 0; i < 12 ;i++){
-      const month = 1  +  i;
-      optionsMonth.push(<option value={month}>{month}</option>);  
+    for (let i = 0; i < 12 ;i++) {
+        const month = 1  +  i;
+        optionsMonth.push(<option value={month}>{month}</option>);  
     }
 
     for (let i = 0; i < 31; i++) {

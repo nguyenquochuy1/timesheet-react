@@ -91,3 +91,17 @@
 .newstyle{
   padding-right: 17%;
 }
+.titlteTable  > td{
+  vertical-align: middle;
+}
+#noBorderBottom{
+
+  border-bottom: none;
+  
+}
+#noBorderTop{
+
+  border-top: none;
+
+}
+

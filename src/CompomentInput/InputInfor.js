@@ -34,11 +34,10 @@ class InputInfor extends React.Component {
     render() {
         let elements = this.state.nameOfInputs.map((nameOfInput , index) => {
             return (
-            <div className="line1">
-                <label className="text-right control-label" key = {nameOfInput.id}>{nameOfInput.name}</label>
-                <input type="text" className="form-underline" ref="name" />
-            </div>
-            
+                <div className="line1">
+                    <label className="text-right control-label" key = {nameOfInput.id}>{nameOfInput.name}</label>
+                    <input type="text" className="form-underline" ref="name" />
+                </div>
             );
         });
         return(
@@ -49,7 +48,7 @@ class InputInfor extends React.Component {
                 
             </div>
         </div>   
-        )
+        );
     }
 }
 export default InputInfor;
