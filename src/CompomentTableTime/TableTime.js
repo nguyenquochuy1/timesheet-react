@@ -1,6 +1,7 @@
 import React from 'react';
 import SettingTableTime from '../CompomentTableSettingTime/SettingTableTime';
 
+
 class TableTime extends React.Component {
   constructor(props){
 
@@ -113,13 +114,15 @@ class TableTime extends React.Component {
                 <td>確認印</td>
                 <td>業務内容</td>
                 <td>勤怠状況</td>
-                <td style={{border: 'none', borderTop: '2px solid'}} />
-                <td style={{borderLeft : 'none'}} />
+                <td style={{borderTop: 'none',borderRight:'none',borderBottom:'none',borderLeft: 'none',borderImage: 'initial'}} />
+                <td style={{borderLeft: 'none', borderTop:'none'}} />
               </tr>
 
               
               <tr>
+
                 <td>21</td>
+
                 <td></td>
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
@@ -157,6 +160,7 @@ class TableTime extends React.Component {
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
                 </td>
+
                 <td style={{borderTop: '2px solid'}}>平日</td>
 
                 <SettingTableTime nameOfClass = "breakTime" />
@@ -165,8 +169,10 @@ class TableTime extends React.Component {
 
 
               <tr>
+                
                 <td>22</td>
-                <td />
+
+                <td></td>
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
                 </td>
@@ -203,6 +209,7 @@ class TableTime extends React.Component {
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
                 </td>
+
                 <td rowSpan={6} style={{padding: '60px 0px 60px 0px'}}><p>休</p><p>憩</p><p>時</p><p>間</p></td>
 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -212,8 +219,8 @@ class TableTime extends React.Component {
               <tr>
 
                 <td>23</td>
-
-                <td />
+                
+                <td></td>
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
                 </td>
@@ -256,7 +263,9 @@ class TableTime extends React.Component {
               </tr>
 
               <tr>
+
                 <td>24</td>
+
                 <td />
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
@@ -346,7 +355,7 @@ class TableTime extends React.Component {
               <tr>
                 
                 <td>26</td>
-                <td />
+                <td></td>
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
                 </td>
@@ -894,6 +903,9 @@ class TableTime extends React.Component {
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
                 </td>
+                <td colSpan={17} rowSpan={17} style={{padding: '0px'}}>
+                    <textarea name="txta" id cols={45} rows={40} defaultValue={""} />
+                </td>
               </tr>
 
               <tr>
@@ -935,11 +947,7 @@ class TableTime extends React.Component {
                 <td style={{padding: '0px'}}>
                   <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
                 </td>
-                <td colSpan={17} rowSpan={17} style={{padding: '0px'}}>
-                  <div>
-                    <textarea name="txta" id cols={45} rows={40} defaultValue={""} />
-                  </div>
-                </td>
+
               </tr>
 
               <tr>
