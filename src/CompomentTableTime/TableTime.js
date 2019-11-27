@@ -83,7 +83,7 @@ class TableTime extends React.Component {
 
         return(
 
-            <table className="table table-responsive newtable">
+            <table id="tablecss" className="table table-responsive newtable">
             <tbody>
               <tr className="titlteTable">
                 <td colSpan={2}>※就業日</td>
@@ -124,41 +124,41 @@ class TableTime extends React.Component {
                 <td>21</td>
 
                 <td></td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td >
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={20} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />  
                 </td>
 
                 <td style={{borderTop: '2px solid'}}>平日</td>
@@ -173,41 +173,41 @@ class TableTime extends React.Component {
                 <td>22</td>
 
                 <td></td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
 
                 <td rowSpan={6} style={{padding: '60px 0px 60px 0px'}}><p>休</p><p>憩</p><p>時</p><p>間</p></td>
@@ -221,41 +221,41 @@ class TableTime extends React.Component {
                 <td>23</td>
                 
                 <td></td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -266,42 +266,42 @@ class TableTime extends React.Component {
 
                 <td>24</td>
 
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -311,42 +311,42 @@ class TableTime extends React.Component {
               <tr>
 
                 <td>25</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td> 
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -356,41 +356,41 @@ class TableTime extends React.Component {
                 
                 <td>26</td>
                 <td></td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -399,42 +399,42 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>27</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -443,42 +443,42 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>28</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td>平日実働時間</td>
                 <td><div style={{display: 'inline-flex'}}><p>7</p><p>時間</p><p>45</p><p>分</p></div></td>
@@ -486,251 +486,252 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>29</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td>休日実働時間</td>
                 <td><div style={{display: 'inline-flex'}}><p>7</p><p>時間</p><p>45</p><p>分</p></div></td></tr>
 
               <tr>
                 <td>30</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td colSpan={2}>所定休日</td>
+
               </tr>
 
               <tr>
                 <td>31</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td colSpan={2} rowSpan={2}>土曜日・ 日曜日・祝祭日</td>
               </tr>
 
               <tr>
                 <td>1</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
 
               <tr>
                 <td>2</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td colSpan={2}>時間外勤務時間</td>
               </tr>
 
               <tr>
                 <td>3</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td> 
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td>平日</td>
                 <td><div style={{display: 'inline-flex'}}><p>実働</p><p>8</p><p>時間以上</p></div></td>
@@ -738,42 +739,42 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>4</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td>割増単位</td>
                 <td><div style={{display: 'inline-flex'}}><p>30</p><p>分</p></div></td>
@@ -781,42 +782,42 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>5</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td colSpan={2}>控除</td>
               </tr>
@@ -824,41 +825,41 @@ class TableTime extends React.Component {
               <tr>
                 <td>6</td>
                 <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
                 <td>控除単位</td>
                 <td><div style={{display: 'inline-flex'}}><p>30</p><p>分</p></div></td>
@@ -866,572 +867,573 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>7</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
-                <td colSpan={17} rowSpan={17} style={{padding: '0px'}}>
-                    <textarea name="txta" id cols={45} rows={40} defaultValue={""} />
+                <td colSpan={17} rowSpan={17} >
+                    <textarea  name="txta"  cols={40} rows={33} defaultValue={""} />
                 </td>
               </tr>
 
               <tr>
                 <td>8</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
 
               </tr>
 
               <tr>
+
                 <td>9</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
 
               <tr>
                 <td>10</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
 
               <tr>
                 <td>11</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
 
               <tr>
                 <td>12</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               
               <tr>
                 <td>13</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>14</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>15</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>16</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>17</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>18</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td> 
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>19</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td ></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               <tr>
                 <td>20</td>
-                <td />
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td></td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="file" maxLength={2} />
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{fontSize: '10px', width: '150px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputWork" type="text" maxLength={2}/>
                 </td>
-                <td style={{padding: '0px'}}>
-                  <input style={{width: '70px', height: '40px', textAlign: 'center'}} type="text" maxLength={20} />
+                <td>
+                  <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
               

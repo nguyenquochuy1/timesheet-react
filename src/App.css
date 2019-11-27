@@ -105,3 +105,21 @@
 
 }
 
+#tablecss > tbody > tr > td {
+  padding: 0px !important;
+}
+.inputTimes {
+  width: 70px; 
+  height: 40px; 
+  text-align: center;
+}
+.inputWork{
+  width: 150px; 
+  height: 40px;
+  text-align: center; 
+  font-size: 10px;
+}
+
+#tablecss > tbody > tr > td > textarea{
+  height: auto !important ;
+}
