@@ -8,78 +8,30 @@ class TableTime extends React.Component {
     super(props);
     this.state = {
       nameOfInputs : [
-          {
-              id: 1,
-              name  : ''
-          },
-
-          {
-              id: 2,
-              name  : '部者'
-          },
-
-          {
-              id: 3,
-              name  : '氏名'
-          },
-
-          {
-              id: 4,
-              name  : '氏名'
-          },
-
-          {
-              id: 5,
-              name  : '氏名'
-          },
-
-          {
-              id: 6,
-              name  : '氏名'
-          },
-
-          {
-              id: 7,
-              name  : '氏名'
-          },
-
-          {
-            id: 8,
-            name  : '氏名'
-          },
-
-          {
-            id: 9,
-            name  : '氏名'
-          },
-
-          {
-            id: 10,
-            name  : '氏名'
-          },
-
-          {
-            id: 11,
-            name  : '氏名'
-          },
-
-          {
-            id: 12,
-            name  : '氏名'
-          },
-
-          {
-            id: 13,
-            name  : '氏名'
-          }
+          
 
       ]
     }
   }
 
-    
+  countOfEndDay(thisYear,thisMonth){
+    const getendDay = new Date(thisYear,thisMonth,0);
+    const endDay = getendDay.getDate();
+    return endDay;
+  }
 
+   
     render() {
+
+        const optionsDay = [];
+
+        for (let i = 20; i < this.countOfEndDay; i++) {
+          const day = 1 + i ;
+          optionsDay.push(<td>{day}</td>);
+          
+        }
+
+        console.log(optionsDay);
 
         return(
 

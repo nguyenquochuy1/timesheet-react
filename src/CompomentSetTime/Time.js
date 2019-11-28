@@ -8,17 +8,17 @@ constructor() {
         
     const thisYear = (new Date().getFullYear());
     const thisMonth = (new Date().getMonth()+1);
-    const thisDay =  (new Date().getDate());
+    const thisDay =  20;
 
         this.state = {
           thisYear: thisYear,
           selectedYear: thisYear,
 
           thisMonth : thisMonth,
-          selectedMonth : thisMonth,
+          selectedMonth : thisMonth + 1 ,
 
           thisDay : thisDay,
-          selectedDay : thisDay
+          selectedDay : thisDay + 1 
 
         }
     }
@@ -32,6 +32,20 @@ constructor() {
 
         this.setState({ selectedDay: evt.target.value});
     };
+
+    
+
+    // decisionOfDisplay(){
+    //     if (endDay) {
+            
+    //     }else if(endDay){
+            
+    //     }else if(endDay){
+
+    //     }else if(endDay){
+
+    //     }
+    // }
 
     render() {
 
@@ -83,12 +97,12 @@ constructor() {
                     <div className="inline col-sm-12">
                         <div className="sltFirstMonthDay col-sm-6">
                             <select>
-                                <option>{this.state.selectedMonth}</option>
+                                <option>{this.state.thisMonth}</option>
                                 {optionsMonth}
                             </select>
                             <label>月</label>　
                             <select>
-                                <option>{this.state.selectedDay}</option>
+                                <option>{this.state.thisDay}</option>
                                 {optionsDay}
                             </select>
                             <label>日 ～ </label>
