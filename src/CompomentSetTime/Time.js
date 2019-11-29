@@ -1,4 +1,5 @@
 import React from 'react'
+
 const minOffset = 0;
 const maxOffset = 60;
 class Time extends React.Component {
@@ -53,6 +54,7 @@ constructor() {
     const { thisMonth, selectedMonth } = this.state;
     const { thisDay, selectedDay } = this.state;
 
+    
     const optionsYear = [];
     const optionsMonth = [];
     const optionsDay = [];

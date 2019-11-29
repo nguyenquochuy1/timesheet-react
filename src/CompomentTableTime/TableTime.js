@@ -1,5 +1,6 @@
 import React from 'react';
 import SettingTableTime from '../CompomentTableSettingTime/SettingTableTime';
+import moment from "moment";
 
 
 class TableTime extends React.Component {
@@ -25,13 +26,57 @@ class TableTime extends React.Component {
 
         const optionsDay = [];
 
-        for (let i = 20; i < this.countOfEndDay; i++) {
-          const day = 1 + i ;
-          optionsDay.push(<td>{day}</td>);
+
+        // Thích bắt đầu từ tháng nào thì sửa số trong hàm dưới này
+        let currentMonthDateYear = moment().add(12, "month");
+        ////
+
+        let currentMonth = currentMonthDateYear.get("month");
+        let currentYear = currentMonthDateYear.get("year");
+
+        let nextMonthDateYear = currentMonthDateYear.add(1, "month");
+        let nextMonth = nextMonthDateYear.get("month");
+        let nextMonthYear = nextMonthDateYear.get("year");
+        let startDay = 21;
+        let endDay = 20;
+        var dataRow = [];
+        var dataCol = [];
+
+        let startDateTime = moment([currentYear, currentMonth, startDay]).unix();
+        let endDateTime = moment([nextMonthYear, nextMonth, endDay]).unix();
+
+        // for (let i = 20; i < this.countOfEndDay; i++) {
+        //   const day = 1 + i ;
+        //   optionsDay.push(<td>{day}</td>);
           
+        // }
+
+        for (let day = startDateTime; day <= endDateTime; day= moment.unix(day).add(1,"day").unix()) {
+          let rowDay = moment.unix(day);
+          console.log(day);
+          dataRow.push(<td>{rowDay.get("date")}</td>);
+
+          for (let i = 0; i < dataRow.length; i++) {
+            dataRow.push(<td>{rowDay.get("date")}</td>);
+            
+          }
         }
 
-        console.log(optionsDay);
+        
+
+        for (let index = 1; index < 10; index++) {
+          dataCol.push(
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />
+                </td>
+                );
+        }
+
+        
+        
+        
+
+        //console.log(optionsDay);
 
         return(
 
@@ -73,36 +118,12 @@ class TableTime extends React.Component {
               
               <tr>
 
-                <td>21</td>
+                <td>{dataRow}</td>
 
                 <td></td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td >
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
+                
+                {dataCol}
+                
                 <td>
                   <input className="inputTimes" type="file" maxLength={2} />
                 </td>
