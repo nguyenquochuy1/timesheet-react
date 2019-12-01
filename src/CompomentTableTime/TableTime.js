@@ -1,17 +1,14 @@
 import React from 'react';
 import SettingTableTime from '../CompomentTableSettingTime/SettingTableTime';
-import moment from "moment";
-
+import moment from 'moment';
 
 class TableTime extends React.Component {
   constructor(props){
 
     super(props);
     this.state = {
-      nameOfInputs : [
-          
-
-      ]
+      type1 : "text",
+      type2 : "file"
     }
   }
 
@@ -41,6 +38,7 @@ class TableTime extends React.Component {
         let endDay = 20;
         var dataRow = [];
         var dataCol = [];
+    
 
         let startDateTime = moment([currentYear, currentMonth, startDay]).unix();
         let endDateTime = moment([nextMonthYear, nextMonth, endDay]).unix();
@@ -51,26 +49,43 @@ class TableTime extends React.Component {
           
         // }
 
-        for (let day = startDateTime; day <= endDateTime; day= moment.unix(day).add(1,"day").unix()) {
-          let rowDay = moment.unix(day);
-          console.log(day);
-          dataRow.push(<td>{rowDay.get("date")}</td>);
 
-          for (let i = 0; i < dataRow.length; i++) {
-            dataRow.push(<td>{rowDay.get("date")}</td>);
-            
-          }
-        }
-
-        
-
-        for (let index = 1; index < 10; index++) {
+        for (let index = 1; index < 11; index++) {
+          
           dataCol.push(
                 <td>
                   <input className="inputTimes" type="text" maxLength={2} />
                 </td>
                 );
         }
+
+        for (let day = startDateTime; 
+            day <= endDateTime; 
+            day= moment.unix(day).add(1,"day").unix()) 
+          {
+            let rowDay = moment.unix(day);
+            rowDay.get("date");
+            dataRow.push(
+            <tr>
+              <td>{rowDay.get("date")}</td>
+              {dataCol}
+
+            </tr>
+            );          
+          }
+        let elementOfdataRow = dataRow.map((data,index,dataRow) => {
+            console.log(data);
+            return data;
+        });
+
+        
+          
+
+        
+
+        
+
+      
 
         
         
@@ -116,9 +131,9 @@ class TableTime extends React.Component {
               </tr>
 
               
-              <tr>
+              {/* <tr>
 
-                <td>{dataRow}</td>
+                <td>{21}</td>
 
                 <td></td>
                 
@@ -131,14 +146,29 @@ class TableTime extends React.Component {
                   <input className="inputWork" type="text" maxLength={20} />
                 </td>
                 <td>
-                  <input className="inputTimes" type="text" maxLength={20} />  
+                  <input className="inputTimes" type="text" maxLength={2} />  
                 </td>
 
                 <td style={{borderTop: '2px solid'}}>平日</td>
 
                 <SettingTableTime nameOfClass = "breakTime" />
 
-              </tr>
+              </tr> */}
+              {dataRow}
+
+                <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
+                </td>
+                <td>
+                  <input className="inputWork" type="text" maxLength={20} />
+                </td>
+                <td>
+                  <input className="inputTimes" type="text" maxLength={2} />  
+                </td>
+
+                <td style={{borderTop: '2px solid'}}>平日</td>
+
+                <SettingTableTime nameOfClass = "breakTime" />
 
 
               <tr>
@@ -146,41 +176,15 @@ class TableTime extends React.Component {
                 <td>22</td>
 
                 <td></td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
-                </td>
+                {dataCol}
                 <td>
                   <input className="inputTimes" type="file" maxLength={2} />
                 </td>
                 <td>
-                  <input className="inputWork" type="text" maxLength={2} />
+                  <input className="inputWork" type="text" maxLength={20} />
                 </td>
                 <td>
-                  <input className="inputTimes" type="text" maxLength={20} />
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
 
                 <td rowSpan={6} style={{padding: '60px 0px 60px 0px'}}><p>休</p><p>憩</p><p>時</p><p>間</p></td>
@@ -225,10 +229,10 @@ class TableTime extends React.Component {
                   <input className="inputTimes" type="file" maxLength={2} />
                 </td>
                 <td>
-                  <input className="inputWork" type="text" maxLength={2}/>
+                  <input className="inputWork" type="text" maxLength={20}/>
                 </td>
                 <td>
-                  <input className="inputTimes" type="text" maxLength={20} />
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -271,10 +275,10 @@ class TableTime extends React.Component {
                   <input className="inputTimes" type="file" maxLength={2} />
                 </td>
                 <td>
-                  <input className="inputWork" type="text" maxLength={2}/>
+                  <input className="inputWork" type="text" maxLength={20}/>
                 </td>
                 <td>
-                  <input className="inputTimes" type="text" maxLength={20} />
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -316,10 +320,10 @@ class TableTime extends React.Component {
                   <input className="inputTimes" type="file" maxLength={2} />
                 </td>
                 <td>
-                  <input className="inputWork" type="text" maxLength={2}/>
+                  <input className="inputWork" type="text" maxLength={20}/>
                 </td>
                 <td>
-                  <input className="inputTimes" type="text" maxLength={20} />
+                  <input className="inputTimes" type="text" maxLength={2} />
                 </td>
                 
                 <SettingTableTime nameOfClass="borderLine"/>
@@ -1369,6 +1373,7 @@ class TableTime extends React.Component {
                   <input className="inputTimes" type="text" maxLength={20} />
                 </td>
               </tr>
+
               <tr>
                 <td>20</td>
                 <td></td>
