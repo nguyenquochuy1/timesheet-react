@@ -1,6 +1,7 @@
 import React from 'react';
 import SettingTableTime from '../CompomentTableSettingTime/SettingTableTime';
 import moment from 'moment';
+import { format } from 'path';
 
 class TableTime extends React.Component {
   constructor(props){
@@ -64,10 +65,12 @@ class TableTime extends React.Component {
             day= moment.unix(day).add(1,"day").unix()) 
           {
             let rowDay = moment.unix(day);
-            rowDay.get("date");
+
             dataRow.push(
             <tr>
               <td>{rowDay.get("date")}</td>
+              <td>{rowDay.format('dddd',rowDay.get("day"))}</td>
+              <td>{rowDay.get("month")}</td>
               {dataCol}
 
             </tr>
