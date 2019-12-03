@@ -1,7 +1,16 @@
 import React from 'react';
 import SettingTableTime from '../CompomentTableSettingTime/SettingTableTime';
-import moment from 'moment';
-import { format } from 'path';
+
+import moment, { locale } from 'moment';
+
+import 'moment/locale/ja';
+
+
+
+
+
+
+
 
 class TableTime extends React.Component {
   constructor(props){
@@ -26,7 +35,7 @@ class TableTime extends React.Component {
 
 
         // Thích bắt đầu từ tháng nào thì sửa số trong hàm dưới này
-        let currentMonthDateYear = moment().add(12, "month");
+        let currentMonthDateYear = moment();
         ////
 
         let currentMonth = currentMonthDateYear.get("month");
@@ -40,7 +49,7 @@ class TableTime extends React.Component {
         var dataRow = [];
         var dataCol = [];
     
-
+        
         let startDateTime = moment([currentYear, currentMonth, startDay]).unix();
         let endDateTime = moment([nextMonthYear, nextMonth, endDay]).unix();
 
@@ -51,7 +60,7 @@ class TableTime extends React.Component {
         // }
 
 
-        for (let index = 1; index < 11; index++) {
+        for (let index = 1; index < 10; index++) {
           
           dataCol.push(
                 <td>
@@ -60,18 +69,30 @@ class TableTime extends React.Component {
                 );
         }
 
+        
+
         for (let day = startDateTime; 
             day <= endDateTime; 
             day= moment.unix(day).add(1,"day").unix()) 
           {
             let rowDay = moment.unix(day);
-
+           
             dataRow.push(
             <tr>
+
               <td>{rowDay.get("date")}</td>
-              <td>{rowDay.format('dddd',rowDay.get("day"))}</td>
-              <td>{rowDay.get("month")}</td>
+              <td>{rowDay.format("dd",rowDay.day())}</td>
+              
               {dataCol}
+              <td>
+                  <input className="inputTimes" type="file" maxLength={2} />
+              </td>
+              <td>
+                  <input className="inputWork" type="text" maxLength={20} />
+              </td>
+              <td>
+                  <input className="inputTimes" type="text" maxLength={2} />  
+              </td>
 
             </tr>
             );          
@@ -80,19 +101,6 @@ class TableTime extends React.Component {
             console.log(data);
             return data;
         });
-
-        
-          
-
-        
-
-        
-
-      
-
-        
-        
-        
 
         //console.log(optionsDay);
 
@@ -129,45 +137,13 @@ class TableTime extends React.Component {
                 <td>確認印</td>
                 <td>業務内容</td>
                 <td>勤怠状況</td>
-                <td style={{borderTop: 'none',borderRight:'none',borderBottom:'none',borderLeft: 'none',borderImage: 'initial'}} />
+                <td style={{borderRight: 'none', borderTop:'none'}} />
                 <td style={{borderLeft: 'none', borderTop:'none'}} />
               </tr>
 
               
-              {/* <tr>
-
-                <td>{21}</td>
-
-                <td></td>
                 
-                {dataCol}
-                
-                <td>
-                  <input className="inputTimes" type="file" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputWork" type="text" maxLength={20} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />  
-                </td>
-
-                <td style={{borderTop: '2px solid'}}>平日</td>
-
-                <SettingTableTime nameOfClass = "breakTime" />
-
-              </tr> */}
-              {dataRow}
-
-                <td>
-                  <input className="inputTimes" type="file" maxLength={2} />
-                </td>
-                <td>
-                  <input className="inputWork" type="text" maxLength={20} />
-                </td>
-                <td>
-                  <input className="inputTimes" type="text" maxLength={2} />  
-                </td>
+                {dataRow}
 
                 <td style={{borderTop: '2px solid'}}>平日</td>
 
