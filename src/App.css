@@ -123,3 +123,15 @@
 #tablecss > tbody > tr > td > textarea{
   height: auto !important ;
 }
+
+#tablecss{
+  float: left;
+  
+}
+
+#tablecss2{
+  float: right;
+}
+.matchTable{
+  display: inline-flex;
+}
