@@ -46,13 +46,6 @@ class TableTime extends React.Component {
         let startDateTime = moment([currentYear, currentMonth, startDay]).unix();
         let endDateTime = moment([nextMonthYear, nextMonth, endDay]).unix();
 
-        // for (let i = 20; i < this.countOfEndDay; i++) {
-        //   const day = 1 + i ;
-        //   optionsDay.push(<td>{day}</td>);
-          
-        // }
-
-
         for (let index = 1; index < 10; index++) {
           
           dataCol.push(
@@ -90,13 +83,7 @@ class TableTime extends React.Component {
             </tr>
             );          
           }
-        // let elementOfdataRow = dataRow.map((data,index,dataRow) => {
-        //     console.log(data);
-        //     return data;
-        // });
-
-        //console.log(optionsDay);
-
+        
         return(
 
             <div className="matchTable">
@@ -132,8 +119,6 @@ class TableTime extends React.Component {
                 <td>確認印</td>
                 <td>業務内容</td>
                 <td>勤怠状況</td>
-                <td style={{borderRight: 'none', borderTop:'none'}} />
-                <td style={{borderLeft: 'none', borderTop:'none'}} />
               </tr>
 
               
@@ -169,31 +154,23 @@ class TableTime extends React.Component {
           
           <table id="tablecss2" className="table table-responsive newtable">
             <tbody>
-              <tr><td style={{paddingTop: '30px', fontSize: '20px', verticalAlign: 'middle', border : 'none', borderRight: '2px solid'}} colSpan={4}>就業時間</td></tr>
+              <td style={{fontSize: '20px', verticalAlign: 'middle',paddingTop:'11px'}} colSpan={4}>就業時間</td>
               <tr>
                   <td style={{borderTop: '2px solid'}}>平日</td>
-                  <SettingTableTime nameOfClass = "breakTime" />
+                  <tr><SettingTableTime nameOfClass = "breakTime" /></tr>
               </tr>
 
               <tr>
-                  <td rowSpan={6} style={{padding: '60px 0px 60px 0px'}}><p>休</p><p>憩</p><p>時</p><p>間</p></td>
-                  <SettingTableTime nameOfClass="borderLine"/>
-              </tr>
-              <tr>
-                  <SettingTableTime nameOfClass="borderLine"/>
-              </tr>
-              <tr>
-                  <SettingTableTime nameOfClass="borderLine"/>
-              </tr>
-              <tr>
-                  <SettingTableTime nameOfClass="borderLine"/>
-              </tr>
-              <tr>
-                  <SettingTableTime nameOfClass="borderLine"/>
-              </tr>
-              <tr>
+                  <td rowSpan={1} style={{padding: '60px 0px 60px 0px'}}><p>休</p><p>憩</p><p>時</p><p>間</p></td>
+                  
                   <SettingTableTime nameOfClass="borderLine"/>
                   
+                  
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
               </tr>
 
               <tr>

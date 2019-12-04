@@ -79,7 +79,8 @@
   margin-top: 20px;
   margin-bottom: 50px;
 }
-.breakTime>select{  
+.breakTime>select{
+  display: inline-flex;  
   border: 0px;
   outline: 0px;
 }
@@ -124,14 +125,14 @@
   height: auto !important ;
 }
 
-#tablecss{
-  float: left;
-  
+#tablecss2{
+  border-left: none;
 }
 
-#tablecss2{
-  float: right;
+#tablecss2 > tr{
+  border-left: none;
 }
+
 .matchTable{
   display: inline-flex;
 }
