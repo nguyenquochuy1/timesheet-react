@@ -123,7 +123,7 @@ class TableTime extends React.Component {
 
               
                 
-                {dataRow}
+              {dataRow}
 
               <tr>
                 <td colSpan={2} rowSpan={2}><p style={{margin: '0px', paddingTop : '20px'}}>当月</p><p>会計</p></td>
@@ -154,73 +154,89 @@ class TableTime extends React.Component {
           
           <table id="tablecss2" className="table table-responsive newtable">
             <tbody>
-              <td style={{fontSize: '20px', verticalAlign: 'middle',paddingTop:'11px'}} colSpan={4}>就業時間</td>
-              <tr>
+               <td style={{fontSize: '20px', verticalAlign: 'middle',paddingTop:'11px'}} colSpan={4}>就業時間</td>
+               <tr>
                   <td style={{borderTop: '2px solid'}}>平日</td>
-                  <tr><SettingTableTime nameOfClass = "breakTime" /></tr>
+                  <td><SettingTableTime nameOfClass = "breakTime" /></td>
+               </tr>
+
+              <tr>
+                  <td rowSpan={1} style={{border:'none'}}><p>休憩時間</p></td>
+                  
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+                  <SettingTableTime nameOfClass="borderLine"/>
+
               </tr>
 
               <tr>
-                  <td rowSpan={1} style={{padding: '60px 0px 60px 0px'}}><p>休</p><p>憩</p><p>時</p><p>間</p></td>
-                  
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  
-                  
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-              </tr>
 
-              <tr>
-                <td>平日実働時間</td>
+                <td style={{borderTop:'2px solid'}}>平日実働時間</td>
                 <td><div style={{display: 'inline-flex'}}><p>7</p><p>時間</p><p>45</p><p>分</p></div></td>
+
               </tr>
 
               <tr>
+
                 <td>休日実働時間</td>
                 <td><div style={{display: 'inline-flex'}}><p>7</p><p>時間</p><p>45</p><p>分</p></div></td>
+
               </tr>
 
               <tr>
+
                 <td colSpan={2}>所定休日</td>
+
               </tr>
 
               <tr>
+
                 <td colSpan={2} >土曜日・ 日曜日・祝祭日</td>
+
               </tr>
               
               <tr>
+
                 <td colSpan={2}>時間外勤務時間</td>
+
               </tr>
 
               <tr>
+
                 <td>平日</td>
                 <td><div style={{display: 'inline-flex'}}><p>実働</p><p>8</p><p>時間以上</p></div></td>
+
               </tr>
 
               <tr>
+
                 <td>割増単位</td>
                 <td><div style={{display: 'inline-flex'}}><p>30</p><p>分</p></div></td>
+
               </tr>
 
               <tr>
+
                 <td colSpan={2}>控除</td>
+
               </tr>
 
               <tr>
                 <td>控除単位</td>
                 <td><div style={{display: 'inline-flex'}}><p>30</p><p>分</p></div></td>
+
               </tr>
 
-              <td >
-                    <textarea  name="txta"  cols={40} rows={33} defaultValue={""} />
-              </td>
+              <td className="arroundText" style={{borderRight:'2px solid'}} colSpan={2}><textarea className="txtInputComment">aaaa</textarea></td>
+              
 
             </tbody>
 
           </table>
+
         </div>
             
         )
