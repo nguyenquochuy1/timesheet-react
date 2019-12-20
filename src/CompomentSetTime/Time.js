@@ -8,7 +8,7 @@ constructor() {
     super();
         
     const thisYear = (new Date().getFullYear());
-    const thisMonth = (new Date().getMonth()+1);
+    const thisMonth = (new Date().getMonth());
     const thisDay =  20;
 
         this.state = {
@@ -69,7 +69,7 @@ constructor() {
         optionsYear.push(<option value={n_year}>{n_year}</option>);
     }
 
-    for (let i = 0; i < 12 ;i++) {
+    for (let i = 0; i <= 11 ;i++) {
         const month = 1  +  i;
         optionsMonth.push(<option value={month}>{month}</option>);  
     }

@@ -31,6 +31,8 @@ class TableTime extends React.Component {
         let currentMonthDateYear = moment();
         ////
 
+        console.log(currentMonthDateYear);
+
         let currentMonth = currentMonthDateYear.get("month");
         let currentYear = currentMonthDateYear.get("year");
 
@@ -41,16 +43,23 @@ class TableTime extends React.Component {
         let endDay = 20;
         var dataRow = [];
         var dataCol = [];
+
+        var hourTimeStart = 9; // start hour work
+        var hourTimeEnd = 17;   //end hour work
+
+        var minTimeStart = 0; 
+        var minTimeEnd = 45;
     
         
-        let startDateTime = moment([currentYear, currentMonth, startDay]).unix();
-        let endDateTime = moment([nextMonthYear, nextMonth, endDay]).unix();
-
+        let startDateTime = moment([currentYear, currentMonth, startDay,hourTimeStart,minTimeStart]).unix();
+         //console.log(moment().format("HH",startDateTime));
+        let endDateTime = moment([nextMonthYear, nextMonth, endDay,hourTimeEnd,minTimeEnd]).unix();
+         //console.log(moment().format("mm",endDateTime));
         for (let index = 1; index < 10; index++) {
           
           dataCol.push(
                 <td>
-                  <input className="inputTimes" type="text" maxLength={2} />
+                  <input onChange className="inputTimes" type="text" maxLength={2} />
                 </td>
                 );
         }
@@ -68,6 +77,8 @@ class TableTime extends React.Component {
 
               <td>{rowDay.get("date")}</td>
               <td>{rowDay.format("dd",rowDay.day())}</td>
+
+              
               
               {dataCol}
               <td>
