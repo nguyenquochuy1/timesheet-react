@@ -22,16 +22,16 @@ class SettingTableTime extends React.Component {
 
         for (let i = minOffset; i < maxOfHours ;i++) {
           const hour = 1  +  i;
-          optionsHours.push(<option value={hour}>{hour}</option>);  
+          optionsHours.push(<option key={hour} value={hour}>{hour}</option>);  
         }
 
         for (let i = minOffset; i < maxOfMin ;i++) {
           const min = 0  +  i;
-          optionsMins.push(<option value={min}>{min}</option>);  
+          optionsMins.push(<option key={min} value={min}>{min}</option>);  
         }
 
         return(
-            <td className={(checkName===this.props.nameOfClass) ? checkName : this.props.nameOfClass}>
+              <td className={(checkName===this.props.nameOfClass) ? checkName : this.props.nameOfClass}>
                   <select>
                     <option>hour</option>
                     {optionsHours}
@@ -52,6 +52,7 @@ class SettingTableTime extends React.Component {
                     {optionsMins}
                   </select>
             </td>
+
         );
     }
 }

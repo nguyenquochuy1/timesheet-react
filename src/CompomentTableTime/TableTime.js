@@ -1,17 +1,18 @@
 import React from 'react';
-import SettingTableTime from '../CompomentTableSettingTime/SettingTableTime';
+import TableTime2 from '../CompomentTableTime2/TableTime2';
 
-import moment, { locale } from 'moment';
+import moment from 'moment';
 
 import 'moment/locale/ja';
 
 class TableTime extends React.Component {
   constructor(props){
-
     super(props);
+    var {status} = this.props;
     this.state = {
       type1 : "text",
-      type2 : "file"
+      type2 : "file",
+      status : status
     }
   }
 
@@ -21,17 +22,21 @@ class TableTime extends React.Component {
     return endDay;
   }
 
+  onChange = () => {
+    console.log('aaa');
+  }
+
    
     render() {
 
-        const optionsDay = [];
+        // const optionsDay = [];
 
 
         // Thích bắt đầu từ tháng nào thì sửa số trong hàm dưới này
         let currentMonthDateYear = moment();
         ////
 
-        console.log(currentMonthDateYear);
+        //console.log(currentMonthDateYear);
 
         let currentMonth = currentMonthDateYear.get("month");
         let currentYear = currentMonthDateYear.get("year");
@@ -58,8 +63,8 @@ class TableTime extends React.Component {
         for (let index = 1; index < 10; index++) {
           
           dataCol.push(
-                <td>
-                  <input onChange className="inputTimes" type="text" maxLength={2} />
+                <td key={index}>
+                  <input onChange={this.onChange} className="inputTimes" type="text" maxLength={2} />
                 </td>
                 );
         }
@@ -73,7 +78,7 @@ class TableTime extends React.Component {
             let rowDay = moment.unix(day);
            
             dataRow.push(
-            <tr>
+            <tr key={day}>
 
               <td>{rowDay.get("date")}</td>
               <td>{rowDay.format("dd",rowDay.day())}</td>
@@ -163,90 +168,7 @@ class TableTime extends React.Component {
           </table>
           
           
-          <table id="tablecss2" className="table table-responsive newtable">
-            <tbody>
-               <td style={{fontSize: '20px', verticalAlign: 'middle',paddingTop:'11px'}} colSpan={4}>就業時間</td>
-               <tr>
-                  <td style={{borderTop: '2px solid'}}>平日</td>
-                  <td><SettingTableTime nameOfClass = "breakTime" /></td>
-               </tr>
-
-              <tr>
-                  <td rowSpan={1} style={{border:'none'}}><p>休憩時間</p></td>
-                  
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-                  <SettingTableTime nameOfClass="borderLine"/>
-
-              </tr>
-
-              <tr>
-
-                <td style={{borderTop:'2px solid'}}>平日実働時間</td>
-                <td><div style={{display: 'inline-flex'}}><p>7</p><p>時間</p><p>45</p><p>分</p></div></td>
-
-              </tr>
-
-              <tr>
-
-                <td>休日実働時間</td>
-                <td><div style={{display: 'inline-flex'}}><p>7</p><p>時間</p><p>45</p><p>分</p></div></td>
-
-              </tr>
-
-              <tr>
-
-                <td colSpan={2}>所定休日</td>
-
-              </tr>
-
-              <tr>
-
-                <td colSpan={2} >土曜日・ 日曜日・祝祭日</td>
-
-              </tr>
-              
-              <tr>
-
-                <td colSpan={2}>時間外勤務時間</td>
-
-              </tr>
-
-              <tr>
-
-                <td>平日</td>
-                <td><div style={{display: 'inline-flex'}}><p>実働</p><p>8</p><p>時間以上</p></div></td>
-
-              </tr>
-
-              <tr>
-
-                <td>割増単位</td>
-                <td><div style={{display: 'inline-flex'}}><p>30</p><p>分</p></div></td>
-
-              </tr>
-
-              <tr>
-
-                <td colSpan={2}>控除</td>
-
-              </tr>
-
-              <tr>
-                <td>控除単位</td>
-                <td><div style={{display: 'inline-flex'}}><p>30</p><p>分</p></div></td>
-
-              </tr>
-
-              <td className="arroundText" style={{borderRight:'2px solid'}} colSpan={2}><textarea className="txtInputComment">aaaa</textarea></td>
-              
-
-            </tbody>
-
-          </table>
+          <TableTime2 status = {this.state.status}/>
 
         </div>
             

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const name_column1 = '事業所' ;
-const name_column2 = '部者';
-const name_column3 = '氏名';
+// const name_column1 = '事業所' ;
+// const name_column2 = '部者';
+// const name_column3 = '氏名';
 
 
 class InputInfor extends React.Component {
@@ -25,7 +25,8 @@ class InputInfor extends React.Component {
                     id: 3,
                     name  : '氏名'
                 }
-            ]
+            ],
+            name : 'aaa'
 
         }
 
@@ -34,9 +35,14 @@ class InputInfor extends React.Component {
     render() {
         let elements = this.state.nameOfInputs.map((nameOfInput , index) => {
             return (
-                <div className="line1">
-                    <label className="text-right control-label" key = {nameOfInput.id}>{nameOfInput.name}</label>
-                    <input type="text" className="form-underline" ref="name" />
+                <div key={index} className="line1">
+                    <label className="text-right control-label">{nameOfInput.name}</label>
+                    <input key={nameOfInput.id} 
+                           type="text" 
+                           className="form-underline" 
+                           name="name"
+                           status={this.state.name} 
+                    />
                 </div>
             );
         });
