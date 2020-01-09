@@ -1,14 +1,13 @@
 import React from 'react';
 
 import './App.css';
-import Title from './CompomentTitle/Title';
-import Time from './CompomentSetTime/Time';
-import InputInfor from './CompomentInput/InputInfor';
-import TableTime from './CompomentTableTime/TableTime';
-import Warning from './ComponentWarning/Warning';
-import ProsessingTest from './CompomentProssesTest/ProsessingTest';
-import TableAgree from './CompomentTableAgreement/TableAgree';
-      
+
+import {
+  BrowserRouter as Router,
+  Route, Switch
+} from 'react-router-dom';
+import TimeSheet from './CompomentTimeSheet/TimeSheet'
+import LoginPage from './CompomentLogin/LoginPage'      
 
 class App extends React.Component{
 
@@ -16,33 +15,30 @@ class App extends React.Component{
     super(prop);
     this.state = {
       aaa : 0,
-      status : false
+      status : false,
+      isLoggedIn : true
     }
   }
 
 
   render() {
-    var {aaa} = this.state;
-    var {status} = this.state;
-    //var newStyle = 'style={{border: "1px solid red"}}';
+    
+    
     return (
-      <div className="allPage">
-        <div className="container-fluid newstyle">
-            <Title/>
-            <div className="container">
-              <div className='row' className={status === false ?'statusRender':''} >
-                <Time taskTaskTime={aaa}/>
-                <InputInfor/>
-                <TableTime status = {this.state.status} />
-                <Warning/>
-                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <ProsessingTest/>
-                  <TableAgree/>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
+      
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LoginPage}/>
+          <Route exact path="/timesheet" component={TimeSheet}/>
+          {/* <Auth>
+            <Switch>
+              <Route exact path="/" component={Top}/>
+              <Route exact path="/page" component={Page}/>
+            </Switch>
+          </Auth> */}
+        </Switch>
+      </Router>
+      
   
       
     );

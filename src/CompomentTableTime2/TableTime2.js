@@ -14,6 +14,7 @@ class TableTime2  extends React.Component {
         if(status === false){
             return false;
         }else{
+            console.log(status);
             return (
             <table id="tablecss2" className="table table-responsive newtable">
             <tbody>
