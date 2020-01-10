@@ -2,12 +2,14 @@ import React from 'react';
 
 import './App.css';
 
+
 import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom';
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
+import Auth from './CompomentAuth/Auth';
 
 class App extends React.Component{
 
@@ -26,18 +28,19 @@ class App extends React.Component{
     
     return (
       
-      <Router>
-        <Switch>
-          <Route exact path="/" component={LoginPage}/>
-          <Route exact path="/timesheet" component={TimeSheet}/>
-          {/* <Auth>
-            <Switch>
-              <Route exact path="/" component={Top}/>
-              <Route exact path="/page" component={Page}/>
-            </Switch>
-          </Auth> */}
-        </Switch>
-      </Router>
+      
+<Router>
+<Switch>
+  <Route exact path="/login" component={LoginPage} />
+  {/* <Route exact path="/logout" component={Logout} /> */}
+  <Auth>
+    <Switch>
+      <Route exact path="/timesheet" component={TimeSheet} />
+      {/* <Redirect from="/" to="/login" /> */}
+    </Switch>
+  </Auth>
+</Switch>
+</Router>
       
   
       

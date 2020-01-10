@@ -16,14 +16,14 @@ class TimeSheet extends React.Component{
         this.state = {
           aaa : 0,
           status : false,
-          isLoggedIn : true
+        //   isLoggedIn : true
         }
       }
 
     render(){
         var {aaa} = this.state;
         var {status} = this.state;
-        var {isLoggedIn} = this.state;
+        // var {isLoggedIn} = this.state;
         return(
             <div className="allPage">
                 <div className="container-fluid newstyle">
