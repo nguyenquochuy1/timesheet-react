@@ -10,6 +10,7 @@ import {
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
 import Auth from './CompomentAuth/Auth';
+import firebase from './firebase';
 
 class App extends React.Component{
 
@@ -18,8 +19,22 @@ class App extends React.Component{
     this.state = {
       aaa : 0,
       status : false,
-      isLoggedIn : true
+      isLoggedIn : true,
+      user: null
     }
+  }
+   //luu user vao localStorage
+  authListener = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log(user);
+      if (user) {
+        this.setState({ user });
+        localStorage.setItem('user', user.uid);
+      } else {
+        this.setState({ user: null });
+        localStorage.removeItem('user');
+      }
+    });
   }
 
 
@@ -27,23 +42,19 @@ class App extends React.Component{
     
     
     return (
-      
-      
-<Router>
-<Switch>
-  <Route exact path="/login" component={LoginPage} />
-  {/* <Route exact path="/logout" component={Logout} /> */}
-  <Auth>
-    <Switch>
-      <Route exact path="/timesheet" component={TimeSheet} />
-      {/* <Redirect from="/" to="/login" /> */}
-    </Switch>
-  </Auth>
-</Switch>
-</Router>
-      
   
-      
+      <Router>
+        <Switch>
+          <Route exact path="/login" component={LoginPage} />
+          {/* <Route exact path="/logout" component={Logout} /> */}
+          <Auth>
+            <Switch>
+              <Route exact path="/timesheet" component={TimeSheet} />
+              {/* <Redirect from="/" to="/login" /> */}
+            </Switch>
+          </Auth>
+        </Switch>
+      </Router>
     );
   }
 }

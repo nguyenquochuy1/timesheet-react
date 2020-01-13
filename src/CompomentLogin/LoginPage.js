@@ -7,7 +7,11 @@ class LoginPage extends React.Component {
         super(props);
         this.state = {
             // userName : userName,
-            // passWord : passWord
+            // passWord : passWord,
+            //submitName : 'ログイン',
+            email: '' , 
+            password : ''
+
         }
 
     }
@@ -43,7 +47,7 @@ class LoginPage extends React.Component {
                     <form id="register_form" action="" method="post" onSubmit = {this.loginFunction}>
                         <input onChange={this.checkLogin} type="text" name="username" id="username" placeholder="Username" />
                         <input onChange={this.checkLogin} type="password" name="password" id="password" placeholder="Password" />
-                        <input type="submit" name="submit" className="login login-submit" defaultValue="ログイン"  />
+                        <input type="submit" name="submit" className="login login-submit" defaultValue={this.state.submitName}  />
                     </form>
                 </div>
             </div>
