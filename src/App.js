@@ -2,7 +2,6 @@ import React from 'react';
 
 import './App.css';
 
-
 import {
   BrowserRouter as Router,
   Route, Switch
@@ -10,7 +9,7 @@ import {
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
 import Auth from './CompomentAuth/Auth';
-import firebase from './firebase';
+import fire from './firebase';
 
 class App extends React.Component{
 
@@ -23,26 +22,30 @@ class App extends React.Component{
       user: null
     }
   }
-   //luu user vao localStorage
+
+  
+   //localStorage
   authListener = () => {
-    firebase.auth().onAuthStateChanged((user) => {
+    fire.auth().onAuthStateChanged((user) => {
       console.log(user);
       if (user) {
         this.setState({ user });
-        localStorage.setItem('user', user.uid);
+        localStorage.setItem('key', user.uid);
       } else {
         this.setState({ user: null });
-        localStorage.removeItem('user');
+        localStorage.removeItem('key');
       }
     });
   }
 
 
   render() {
-    
-    
+    // var {user} = this.state;
+    // if (user === null) {
+    //   return LoginPage;
+    // }
     return (
-  
+      
       <Router>
         <Switch>
           <Route exact path="/login" component={LoginPage} />

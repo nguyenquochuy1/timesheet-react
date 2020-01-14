@@ -15,7 +15,7 @@ import firebase from 'firebase/app';
     measurementId: "G-6B0JT17MF7"
   };
   // Initialize Firebase
-  firebase.initializeApp(config);
+const fire =   firebase.initializeApp(config);
 //   firebase.analytics();
 
-  export default firebase;
+  export default fire;

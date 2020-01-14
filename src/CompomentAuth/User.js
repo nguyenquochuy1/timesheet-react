@@ -1,11 +1,15 @@
+// import fire from 'firebase/app'
+// require('firebase/auth')
+import LoginPage from '../CompomentLogin/LoginPage'
+
 class User {
     isLoggedIn = () => this.get('isLoggedIn') === 'true';
   
     set = (key, value) => localStorage.setItem(key, value);
   
-    get = key => this.getLocalStorage(key);
+    get = (key) => this.getLocalStorage(key);
   
-    getLocalStorage = key => {
+    getLocalStorage = (key) => {
       const ret = localStorage.getItem(key);
       if (ret) {
         return ret;
@@ -13,15 +17,24 @@ class User {
       return null;
     };
   
-    login = async (username, password) => {
+    login = async (email, password) => {
   
       // ログイン処理
       // ログインエラー時には、falseを返してもいいし、returnを別の用途で利用したかったら
       // 例外を出しして呼び出し元でcatchしてもいいかと思います。
+
+      // LoginPage  lg = new LoginPage();
+      // lg.login();
+
+      var loginStatus = new LoginPage();
+
+      if (loginStatus.login === true) {
+        console.log(email-password);
+      }
   
-      this.set('isLoggedIn', true);
-      console.log(username-password);
-      return true;
+      // this.set('isLoggedIn', true);
+      // // console.log(email-password);
+      // return true;
     };
   
     logout = async () => {
