@@ -3,14 +3,14 @@
 class User {
 
 
-    isLoggedIn = () => this.get('firebase:authUser:AIzaSyCWsLlER-JJlGaiNznGZ1RdgE1bbbiLFww:[DEFAULT]') === 'true';
+    isLoggedIn = () => this.get('isLoggedIn') === 'true';
   
-    set = (key, value) => indexedDB.setItem(key, value);
+    set = (key, value) => localStorage.setItem(key, value);
   
     get = (key) => this.getLocalStorage(key);
   
     getLocalStorage = (key) => {
-      const ret = indexedDB.getItem(key);
+      const ret = localStorage.getItem(key);
       if (ret) {
         console.log(ret);
         return ret;
@@ -27,7 +27,7 @@ class User {
 
     
 
-      this.set('firebase:authUser:AIzaSyCWsLlER-JJlGaiNznGZ1RdgE1bbbiLFww:[DEFAULT]', true);
+      this.set('isLoggedIn', true);
         // console.log(email-password);
       return true;
       
@@ -35,7 +35,7 @@ class User {
   
     logout = async () => {
       if (this.isLoggedIn()) {
-        this.set('firebase:authUser:AIzaSyCWsLlER-JJlGaiNznGZ1RdgE1bbbiLFww:[DEFAULT]', false);
+        this.set('isLoggedIn', false);
   
         // ログアウト処理
         //　他に必要な処理があるのならこちら

@@ -67,7 +67,7 @@ class LoginPage extends React.Component {
                     <form id="register_form" action="" method="post" onSubmit = {this.loginFunction}>
                         <input onChange={this.handleChange} value={this.state.email} type="text" name="email" id="username" placeholder="Username" />
                         <input onChange={this.handleChange} value={this.state.password} type="password" name="password" id="password" placeholder="Password" />
-                        <button type="submit" onClick={this.login === true ? TimeSheet : LoginPage } className="btn btn-primary">ログイン</button>
+                        <button type="submit" onClick={this.login} className="btn btn-primary">ログイン</button>
                         <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">登録</button>
                     </form>
                 </div>
