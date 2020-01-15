@@ -1,7 +1,9 @@
 import React from 'react';
 import '../LoginPage.css';
-import fire from 'firebase/app'
-require('firebase/auth')
+import fire from 'firebase/app';
+import TimeSheet from '../CompomentTimeSheet/TimeSheet';
+require('firebase/auth');
+
 
 class LoginPage extends React.Component {
     
@@ -25,11 +27,21 @@ class LoginPage extends React.Component {
         });
     }
 
+
     login = (e) => {
         e.preventDefault();
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+            console.log("success");
+            
+            return true;
+            // console.log(true);
+            // return true;
+            //console.log(this.state.email-this.state.password);
         }).catch((error) => {
             console.log(error);
+
+            console.log(this.state.email-this.state.password);
+            return false;
           });
         return true;
     }
@@ -55,7 +67,7 @@ class LoginPage extends React.Component {
                     <form id="register_form" action="" method="post" onSubmit = {this.loginFunction}>
                         <input onChange={this.handleChange} value={this.state.email} type="text" name="email" id="username" placeholder="Username" />
                         <input onChange={this.handleChange} value={this.state.password} type="password" name="password" id="password" placeholder="Password" />
-                        <button type="submit" onClick={this.login} className="btn btn-primary">ログイン</button>
+                        <button type="submit" onClick={this.login === true ? TimeSheet : LoginPage } className="btn btn-primary">ログイン</button>
                         <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">登録</button>
                     </form>
                 </div>

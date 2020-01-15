@@ -4,12 +4,13 @@ import './App.css';
 
 import {
   BrowserRouter as Router,
-  Route, Switch
+  Route, Switch , Redirect
 } from 'react-router-dom';
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
 import Auth from './CompomentAuth/Auth';
 import fire from './firebase';
+
 
 class App extends React.Component{
 
@@ -53,7 +54,7 @@ class App extends React.Component{
           <Auth>
             <Switch>
               <Route exact path="/timesheet" component={TimeSheet} />
-              {/* <Redirect from="/" to="/login" /> */}
+              <Redirect from="/" to="/login" />
             </Switch>
           </Auth>
         </Switch>

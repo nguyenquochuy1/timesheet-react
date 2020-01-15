@@ -1,18 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import User from './User';
-import LoginPage from '../CompomentLogin/LoginPage';
-import TimeSheet from '../CompomentTimeSheet/TimeSheet';
 
-class Auth {
+
+const Auth  = (props) => { 
+   return User.isLoggedIn() ? props.children : <Redirect to={'/login'} />;
+   // const loginStatus = new LoginPage();
+   // const loginFuction = loginStatus.login();
    
-   
-   const Auths  = (props) => { 
-     // return User.isLoggedIn() ? props.children : <Redirect to={'/login'} />;
-     const loginStatus = new LoginPage;
-     if (loginStatus.login) {
-        return TimeSheet;
-     }
-   }
+   // return loginFuction ? props.children : <Redirect to={'/login'} /> ;
+
 }
 export default Auth;
