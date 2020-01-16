@@ -1,7 +1,7 @@
 import React from 'react';
 import '../LoginPage.css';
-import fire from 'firebase/app';
-import TimeSheet from '../CompomentTimeSheet/TimeSheet';
+import firebase from 'firebase/app';
+import { Link } from 'react-router-dom';
 require('firebase/auth');
 
 
@@ -10,69 +10,60 @@ class LoginPage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            email: '' , 
-            password : ''
+            email: '',
+			password: '',
+			error: null
         }
+        this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-    handleChange = (event) => {
-        var target = event.target;
-        var name = target.name;
-        var value = target.value;
-        // console.log(name);
-        // console.log(value);
-        this.setState({ 
-            [name]:value 
-        });
-    }
+    handleChange = e => {
+		this.setState({[e.target.name]: e.target.value});
+	}
 
+	handleSubmit = e => {
+		e.preventDefault();
+		const {email, password} = this.state;
 
-    login = (e) => {
-        e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-            console.log("success");
-            
-            return true;
-            // console.log(true);
-            // return true;
-            //console.log(this.state.email-this.state.password);
-        }).catch((error) => {
-            console.log(error);
-
-            console.log(this.state.email-this.state.password);
-            return false;
-          });
-        return true;
-    }
-
-
-    signup = (e) => {
-        e.preventDefault();
-        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-        }).then((u)=>{console.log(u)})
-        .catch((error) => {
-            console.log(error);
-            alert(error);
-          })
-
-    }
+		firebase
+			.auth()
+			.signInWithEmailAndPassword(email, password)
+			.then(user => {
+				this.props.history.push('/');
+			})
+			.catch(error => {
+				this.setState({error});
+			});
+	}
 
     render() {
-        return(
-            <div id="body">
-                <div className="login-card">
-                    <img src="header_logo.png" alt="Smiley face" />
-                    <div className="title">ログイン画面</div><br />
-                    <form id="register_form" action="" method="post" onSubmit = {this.loginFunction}>
-                        <input onChange={this.handleChange} value={this.state.email} type="text" name="email" id="username" placeholder="Username" />
-                        <input onChange={this.handleChange} value={this.state.password} type="password" name="password" id="password" placeholder="Password" />
-                        <button type="submit" onClick={this.login} className="btn btn-primary">ログイン</button>
-                        <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">登録</button>
-                    </form>
-                </div>
-            </div>
-        );
+        
+        const {email, password, error} = this.state;
+		return(
+			<div className="auth--container">
+				{/* <h1>Login</h1> */}
+                <img src="header_logo.png" alt="Smiley face" />
+				<p className="intro-text">Login to access your account</p>
+				{error && <p className="error-message">{error.message}</p>}
+				<form className="login-form" onSubmit={this.handleSubmit}>
+					<label htmlFor="email">Email address</label>
+					<input type="email" name="email" id="email" placeholder="Email" value={email} onChange={this.handleChange} />
+					<label htmlFor="password">Password</label>
+					<input 
+						type="password"
+						name="password"
+						id="password"
+						placeholer="password"
+						value={password}
+						onChange={this.handleChange}
+					/>
+					<button className="general-submit">Log in</button>
+					<p>Don't have an account yet? <Link className="login-btn" to="/register">Register here</Link></p>
+				</form>
+			</div>
+		);;
     }
 }
 export default LoginPage;
