@@ -16,6 +16,7 @@ import firebase from 'firebase/app';
   };
   // Initialize Firebase
 const fire =   firebase.initializeApp(config);
-//   firebase.analytics();
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const auth = firebase.auth();
 
-  export default fire;
+export default fire;

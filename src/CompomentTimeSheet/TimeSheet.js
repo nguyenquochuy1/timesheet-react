@@ -6,6 +6,7 @@ import TableTime from '../CompomentTableTime/TableTime';
 import Warning from '../ComponentWarning/Warning';
 import ProsessingTest from '../CompomentProssesTest/ProsessingTest';
 import TableAgree from '../CompomentTableAgreement/TableAgree';
+import LoginPage from '../CompomentLogin/LoginPage';
 
 
 
@@ -22,10 +23,11 @@ class TimeSheet extends React.Component{
 
     render(){
         var {aaa} = this.state;
-        var {status} = this.state;
+        var {status} = this.state; // var status = this.state.status;
+        var {user} = this.props;   // var user = this.props.user;
         // var {isLoggedIn} = this.state;
-        return(
-            <div className="allPage">
+        if (user) {
+            return (
                 <div className="container-fluid newstyle">
                     <Title/>
                     <div className="container">
@@ -42,8 +44,44 @@ class TimeSheet extends React.Component{
                     </div>
                     </div>
                 </div>
+            );
+        }else{
+           return(
+            <div className="disallow-chat">
+            {/* <p><Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!</p> */}
+                <LoginPage/>
             </div>
-        );
+           );
+        }
+        // return(
+            
+        //     <div className="allPage">
+        //         {user && <div className="container-fluid newstyle">
+        //             <Title/>
+        //             <div className="container">
+        //             <div className={status === false ?'statusRender':'row'}>
+        //                 <Time taskTaskTime={aaa}/>
+        //                 <InputInfor/>
+        //                 <TableTime status = {this.state.status} />
+        //                 <Warning/>
+        //                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        //                 <ProsessingTest/>
+        //                 <TableAgree/>
+                        
+        //                 </div>
+        //             </div>
+        //             </div>
+        //         </div>}
+        //         {!user &&  
+		// 			<div className="auth--container">
+		// 				{/* <p><Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!</p> */}
+        //                 <LoginPage/>
+		// 			</div>
+        //         }
+                
+        //     </div>
+            
+        // );
     }
 
 }

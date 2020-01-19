@@ -9,7 +9,7 @@ import {
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
 import Auth from './CompomentAuth/Auth';
-import firebase  from './firebase';
+import firebase , {auth,provider}  from './firebase';
 import Register from './CompomentRegister/Register';
 
 
@@ -27,7 +27,7 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-		firebase.onAuthStateChanged(user => {
+		auth.onAuthStateChanged(user => {
 			if(user){
 				this.setState({
 					user
@@ -62,9 +62,10 @@ class App extends React.Component{
     // if (user === null) {
     //   return LoginPage;
     // }
+    const NoMatch = ({location}) => <div>No route match for {location.pathname}</div>;
     return (
 
-
+      
       <Router>
 				<div className="app">
 					<nav className="main-nav">
@@ -84,7 +85,7 @@ class App extends React.Component{
 						<Route path="/" exact render={() => <TimeSheet user={this.state.user}/>} />
 						<Route path="/login" exact component={LoginPage} />
 						<Route path="/register" exact component={Register} />
-						{/* <Route component={NoMatch} /> */}
+						<Route component={NoMatch} />
 					</Switch>
 				</div>
 			</Router>
