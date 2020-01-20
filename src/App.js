@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
-import Auth from './CompomentAuth/Auth';
 import firebase , {auth,provider}  from './firebase';
 import Register from './CompomentRegister/Register';
 

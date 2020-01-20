@@ -10,9 +10,10 @@ class TableTime extends React.Component {
     super(props);
     var {status} = this.props;
     this.state = {
-      type1 : "text",
-      type2 : "file",
-      status : status
+      // type1 : "text",
+      // type2 : "file",
+      status : status,
+      time : []
     }
   }
 
@@ -22,8 +23,25 @@ class TableTime extends React.Component {
     return endDay;
   }
 
-  onChange = () => {
-    console.log('aaa');
+  onChange = (event) => {
+    var target = event.target;
+    var name = target.name;
+    var value = target.value;
+    var{time} = this.state;
+    // this.setState({
+    //   [name] : value
+    // });
+    event.id = this.generateID();
+    time.push(event);
+    //console.log(this.state.time);
+  }
+
+  s4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
+  }
+  generateID() {
+    return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +
+      this.s4() + this.s4() + this.s4();
   }
 
    
@@ -61,12 +79,20 @@ class TableTime extends React.Component {
         let endDateTime = moment([nextMonthYear, nextMonth, endDay,hourTimeEnd,minTimeEnd]).unix();
          //console.log(moment().format("mm",endDateTime));
         for (let index = 1; index < 10; index++) {
-          
+          var {time} = this.state;
           dataCol.push(
                 <td key={index}>
-                  <input onChange={this.onChange} className="inputTimes" type="text" maxLength={2} />
+                  <input onChange={this.onChange} 
+                         
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name={this.generateID}
+                         value={time}
+                          />
                 </td>
                 );
+                //console.log(index);
         }
 
         

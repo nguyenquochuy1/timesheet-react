@@ -49,7 +49,12 @@ class LoginPage extends React.Component {
 				{error && <p className="error-message">{error.message}</p>}
 				<form className="login-form" onSubmit={this.handleSubmit}>
 					<label htmlFor="email">Email address</label>
-					<input type="email" name="email" id="email" placeholder="Email" value={email} onChange={this.handleChange} />
+					<input type="email" 
+						   name="email" 
+						   id="email" 
+						   placeholder="Email" 
+						   value={email} 
+						   onChange={this.handleChange} />
 					<label htmlFor="password">Password</label>
 					<input 
 						type="password"
