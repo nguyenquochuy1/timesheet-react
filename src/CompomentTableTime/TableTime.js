@@ -4,6 +4,7 @@ import TableTime2 from '../CompomentTableTime2/TableTime2';
 import moment from 'moment';
 
 import 'moment/locale/ja';
+import Chance from 'chancejs';
 
 class TableTime extends React.Component {
   constructor(props){
@@ -23,26 +24,50 @@ class TableTime extends React.Component {
     return endDay;
   }
 
-  onChange = (event) => {
+  onChange = (event,callback) => {
     var target = event.target;
+    //var id = target.id;
     var name = target.name;
     var value = target.value;
-    var{time} = this.state;
-    // this.setState({
-    //   [name] : value
-    // });
-    event.id = this.generateID();
-    time.push(event);
-    //console.log(this.state.time);
+    this.setState({
+      [name]:value
+    });
+    
+    console.log(name);
+    console.log(value);
+    
+
   }
 
-  s4() {
-    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
-  }
-  generateID() {
-    return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +
-      this.s4() + this.s4() + this.s4();
-  }
+  
+
+  // setInputFilter(textbox, function(value) {
+  //   return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500);
+  // });
+  
+
+
+
+
+  // s4() {
+  //   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
+  // }
+
+  // generateID() {
+    
+  //   return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +
+  //     this.s4() + this.s4() + this.s4();
+      
+
+  // }
+
+    // generateID(){
+    //   const chance = new Chance();
+    //   const resultChance =  chance.string(); // "x(gAy#yo0^"
+    //   return resultChance;
+    //   //console.log(chance.string());
+    //   //return result;
+    // }
 
    
     render() {
@@ -83,11 +108,10 @@ class TableTime extends React.Component {
           dataCol.push(
                 <td key={index}>
                   <input onChange={this.onChange} 
-                         
                          className="inputTimes" 
                          type="text" 
                          maxLength={2} 
-                         name={this.generateID}
+                         name='time'
                          value={time}
                           />
                 </td>
@@ -109,9 +133,8 @@ class TableTime extends React.Component {
               <td>{rowDay.get("date")}</td>
               <td>{rowDay.format("dd",rowDay.day())}</td>
 
-              
-              
               {dataCol}
+
               <td>
                   <input className="inputTimes" type="file" maxLength={2} />
               </td>
