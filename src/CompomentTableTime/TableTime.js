@@ -4,11 +4,17 @@ import TableTime2 from '../CompomentTableTime2/TableTime2';
 import moment from 'moment';
 
 import 'moment/locale/ja';
-import Chance from 'chancejs';
 
 class TableTime extends React.Component {
+
+
+  // static defaultProps = {
+  //   task: {}
+  // }
+  
   constructor(props){
     super(props);
+    const { task } = this.props;
     var {status} = this.props;
     this.state = {
       // type1 : "text",
@@ -24,56 +30,36 @@ class TableTime extends React.Component {
     return endDay;
   }
 
-  onChange = (event,callback) => {
-    var target = event.target;
-    //var id = target.id;
-    var name = target.name;
-    var value = target.value;
-    this.setState({
-      [name]:value
-    });
+  checkTime(){
     
-    console.log(name);
-    console.log(value);
+    //var timeChecker = moment().isValid();  moment().hour(NaN)
     
-
+    //console.log(timeChecker);
   }
 
-  
+  onChange = (event) => {
+    var target = event.target;
+    var time = target.name;
+    var value = target.value;
+    this.setState({
+      [time]:value
+    });
+    console.log([time], value);
+  }
 
-  // setInputFilter(textbox, function(value) {
-  //   return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500);
-  // });
-  
-
-
-
-
-  // s4() {
-  //   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
-  // }
-
-  // generateID() {
-    
-  //   return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +
-  //     this.s4() + this.s4() + this.s4();
-      
-
-  // }
-
-    // generateID(){
-    //   const chance = new Chance();
-    //   const resultChance =  chance.string(); // "x(gAy#yo0^"
-    //   return resultChance;
-    //   //console.log(chance.string());
-    //   //return result;
-    // }
+  handleClick = (data) => {
+    event.preventDefault();
+    this.props.onSubmit(this.state);   
+    var {time} = this.state;
+    time.push(data);
+    this.setState({
+      time : data  // new : this.state.old kieu nhu update task
+    });
+    console.log(time);
+  }
 
    
-    render() {
-
-        // const optionsDay = [];
-
+  render() {
 
         // Thích bắt đầu từ tháng nào thì sửa số trong hàm dưới này
         let currentMonthDateYear = moment();
@@ -104,15 +90,14 @@ class TableTime extends React.Component {
         let endDateTime = moment([nextMonthYear, nextMonth, endDay,hourTimeEnd,minTimeEnd]).unix();
          //console.log(moment().format("mm",endDateTime));
         for (let index = 1; index < 10; index++) {
-          var {time} = this.state;
           dataCol.push(
                 <td key={index}>
                   <input onChange={this.onChange} 
                          className="inputTimes" 
                          type="text" 
                          maxLength={2} 
-                         name='time'
-                         value={time}
+                         name={`input_${index}`} 
+                         
                           />
                 </td>
                 );
@@ -151,76 +136,82 @@ class TableTime extends React.Component {
         
         return(
 
-            <div className="matchTable">
-              <table id="tablecss" className="table table-responsive newtable">
-            <tbody>
-              <tr className="titlteTable">
-                <td colSpan={2}>※就業日</td>
-                <td colSpan={2}>※始業時刻</td>
-                <td colSpan={2}>※終業時刻</td>
-                <td id="noBorderBottom">※休憩</td>
-                <td colSpan={2}>時間内時間数</td>
-                <td colSpan={2}>時間外時間数
-                  <br />
-                  休日時間数
-                </td>
-                <td style={{border: 'none', verticalAlign: 'middle'}}>勤怠管理者</td>
-                <td style={{verticalAlign: 'middle'}} colSpan={2}>備考</td>
+          <div>
+              <div className="matchTable">
+                <table id="tablecss" className="table table-responsive newtable">
+                <tbody>
+                  <tr className="titlteTable">
+                    <td colSpan={2}>※就業日</td>
+                    <td colSpan={2}>※始業時刻</td>
+                    <td colSpan={2}>※終業時刻</td>
+                    <td id="noBorderBottom">※休憩</td>
+                    <td colSpan={2}>時間内時間数</td>
+                    <td colSpan={2}>時間外時間数
+                      <br />
+                      休日時間数
+                    </td>
+                    <td style={{border: 'none', verticalAlign: 'middle'}}>勤怠管理者</td>
+                    <td style={{verticalAlign: 'middle'}} colSpan={2}>備考</td>
 
-              </tr>
-              
-              <tr>
-                <td>日</td>
-                <td>曜</td>
-                <td style={{width: '30px'}}>時</td>
-                <td>分</td>
-                <td>時</td>
-                <td>分</td>
-                <td id="noBorderTop">時間(分)</td>
-                <td>時</td>
-                <td>分</td>
-                <td>時</td>
-                <td>分</td>
-                <td>確認印</td>
-                <td>業務内容</td>
-                <td>勤怠状況</td>
-              </tr>
+                  </tr>
+                  
+                  <tr>
+                    <td>日</td>
+                    <td>曜</td>
+                    <td style={{width: '30px'}}>時</td>
+                    <td>分</td>
+                    <td>時</td>
+                    <td>分</td>
+                    <td id="noBorderTop">時間(分)</td>
+                    <td>時</td>
+                    <td>分</td>
+                    <td>時</td>
+                    <td>分</td>
+                    <td>確認印</td>
+                    <td>業務内容</td>
+                    <td>勤怠状況</td>
+                  </tr>
 
-              
-                
-              {dataRow}
+                  
+                    
+                  {dataRow}
 
-              <tr>
-                <td colSpan={2} rowSpan={2}><p style={{margin: '0px', paddingTop : '20px'}}>当月</p><p>会計</p></td>
-                <td>出勤日数</td>
-                <td colSpan={2} style={{textAlign: 'right'}}>日</td>
-                <td colSpan={2}>時間外勤務</td>
-                <td colSpan={3}><div style={{display: 'inline-flex'}}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
-                <td>欠勤</td>
-                <td style={{textAlign: 'right'}}>日</td>
-                <td>振休</td>
-                <td style={{textAlign: 'right'}}>日</td>    
-              </tr>
+                  <tr>
+                    <td colSpan={2} rowSpan={2}><p style={{margin: '0px', paddingTop : '20px'}}>当月</p><p>会計</p></td>
+                    <td>出勤日数</td>
+                    <td colSpan={2} style={{textAlign: 'right'}}>日</td>
+                    <td colSpan={2}>時間外勤務</td>
+                    <td colSpan={3}><div style={{display: 'inline-flex'}}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
+                    <td>欠勤</td>
+                    <td style={{textAlign: 'right'}}>日</td>
+                    <td>振休</td>
+                    <td style={{textAlign: 'right'}}>日</td>    
+                  </tr>
 
-              <tr>
-                <td>所定労働日数</td>
-                <td colSpan={2} style={{textAlign: 'right'}}>日</td>
-                <td colSpan={2}>遅刻・早退</td>
-                <td colSpan={3}><div style={{display: 'inline-flex'}}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
-                <td>有給</td>
-                <td style={{textAlign: 'right'}}>日</td>
-                <td>特休</td>
-                <td style={{textAlign: 'right'}}>日</td>
-              </tr>
+                  <tr>
+                    <td>所定労働日数</td>
+                    <td colSpan={2} style={{textAlign: 'right'}}>日</td>
+                    <td colSpan={2}>遅刻・早退</td>
+                    <td colSpan={3}><div style={{display: 'inline-flex'}}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
+                    <td>有給</td>
+                    <td style={{textAlign: 'right'}}>日</td>
+                    <td>特休</td>
+                    <td style={{textAlign: 'right'}}>日</td>
+                  </tr>
 
-            </tbody>
-          </table>
-          
-          
+                </tbody>
+            </table>
+        
           <TableTime2 status = {this.state.status}/>
-
         </div>
-            
+
+            <div className="btn-group">
+                <button onClick={this.handleClick} type="button" className="btn btn-primary">Apple</button>
+                <button type="button" className="btn btn-primary">Samsung</button>
+                <button type="button" className="btn btn-primary">Sony</button>
+            </div>
+
+          </div>  
         )
     }
 }

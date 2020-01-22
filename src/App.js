@@ -88,23 +88,7 @@ class App extends React.Component{
 					</Switch>
 				</div>
 			</Router>
-
-
-
-
       
-      // <Router>
-      //   <Switch>
-      //     <Route exact path="/login" component={LoginPage} />
-      //     {/* <Route exact path="/logout" component={Logout} /> */}
-      //     <Auth>
-      //       <Switch>
-      //         <Route exact path="/timesheet" component={TimeSheet} />
-      //         <Redirect from="/" to="/login" />
-      //       </Switch>
-      //     </Auth>
-      //   </Switch>
-      // </Router>
     );
   }
 }
