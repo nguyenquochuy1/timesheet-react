@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.8.0",
-    "chancejs": "0.0.8",
     "firebase": "^7.7.0",
     "moment": "^2.24.0",
     "react": "^16.12.0",

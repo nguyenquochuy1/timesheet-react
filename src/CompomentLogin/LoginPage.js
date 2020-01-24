@@ -60,7 +60,7 @@ class LoginPage extends React.Component {
 						type="password"
 						name="password"
 						id="password"
-						placeholer="password"
+						placeholder="Password" 
 						value={password}
 						onChange={this.handleChange}
 					/>

@@ -37,19 +37,19 @@ class TableTime extends React.Component {
     //console.log(timeChecker);
   }
 
-  onChange = (event) => {
+  onhandleChange = (event) => {
     var target = event.target;
     var time = target.name;
     var value = target.value;
     this.setState({
       [time]:value
     });
-    console.log([time], value);
+    //console.log([time], value);
   }
 
   handleClick = (data) => {
-    event.preventDefault();
-    this.props.onSubmit(this.state);   
+    data.preventDefault();
+    //this.props.onSubmit(this.state);   
     var {time} = this.state;
     time.push(data);
     this.setState({
@@ -92,12 +92,12 @@ class TableTime extends React.Component {
         for (let index = 1; index < 10; index++) {
           dataCol.push(
                 <td key={index}>
-                  <input onChange={this.onChange} 
+                  <input onChange={this.onhandleChange} 
                          className="inputTimes" 
                          type="text" 
                          maxLength={2} 
                          name={`input_${index}`} 
-                         
+
                           />
                 </td>
                 );

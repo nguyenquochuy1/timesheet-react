@@ -2,12 +2,15 @@
 .doubleUnderline{
   text-decoration-line: underline;
   text-decoration-style: double ;
+  margin-bottom: 30px;
+  margin-left: 6%;
 }
 .doubleUnderline2{
   text-decoration-line: underline;
   text-decoration-style: double ;
 }
 .form-group{
+  margin-left: 30px;
   border-bottom: double;
   width: 70%;
 }
@@ -79,6 +82,7 @@
   display: inline-flex;
   margin-top: 20px;
   margin-bottom: 50px;
+  margin-left: 5%;
 }
 .breakTime>select{
   display: inline-flex;  
@@ -91,7 +95,7 @@
   text-align: center;
 }
 .newstyle{
-  padding-right: 17%;
+  padding-right: 7%;
 }
 .titlteTable  > td{
   vertical-align: middle;
@@ -132,6 +136,7 @@
 }
 
 .matchTable{
+  margin-left: 5%;
   display: inline-flex;
 }
 
@@ -153,7 +158,6 @@
 }
 .main-nav{
 	text-align: right;
-	margin-bottom: 50px;
 	padding: 0 25px;
 }
 .main-nav a{
