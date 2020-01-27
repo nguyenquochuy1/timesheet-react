@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
-import firebase , {auth,provider}  from './firebase';
+import firebase , {auth}  from './firebase';
 import Register from './CompomentRegister/Register';
 
 
@@ -76,7 +76,7 @@ class App extends React.Component{
 						}
 
 						{this.state.user && 
-							<a href="#!" onClick={this.logOutUser}>Logout</a>
+							<a path="/login" onClick={this.logOutUser}>Logout</a>
 						}
 					</nav>
 
