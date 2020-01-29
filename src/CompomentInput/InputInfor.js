@@ -14,19 +14,14 @@ class InputInfor extends React.Component {
         this.state = {
             nameOfInputs : [
                 {
-                    id: 1,
-                    name  : '事業所'
+                    name  : '事業所 : '
                 },
-
                 {
-                    id: 2,
-                    name  : '部者'
+                    name  : '部者 : '
+                },                                                                             
+                {
+                    name  : '氏名 : '
                 },
-
-                {
-                    id: 3,
-                    name  : '氏名'
-                }
             ],
             developers : []
             
@@ -35,82 +30,113 @@ class InputInfor extends React.Component {
 
     }
 
-    writeUserData = () => {
-        firebase.database().ref('/').set(this.state);
-        console.log('DATA SAVED');
-    }
+    // writeUserData = () => {
+    //     firebase.database().ref('/').set(this.state);
+    //     console.log('DATA SAVED');
+    // }
 
-    getUserData = () => {
-        let ref = firebase.database().ref('/');
-        ref.on('value', snapshot => {
-          const state = snapshot.val();
-          this.setState(state);
-        });
-        console.log('DATA RETRIEVED');
-    }
-    componentDidMount() {
-        this.getUserData();
-    }
-    componentDidUpdate(prevProps, prevState) {
-        // check on previous state
-        // only write when it's different with the new state
-        if (prevState !== this.state) {
-          this.writeUserData();
-        }
-    }
+    // writeUserData(userId, fullName, workPart, workPlace, email,imageUrl) {
+    //     firebase.database().ref('users/' + userId).set({
+    //         fullName : fullName,
+    //         //typeUser : 0,
+    //         userId : userId,
+    //         workPart : workPart,
+    //         workPlace : workPlace,
+    //         //email : email,
+    //         //profile_picture : imageUrl
+    //     });
+    // }
+
+
+    // getUserData = () => {
+    //     let ref = firebase.database().ref('/');
+    //     ref.on('value', snapshot => {
+    //       const state = snapshot.val();
+    //       this.setState(state);
+    //     });
+    //     console.log('DATA RETRIEVED');
+    // }
+    // componentDidMount() {
+    //     this.getUserData();
+    // }
+    // componentDidUpdate(prevProps, prevState) {
+    //     // check on previous state
+    //     // only write when it's different with the new state
+    //     if (prevState !== this.state) {
+    //       this.writeUserData();
+    //     }
+    // }
     handleSubmit = (event) => {
         event.preventDefault();
-        let name = this.refs.name.value;
+        //let uid = this.refs.uid.value;
+        let fullName = this.refs.name.value;
         //let role = this.refs.role.value;
-        let uid = this.refs.uid.value;
+        let workPart = this.refs.name.value;
+        let workPlace = this.refs.name.value;
       
-        if (uid && name){
+        if (fullName){
           const { developers } = this.state;
           const devIndex = developers.findIndex(data => {
-            return data.uid === uid 
+            //return data.uid === uid 
           });
-          developers[devIndex].name = name;
+          developers[devIndex].name = fullName;
+          developers[devIndex].name = workPart;
+          developers[devIndex].name = workPlace;
         //   developers[devIndex].role = role;
           this.setState({ developers });
         }
-        else if (name) {
+        else if (fullName) {
           const uid = new Date().getTime().toString();
           const { developers } = this.state;
-          developers.push({ uid, name })
+          developers.push({ uid, fullName , workPart , workPlace })
           this.setState({ developers });
         }
-      
+        
+        this.refs.uid.value = '';
         this.refs.name.value = '';
         //this.refs.role.value = '';
-        this.refs.uid.value = '';
+        
     }
       
-      removeData = (developer) => {
-        const { developers } = this.state;
-        const newState = developers.filter(data => {
-          return data.uid !== developer.uid;
+    //   removeData = (developer) => {
+    //     const { developers } = this.state;
+    //     const newState = developers.filter(data => {
+    //       return data.uid !== developer.uid;
+    //     });
+    //     this.setState({ developers: newState });
+    // }
+      
+    //   updateData = (developer) => {
+    //     this.refs.uid.value = developer.uid;
+    //     this.refs.name.value = developer.name;
+    //     //this.refs.role.value = developer.role;
+    // }
+
+    handleChange = (event) =>{
+        var target = event.target;
+        var name = event.name;
+        var value = event.value;
+		this.setState({ 
+            [name] : value 
         });
-        this.setState({ developers: newState });
-    }
-      
-      updateData = (developer) => {
-        this.refs.uid.value = developer.uid;
-        this.refs.name.value = developer.name;
-        //this.refs.role.value = developer.role;
-    }
+	}
 
     render() {
         const { developers } = this.state;
-        let elements = this.state.nameOfInputs.map((nameOfInput , index) => {
+        const {nameOfInputs} = this.state;
+        let elements = nameOfInputs.map((nameOfInput , index) => {
             return (
                 <div key={index} className="line1">
                     <label className="text-right control-label">{nameOfInput.name}</label>
-                    <input key={nameOfInput.id} 
+                    <input 
+                           key={index} 
                            type="text" 
                            className="form-underline" 
                            name="name"
                            status={this.state.name} 
                            autoComplete = "off"
+                           onChange={this.handleChange}
+                           ref = {(input)=>{this.name = input}}
                     />
                 </div>
             );
@@ -122,6 +148,10 @@ class InputInfor extends React.Component {
 
                 {elements}
                 
+            </div>
+
+            <div className="upload-form__submit">
+			    <button className="upload-form__submit__action" onClick={this.handleSubmit}>Upload Picture</button>
             </div>
         </div>   
         );
