@@ -61,7 +61,7 @@ class App extends React.Component{
     // if (user === null) {
     //   return LoginPage;
     // }
-    const NoMatch = ({location}) => <div>No route match for {location.pathname}</div>;
+    
     return (
 
       
@@ -76,7 +76,7 @@ class App extends React.Component{
 						}
 
 						{this.state.user && 
-							<a href="#!" onClick={this.logOutUser}>Logout</a>
+							<a href="#" path="/login" onClick={this.logOutUser}>Logout</a>
 						}
 					</nav>
 
@@ -92,4 +92,5 @@ class App extends React.Component{
     );
   }
 }
+const NoMatch = ({location}) => <div>No route match for {location.pathname}</div>;
 export default App;
