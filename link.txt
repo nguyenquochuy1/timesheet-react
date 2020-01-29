@@ -1,1 +1,4 @@
 https://weichie.com/blog/react-firebase-chat-app/
+
+
+https://hackernoon.com/the-easiest-way-by-far-to-build-a-real-react-firebase-web-app-5dc6fa6f1b61
