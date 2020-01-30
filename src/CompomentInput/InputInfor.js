@@ -12,20 +12,30 @@ class InputInfor extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            nameOfInputs : [
-                {
-                    name  : '事業所 : '
-                },
-                {
-                    name  : '部者 : '
-                },                                                                             
-                {
-                    name  : '氏名 : '
-                },
-            ],
-            developers : []
-            
-
+            // inputs : [
+            //     {
+            //         name  : '事業所 : ',
+                    
+            //     },
+            //     {
+            //         name  : '部者 : ',
+                   
+            //     },                                                                             
+            //     {
+            //         name  : '氏名 : ',
+                    
+            //     },
+            // ],
+            // valueOfInput : [
+            //     // workPlace = '',
+            //     // workPart = '',
+            //     // fullName = ''
+            // ],
+            fullName : "",
+            workPart : "",
+            workPlace : "",
+            //name : ''
+            user : []
         }
 
     }
@@ -66,35 +76,18 @@ class InputInfor extends React.Component {
     //       this.writeUserData();
     //     }
     // }
-    handleSubmit = (event) => {
+    onSubmit = (event) => {
         event.preventDefault();
-        //let uid = this.refs.uid.value;
-        let fullName = this.refs.name.value;
-        //let role = this.refs.role.value;
-        let workPart = this.refs.name.value;
-        let workPlace = this.refs.name.value;
-      
-        if (fullName){
-          const { developers } = this.state;
-          const devIndex = developers.findIndex(data => {
-            //return data.uid === uid 
-          });
-          developers[devIndex].name = fullName;
-          developers[devIndex].name = workPart;
-          developers[devIndex].name = workPlace;
-        //   developers[devIndex].role = role;
-          this.setState({ developers });
-        }
-        else if (fullName) {
-          const uid = new Date().getTime().toString();
-          const { developers } = this.state;
-          developers.push({ uid, fullName , workPart , workPlace })
-          this.setState({ developers });
-        }
         
-        this.refs.uid.value = '';
-        this.refs.name.value = '';
-        //this.refs.role.value = '';
+        //console.log(event);
+        var {fullName} = this.state;
+        var {workPart} = this.state;
+        var {workPlace} = this.state;
+        var {user} = this.state;
+        user.push(fullName,workPart,workPlace);
+
+        //console.log(fullName,workPart,workPlace);
+        console.log(user);
         
     }
       
@@ -112,48 +105,97 @@ class InputInfor extends React.Component {
     //     //this.refs.role.value = developer.role;
     // }
 
-    handleChange = (event) =>{
-        var target = event.target;
-        var name = event.name;
-        var value = event.value;
+    onHandleChange = (event) =>{
+        
+        var target = event.target; 
+        var name  = target.name;
+        var value = target.value;
+        
 		this.setState({ 
-            [name] : value 
+            [name] : value
         });
+        
+        //console.log(target);
+
+        //console.log(name - value);
+        
 	}
 
     render() {
-        const { developers } = this.state;
-        const {nameOfInputs} = this.state;
-        let elements = nameOfInputs.map((nameOfInput , index) => {
-            return (
-                <div key={index} className="line1">
-                    <label className="text-right control-label">{nameOfInput.name}</label>
-                    <input 
-                           key={index} 
-                           type="text" 
-                           className="form-underline" 
-                           name="name"
-                           status={this.state.name} 
-                           autoComplete = "off"
-                           onChange={this.handleChange}
-                           ref = {(input)=>{this.name = input}}
-                    />
-                </div>
-            );
-        });
+        //const { developers } = this.state;
+        //const {inputs} = this.state;
+        //const {valueOfInput} = this.state;
+        // let elements = inputs.map((nameOfInput , index) => {
+        //     return (
+        //         <div key={index} className="line1">
+        //             <label className="text-right control-label">{nameOfInput.name}</label>
+        //             <input 
+        //                    key={index} 
+        //                    type="text" 
+        //                    className="form-underline" 
+        //                    name={nameOfInput.name}
+        //                    autoComplete = "off"
+        //                    onChange={this.handleChange}
+        //                    value = {valueOfInput}
+        //             />
+        //         </div>
+        //     );
+        // });
         return(
-          
-        <div className="col-sm-4" style={{paddingBottom : '20px'}}>
+        <form onSubmit={this.onSubmit}>
+            <div className="col-sm-4" style={{paddingBottom : '20px'}}>
             <div className="allLine">
 
-                {elements}
+                {/* {elements} */}
+
+                <div  className="line1">
+                    <label className="text-right control-label">事業所 : </label>
+                    <input 
+                            
+                           type="text" 
+                           className="form-underline" 
+                           name="workPlace"
+                           autoComplete = "off"
+                           onChange={this.onHandleChange}
+                           value = {this.state.workPlace}
+                    />
+                </div>
+
+                <div  className="line1">
+                    <label className="text-right control-label">部者 : </label>
+                    <input 
+                            
+                           type="text" 
+                           className="form-underline" 
+                           name="workPart"
+                           autoComplete = "off"
+                           onChange={this.onHandleChange}
+                           value = {this.state.workPart}
+                    />
+                </div>
+
+                <div  className="line1">
+                    <label className="text-right control-label">氏名 : </label>
+                    <input 
+                            
+                           type="text" 
+                           className="form-underline" 
+                           name="fullName"
+                           autoComplete = "off"
+                           onChange={this.onHandleChange}
+                           value = {this.state.fullName}
+                    />
+                </div>
                 
             </div>
 
             <div className="upload-form__submit">
-			    <button className="upload-form__submit__action" onClick={this.handleSubmit}>Upload Picture</button>
+			    <button type="submit"  className="upload-form__submit__action" onClick={this.handleSubmit}>Upload Picture</button>
             </div>
-        </div>   
+        </div>
+        </form>    
+          
+           
         );
     }
 }
