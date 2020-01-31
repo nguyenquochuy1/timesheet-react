@@ -76,7 +76,7 @@ class App extends React.Component{
 						}
 
 						{this.state.user && 
-							<a href="#!" path="/login" onClick={this.logOutUser}>Logout</a>
+							<a href="/login" onClick={this.logOutUser}>Logout</a>
 						}
 					</nav>
 
