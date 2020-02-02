@@ -1,0 +1,94 @@
+[debug] [2020-02-01T17:35:22.541Z] ----------------------------------------------------------------------
+[debug] [2020-02-01T17:35:22.546Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\huynguyen\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-02-01T17:35:22.546Z] CLI Version:   7.12.1
+[debug] [2020-02-01T17:35:22.546Z] Platform:      win32
+[debug] [2020-02-01T17:35:22.546Z] Node Version:  v12.13.0
+[debug] [2020-02-01T17:35:22.549Z] Time:          Sun Feb 02 2020 02:35:22 GMT+0900 (GMT+09:00)
+[debug] [2020-02-01T17:35:22.549Z] ----------------------------------------------------------------------
+[debug] [2020-02-01T17:35:22.549Z] 
+[debug] [2020-02-01T17:35:22.587Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-01T17:35:22.589Z] > authorizing via signed-in user
+[debug] [2020-02-01T17:35:22.589Z] [iam] checking project login-timesheet for permissions ["firebase.projects.get"]
+[debug] [2020-02-01T17:35:22.593Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-01T17:35:22.594Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-01T17:35:22.839Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-01T17:35:22.890Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/login-timesheet:testIamPermissions  
+
+[debug] [2020-02-01T17:35:23.745Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-01T17:35:23.746Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/login-timesheet  
+ 
+[debug] [2020-02-01T17:35:24.510Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\huynguyen\Desktop\timesheet-react'...
+[info] 
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Users\huynguyen\Desktop\timesheet-react\functions" for Cloud Functions...
+[debug] [2020-02-01T17:35:27.090Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-01T17:35:27.091Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-01T17:35:27.091Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-01T17:35:27.092Z] [worker-~diagnostic~-a607aeb9-cf95-44aa-9f83-b807ed002a04]: Assigning socketPath: \\?\pipe\C:\Users\huynguyen\Desktop\timesheet-react\functions\6956
+[debug] [2020-02-01T17:35:27.092Z] [worker-~diagnostic~-a607aeb9-cf95-44aa-9f83-b807ed002a04]: BUSY
+[debug] [2020-02-01T17:35:27.612Z] [runtime-status] [6956] Functions runtime initialized. {"cwd":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\functions","node_version":"12.13.0"}
+[debug] [2020-02-01T17:35:27.612Z] [runtime-status] [6956] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-01T17:35:27.615Z] [runtime-status] [6956] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-01T17:35:27.618Z] [runtime-status] [6956] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-01T17:35:27.620Z] [runtime-status] [6956] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-functions\\lib\\index.js"}
+[warn] !  Error: Cannot find module './functions/login-timesheet-09ca63aa14bf.json'
+Require stack:
+- C:\Users\huynguyen\Desktop\timesheet-react\functions\index.js
+- C:\Users\huynguyen\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:794:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:687:27)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (C:\Users\huynguyen\Desktop\timesheet-react\functions\index.js:4:22)
+    at Module._compile (internal/modules/cjs/loader.js:956:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+[warn] !  We were unable to load your functions code. (see above)
+[debug] [2020-02-01T17:35:28.108Z] [worker-~diagnostic~-a607aeb9-cf95-44aa-9f83-b807ed002a04]: exited
+[debug] [2020-02-01T17:35:28.109Z] [worker-~diagnostic~-a607aeb9-cf95-44aa-9f83-b807ed002a04]: FINISHED
+[debug] [2020-02-01T17:35:51.471Z] File C:\Users\huynguyen\Desktop\timesheet-react\functions\index.js changed, reloading triggers
+[debug] [2020-02-01T17:35:52.473Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-02-01T17:35:52.479Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-01T17:35:52.479Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-01T17:35:52.479Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-01T17:35:52.479Z] [worker-~diagnostic~-1a234473-9e5b-46a7-bab4-15852f5a68c1]: Assigning socketPath: \\?\pipe\C:\Users\huynguyen\Desktop\timesheet-react\functions\10704
+[debug] [2020-02-01T17:35:52.480Z] [worker-~diagnostic~-1a234473-9e5b-46a7-bab4-15852f5a68c1]: BUSY
+[debug] [2020-02-01T17:35:53.247Z] [runtime-status] [10704] Functions runtime initialized. {"cwd":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\functions","node_version":"12.13.0"}
+[debug] [2020-02-01T17:35:53.249Z] [runtime-status] [10704] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-01T17:35:53.254Z] [runtime-status] [10704] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-01T17:35:53.256Z] [runtime-status] [10704] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-01T17:35:53.257Z] [runtime-status] [10704] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[helloWorld]: http function initialized (http://localhost:5000/login-timesheet/us-central1/helloWorld).
+[info] +  functions[getScream]: http function initialized (http://localhost:5000/login-timesheet/us-central1/getScream).
+[info] +  functions[createScream]: http function initialized (http://localhost:5000/login-timesheet/us-central1/createScream).
+[debug] [2020-02-01T17:35:54.108Z] [worker-~diagnostic~-1a234473-9e5b-46a7-bab4-15852f5a68c1]: IDLE
+[debug] [2020-02-01T17:36:02.774Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-02-01T17:36:02.775Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-02-01T17:36:02.775Z] Accepted request POST /login-timesheet/us-central1/createScream --> createScream
+[debug] [2020-02-01T17:36:02.783Z] [worker-pool] addWorker(createScream)
+[debug] [2020-02-01T17:36:02.783Z] [worker-pool] Adding worker with key createScream, total=1
+[debug] [2020-02-01T17:36:02.783Z] [worker-pool] submitWork(triggerId=createScream)
+[debug] [2020-02-01T17:36:02.783Z] [worker-createScream-81d7e4ff-1a50-41fc-9e70-e937b710c250]: Assigning socketPath: \\?\pipe\C:\Users\huynguyen\Desktop\timesheet-react\functions\6920
+[debug] [2020-02-01T17:36:02.784Z] [worker-createScream-81d7e4ff-1a50-41fc-9e70-e937b710c250]: BUSY
+[debug] [2020-02-01T17:36:03.429Z] [runtime-status] [6920] Functions runtime initialized. {"cwd":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\functions","node_version":"12.13.0"}
+[debug] [2020-02-01T17:36:03.431Z] [runtime-status] [6920] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-01T17:36:03.434Z] [runtime-status] [6920] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-01T17:36:03.436Z] [runtime-status] [6920] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-01T17:36:03.437Z] [runtime-status] [6920] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\huynguyen\\Desktop\\timesheet-react\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-01T17:36:03.575Z] [runtime-status] [6920] Trigger "createScream" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "createScream"
+[debug] [2020-02-01T17:36:03.576Z] [runtime-status] [6920] triggerDefinition {"httpsTrigger":{},"name":"createScream","entryPoint":"createScream"}
+[debug] [2020-02-01T17:36:03.576Z] [runtime-status] [6920] Running createScream in mode HTTPS
+[debug] [2020-02-01T17:36:03.581Z] [runtime-status] [6920] Attempting to listen to socketPath: \\?\pipe\C:\Users\huynguyen\Desktop\timesheet-react\functions\6920
+[debug] [2020-02-01T17:36:03.590Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-01T17:36:03.906Z] [runtime-status] [6920] Ephemeral server handling POST request
+[debug] [2020-02-01T17:36:08.255Z] [runtime-status] [6920] Ephemeral server survived.
+[info] i  functions: Finished "createScream" in ~1s
+[debug] [2020-02-01T17:36:08.976Z] [worker-createScream-81d7e4ff-1a50-41fc-9e70-e937b710c250]: IDLE
+[debug] [2020-02-01T17:36:08.977Z] [work-queue] {"queueLength":0,"workRunningCount":0}

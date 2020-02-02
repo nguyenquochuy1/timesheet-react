@@ -14,7 +14,7 @@ class TableTime extends React.Component {
   
   constructor(props){
     super(props);
-    const { task } = this.props;
+    //const { task } = this.props;
     var {status} = this.props;
     this.state = {
       // type1 : "text",

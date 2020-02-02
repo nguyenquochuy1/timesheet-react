@@ -1,6 +1,6 @@
 import React from 'react';
- import firebase from 'firebase/app';
-import  'firebase/database';
+//import firebase from 'firebase/app';
+//import  'firebase/database';
 
 // const name_column1 = '事業所' ;
 // const name_column2 = '部者';
@@ -85,7 +85,7 @@ class InputInfor extends React.Component {
         var {workPlace} = this.state;
         var {user} = this.state;
         user.push(fullName,workPart,workPlace);
-
+        
         //console.log(fullName,workPart,workPlace);
         console.log(user);
         
