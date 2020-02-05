@@ -99,4 +99,4 @@ app.post('/scream',(req , res) =>{
 //         });
 // });
 // https://baseurl.com/api/
-exports.api = functions.https.onRequest(app);
+exports.api = functions.region("asia-east2").https.onRequest(app);
