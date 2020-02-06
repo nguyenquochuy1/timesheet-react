@@ -11,6 +11,7 @@ constructor(prop) {
     const thisMonth = (new Date().getMonth());
     //const selectedYear = thisYear ;
     
+    
     const thisDay =  20;
 
         this.state = {
@@ -21,23 +22,38 @@ constructor(prop) {
           selectedMonth : thisMonth + 1 ,
 
           thisDay : thisDay,
-          selectedDay : thisDay + 1 
+          selectedDay : thisDay + 1 ,
+
+          //timeOfUser : []
 
         }
     }
     onHandleChange = (event) => {
         // Handle Change Here
         //alert(evt.target.value);
-        //var target = event.target;
-        //var name = target.name;
-        //var value = target.value; 
-        this.setState({ selectedYear: event.target.value });
+        var target = event.target;
+        var value = target.value;
+        var {thisYear} = this.state;
+
+        this.setState({
+            timeOfUser : value
+        });
+
+        //console.log(timeOfUser);
+
+        
+
+        //this.setState({ selectedYear: event.target.value });
 
         //alert()
         //this.setState({ selectedMonth: event.target.value });
 
         //this.setState({ selectedDay: evt.target.value});
     };
+    onClick = () => {
+        var {timeOfUser} = this.state;
+        console.log(timeOfUser)
+    }
 
     
 
@@ -95,8 +111,8 @@ constructor(prop) {
                         </select>
                         <label>年</label>
 
-                        <select>
-                            <option>{this.state.selectedMonth}</option>
+                        <select onChange={this.onHandleChange}>
+                            <option>{this.state.selectedMonth} </option>
                             {optionsMonth}
                         </select>
 
@@ -104,30 +120,31 @@ constructor(prop) {
                     </div>
                     <div className="inline col-sm-12">
                         <div className="sltFirstMonthDay col-sm-6">
-                            <select>
+                            <select onChange={this.onHandleChange}>
                                 <option>{this.state.thisMonth === 0 ? 12 : this.state.thisMonth}</option>
                                 {optionsMonth}
                             </select>
                             <label>月</label>　
-                            <select>
+                            <select onChange={this.onHandleChange}>
                                 <option>{this.state.thisDay}</option>
                                 {optionsDay}
                             </select>
                             <label>日 ～ </label>
                         </div>
                         <div className="sltSecondMonthDay col-sm-6">
-                            <select>
+                            <select onChange={this.onHandleChange}>
                                 <option>{this.state.selectedMonth}</option>
                                 {optionsMonth}
                             </select>
                             <label>月</label>　
-                            <select>
+                            <select onChange={this.onHandleChange}>
                                 <option >{this.state.selectedDay}</option>
                                 {optionsDay}
                             </select>
                             <label>日</label>
                         </div>
                 </div>
+                <button onClick={this.onClick}>addd</button>
           </div>
             
         )

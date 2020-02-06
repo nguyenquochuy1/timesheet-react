@@ -14,7 +14,7 @@ admin.initializeApp({
 const express = require('express');
 const app = express();
 
-app.get('/scream',(req , res) =>{
+app.get('/scream',(req , res) =>{  //login
     admin
         .firestore()
         .collection('scream')
@@ -35,7 +35,7 @@ app.get('/scream',(req , res) =>{
         .catch((err) => console.error(err));
 });
 
-app.post('/scream',(req , res) =>{
+app.post('/scream',(req , res) =>{   // singup 
     const newScream = {
         body : req.body.body,
         userHandle : req.body.userHandle, 
@@ -43,7 +43,7 @@ app.post('/scream',(req , res) =>{
     };
 
     admin
-    .firestore()
+        .firestore()
         .collection('scream') // ten trong trường database 
         .add(newScream)
         .then(doc =>{
@@ -55,48 +55,5 @@ app.post('/scream',(req , res) =>{
         });
 });
 
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello word");
-// });
-
-// exports.getScream = functions.https.onRequest((req, res) => { // get data về postman 
-//     //response.send("Hello word");
-//     admin
-//         .firestore()
-//         .collection('scream')
-//         .get()
-//         .then(data => {
-//             let screams = [];
-//             data.forEach( doc => {
-//                 screams.push(doc.data());
-//             });
-//             return res.json(screams);
-//         })
-//         .catch((err) => console.error(err));
-// });
-
-// exports.createScream = functions.https.onRequest((req, res) => { // post data về postman
-//     //response.send("Hello word");
-//     if (req.method !== 'POST') {
-//         return res.status(400).json({error : 'Method not allowed'});
-//     }
-//     const newScream = {
-//         body : req.body.body,
-//         userHandle : req.body.userHandle, 
-//         createAt: admin.firestore.Timestamp.fromDate(new Date())
-//     };
-
-//     admin
-//     .firestore()
-//         .collection('scream') // ten trong trường database 
-//         .add(newScream)
-//         .then(doc =>{
-//             res.json({message: `document ${doc.id} created successfully`});
-//         })
-//         .catch(err =>{ // catch để bat loi va hien thi message
-//             res.status(500).json({ error : 'Something went wrong' });
-//             console.error(err);
-//         });
-// });
 // https://baseurl.com/api/
 exports.api = functions.region("asia-east2").https.onRequest(app);

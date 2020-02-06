@@ -9,6 +9,7 @@ import React from 'react';
 
 class InputInfor extends React.Component {
     
+    
     constructor(props){
         super(props);
         this.state = {
@@ -147,7 +148,7 @@ class InputInfor extends React.Component {
             <div className="allLine">
 
                 {/* {elements} */}
-
+         
                 <div  className="line1">
                     <label className="text-right control-label">事業所 : </label>
                     <input 
@@ -186,6 +187,7 @@ class InputInfor extends React.Component {
                            value = {this.state.fullName}
                     />
                 </div>
+                
                 
             </div>
 

@@ -15,14 +15,14 @@ class TimeSheet extends React.Component{
     constructor(prop){
         super(prop);
         this.state = {
-          aaa : 0,
+          
           status : false,
         //   isLoggedIn : true
         }
-      }
+    }
 
     render(){
-        var {aaa} = this.state;
+        // var {aaa} = this.state;
         var {status} = this.state; // var status = this.state.status;
         var {user} = this.props;   // var user = this.props.user;
         // var {isLoggedIn} = this.state;
@@ -31,17 +31,17 @@ class TimeSheet extends React.Component{
                 <div className="container-fluid newstyle">
                     <Title/>
                     <div className="container">
-                    <div className={status === false ?'statusRender':'row'}>
-                        <Time taskTaskTime={aaa}/>
-                        <InputInfor/>
-                        <TableTime status = {this.state.status} />
-                        <Warning/>
-                        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <ProsessingTest/>
-                        <TableAgree/>
-                        
+                        <div className={status === false ?'statusRender':'row'}>
+                            <Time taskTaskTime/>
+                            <InputInfor/>
+                            <TableTime status = {this.state.status} />
+                            <Warning/>
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <ProsessingTest/>
+                                <TableAgree/>
+                            
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             );
@@ -53,35 +53,7 @@ class TimeSheet extends React.Component{
             </div>
            );
         }
-        // return(
-            
-        //     <div className="allPage">
-        //         {user && <div className="container-fluid newstyle">
-        //             <Title/>
-        //             <div className="container">
-        //             <div className={status === false ?'statusRender':'row'}>
-        //                 <Time taskTaskTime={aaa}/>
-        //                 <InputInfor/>
-        //                 <TableTime status = {this.state.status} />
-        //                 <Warning/>
-        //                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        //                 <ProsessingTest/>
-        //                 <TableAgree/>
-                        
-        //                 </div>
-        //             </div>
-        //             </div>
-        //         </div>}
-        //         {!user &&  
-		// 			<div className="auth--container">
-		// 				{/* <p><Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!</p> */}
-        //                 <LoginPage/>
-		// 			</div>
-        //         }
-                
-        //     </div>
-            
-        // );
+        
     }
 
 }
