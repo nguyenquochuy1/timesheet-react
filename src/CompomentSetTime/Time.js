@@ -1,58 +1,74 @@
 import React from 'react'
+import { firestore } from '../firebase';
 
 const minOffset = 0;
 const maxOffset = 60;
+
 class Time extends React.Component {
 
 constructor(prop) {
     super(prop);
-    //const { taskTaskTime } = this.props;   
+
     const thisYear = (new Date().getFullYear());
     const thisMonth = (new Date().getMonth());
-    //const selectedYear = thisYear ;
+    
+    this.state({
+        userId: '',
+    });
     
     
     const thisDay =  20;
 
         this.state = {
           thisYear: thisYear,
-          //selectedYear: taskTaskTime,
-
+          
           thisMonth : thisMonth,
           selectedMonth : thisMonth + 1 ,
 
           thisDay : thisDay,
           selectedDay : thisDay + 1 ,
-
-          //timeOfUser : []
-
+        
+          timeOfUser : []
         }
     }
     onHandleChange = (event) => {
         // Handle Change Here
-        //alert(evt.target.value);
+        
         var target = event.target;
         var value = target.value;
-        var {thisYear} = this.state;
+        
 
         this.setState({
             timeOfUser : value
         });
 
-        //console.log(timeOfUser);
-
         
 
-        //this.setState({ selectedYear: event.target.value });
-
-        //alert()
-        //this.setState({ selectedMonth: event.target.value });
-
-        //this.setState({ selectedDay: evt.target.value});
     };
+
+    getTasksData() {
+        firestore.collection('User')
+          .where('user_Id', '==', this.state.userId)
+          .get()
+          .then(snapShot => {
+            let tasks = [];
+            snapShot.forEach(doc => {
+              tasks.push({
+                id: doc.id,
+                text: doc.data().text
+              });
+            });
+            this.setState({
+              tasks: tasks
+            });
+          });
+      }
+
     onClick = () => {
-        var {timeOfUser} = this.state;
-        console.log(timeOfUser)
+        var timeOfUser = this.onHandleChange;
+        this.setState({
+            timeOfUser : timeOfUser
+        });
     }
 
     

@@ -1,19 +1,19 @@
 import React from 'react';
-import firebase from '../firebase';
+// import firebase from '../firebase';
 import {Link} from 'react-router-dom';
 
-const functions = require('firebase-functions');
+// const functions = require('firebase-functions');
 
-var admin = require("firebase-admin");
+// var admin = require("firebase-admin");
 
-var serviceAccount = require("./login-timesheet-09ca63aa14bf.json");
+// var serviceAccount = require("./login-timesheet-09ca63aa14bf.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://login-timesheet.firebaseio.com"
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://login-timesheet.firebaseio.com"
+// });
 
-class Register extends React.Component{
+class Register extends React.Component {
 	
 	constructor(props){
 		
@@ -32,8 +32,8 @@ class Register extends React.Component{
 	}
 
 	handleSubmit = e => {
-		const express = require('express'); 
-		const app = express();
+		// const express = require('express'); 
+		// const app = express();
 		// app.post('/singup',(req , res) =>{   // singup 
 		// 	const newUser = {
 		// 		email : req.body.email,
@@ -56,33 +56,33 @@ class Register extends React.Component{
 		// 		});
 		// });
 
-		app.post('/singup',(req , res) =>{
-			e.preventDefault();
-			const {email, username, password} = this.state;
-			firebase
-				.auth()
-				.createUserWithEmailAndPassword(email, password)
-				.then((data) => {
-					const user = firebase.auth().currentUser;
+		// app.post('/singup',(req , res) =>{
+		// 	e.preventDefault();
+		// 	const {email, username, password} = this.state;
+		// 	firebase
+		// 		.auth()
+		// 		.createUserWithEmailAndPassword(email, password)
+		// 		.then((data) => {
+		// 			const user = firebase.auth().currentUser;
 					
-					user
-						.updateProfile({displayName: username})
-						.then(() => {
-							this.props.history.push('/');
-						})
-						.catch(error => {
-						this.setState({error});
-					});
-					return res
-						.status(201)
-						.json({message: `document ${data.user.id} created successfully`});
-				})
-				.catch(error => {
-					res.status(500).json({ error : 'Something went wrong' });
-					console.error(error);
-					this.setState({error});
-				});
-		});
+		// 			user
+		// 				.updateProfile({displayName: username})
+		// 				.then(() => {
+		// 					this.props.history.push('/');
+		// 				})
+		// 				.catch(error => {
+		// 				this.setState({error});
+		// 			});
+		// 			return res
+		// 				.status(201)
+		// 				.json({message: `document ${data.user.id} created successfully`});
+		// 		})
+		// 		.catch(error => {
+		// 			res.status(500).json({ error : 'Something went wrong' });
+		// 			console.error(error);
+		// 			this.setState({error});
+		// 		});
+		// });
 	}
 
 	render(){
@@ -113,4 +113,4 @@ class Register extends React.Component{
 }
 
 export default Register;
-exports.api = functions.region("asia-east2").https.onRequest(app);
+//exports.api = functions.region("asia-east2").https.onRequest(app);
