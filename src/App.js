@@ -8,7 +8,8 @@ import {
 } from 'react-router-dom';
 import TimeSheet from './CompomentTimeSheet/TimeSheet'
 import LoginPage from './CompomentLogin/LoginPage'      
-import firebase , {auth}  from './firebase';
+import {fireAuth}   from './firebase';
+
 import Register from './CompomentRegister/Register';
 
 
@@ -17,16 +18,17 @@ class App extends React.Component{
   constructor(prop){
     super(prop);
     this.state = {
-      aaa : 0,
       status : false,
       isLoggedIn : true,
-      user: null
+      user: null,
+
+      
     }
     this.logOutUser = this.logOutUser.bind(this);
   }
 
   componentDidMount(){
-		auth.onAuthStateChanged(user => {
+		fireAuth.onAuthStateChanged(user => {
 			if(user){
 				this.setState({
 					user
@@ -35,25 +37,12 @@ class App extends React.Component{
 		});
 	}
 
-  
-  //  //localStorage
-  // authListener = () => {
-  //   fire.auth().onAuthStateChanged((user) => {
-  //     console.log(user);
-  //     if (user) {
-  //       this.setState({ user });
-  //       localStorage.setItem('key', user.uid);
-  //     } else {
-  //       this.setState({ user: null });
-  //       localStorage.removeItem('key');
-  //     }
-  //   });
-  // }
-
   logOutUser = () => {
-		firebase.auth().signOut()
-			.then(window.location = "/");
-	}
+		fireAuth.signOut()
+			.then(window.location = "/login");
+  }
+  
+  
 
 
   render() {
@@ -61,9 +50,11 @@ class App extends React.Component{
     // if (user === null) {
     //   return LoginPage;
     // }
+
+    
     
     return (
-
+      
       
       <Router>
 				<div className="app">
@@ -81,10 +72,17 @@ class App extends React.Component{
 					</nav>
 
 					<Switch>
-						<Route path="/" exact render={() => <TimeSheet user={this.state.user}/>} />
-						<Route path="/login" exact component={LoginPage} />
-						<Route path="/register" exact component={Register} />
+            
+           <Route path="/login"  component={LoginPage} />  
+						<Route path="/timesheet"  render={() => <TimeSheet user={this.state.user}
+                                                              
+                                                        />} />
+            
+            
+						<Route path="/register"  component={Register} />
+            <Route path="/successfull" component={Successfull} />
 						<Route component={NoMatch} />
+            
 					</Switch>
 				</div>
 			</Router>
@@ -93,4 +91,5 @@ class App extends React.Component{
   }
 }
 const NoMatch = ({location}) => <div>No route match for {location.pathname}</div>;
+const Successfull = () => <div> Successfull  </div>;
 export default App;

@@ -17,8 +17,11 @@ class TimeSheet extends React.Component{
         this.state = {
           
           status : false,
+        
+          
         //   isLoggedIn : true
         }
+
     }
 
     render(){
@@ -33,7 +36,11 @@ class TimeSheet extends React.Component{
                     <div className="container">
                         <div className={status === false ?'statusRender':'row'}>
                             <Time taskTaskTime/>
-                            <InputInfor/>
+                            <InputInfor fullName={this.state.fullName}
+                                        workPart = {this.state.workPart}
+                                        workPlace = {this.state.workPlace}
+                                        userName = {this.state.userName}
+                                />
                             <TableTime status = {this.state.status} />
                             <Warning/>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">

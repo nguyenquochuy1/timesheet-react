@@ -1,7 +1,8 @@
 
 
-import firebase from 'firebase/app';
-
+var app = require("firebase/app");
+ require("firebase/auth");
+ require("firebase/firestore");
 
   // Your web app's Firebase configuration
   var config = {
@@ -15,9 +16,9 @@ import firebase from 'firebase/app';
     measurementId: "G-6B0JT17MF7"
   };
   // Initialize Firebase
-const fire =   firebase.initializeApp(config);
-export const provider = new firebase.auth.GoogleAuthProvider();
-export const auth = firebase.auth();
-export const firestore = fire.firestore();
+const firebase =   app.initializeApp(config);
 
-export default fire;
+export const fireAuth = firebase.auth();
+export const fireStore = firebase.firestore();
+
+export default firebase;

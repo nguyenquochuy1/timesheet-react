@@ -1,5 +1,6 @@
 import React from 'react'
-import { firestore } from '../firebase';
+// import {fireStore}  from '../firebase';
+
 
 const minOffset = 0;
 const maxOffset = 60;
@@ -12,11 +13,6 @@ constructor(prop) {
     const thisYear = (new Date().getFullYear());
     const thisMonth = (new Date().getMonth());
     
-    this.state({
-        userId: '',
-    });
-    
-    
     const thisDay =  20;
 
         this.state = {
@@ -28,7 +24,9 @@ constructor(prop) {
           thisDay : thisDay,
           selectedDay : thisDay + 1 ,
         
-          timeOfUser : []
+          timeOfUser : [],
+
+          userId: ''
         }
     }
     onHandleChange = (event) => {
@@ -46,23 +44,23 @@ constructor(prop) {
 
     };
 
-    getTasksData() {
-        firestore.collection('User')
-          .where('user_Id', '==', this.state.userId)
-          .get()
-          .then(snapShot => {
-            let tasks = [];
-            snapShot.forEach(doc => {
-              tasks.push({
-                id: doc.id,
-                text: doc.data().text
-              });
-            });
-            this.setState({
-              tasks: tasks
-            });
-          });
-      }
+    // getTasksData() {
+    //     fireStore.collection('User')
+    //       .where('user_Id', '==', this.state.userId)
+    //       .get()
+    //       .then(snapShot => {
+    //         let tasks = [];
+    //         snapShot.forEach(doc => {
+    //           tasks.push({
+    //             id: doc.id,
+    //             text: doc.data().text
+    //           });
+    //         });
+    //         this.setState({
+    //           tasks: tasks
+    //         });
+    //       });
+    //   }
 
     onClick = () => {
         var timeOfUser = this.onHandleChange;

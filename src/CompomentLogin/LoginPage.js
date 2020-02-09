@@ -1,8 +1,10 @@
 import React from 'react';
 import '../LoginPage.css';
-import firebase from 'firebase/app';
+
 import { Link } from 'react-router-dom';
-require('firebase/auth');
+import { fireAuth } from '../firebase'
+
+
 
 
 class LoginPage extends React.Component {
@@ -12,30 +14,32 @@ class LoginPage extends React.Component {
         this.state = {
             email: '',
 			password: '',
-			error: null
+			error: null,
         }
         this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
 		this.setState({[e.target.name]: e.target.value});
 	}
 
-	handleSubmit = e => {
+	handleSubmit = (e) => {
 		e.preventDefault();
+		
 		const {email, password} = this.state;
 
-		firebase
-			.auth()
+		fireAuth
 			.signInWithEmailAndPassword(email, password)
-			.then(user => {
-				this.props.history.push('/');
+			.then(() => {
+				this.props.history.push('/timesheet');
 			})
 			.catch(error => {
 				this.setState({error});
 			});
+
+		
 	}
 
     render() {

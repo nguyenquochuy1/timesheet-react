@@ -1,11 +1,8 @@
 import React from 'react';
-//import firebase from 'firebase/app';
-//import  'firebase/database';
-
+import { fireStore , fireAuth } from '../firebase';
 // const name_column1 = '事業所' ;
 // const name_column2 = '部者';
 // const name_column3 = '氏名';
-
 
 class InputInfor extends React.Component {
     
@@ -13,63 +10,20 @@ class InputInfor extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            // inputs : [
-            //     {
-            //         name  : '事業所 : ',
-                    
-            //     },
-            //     {
-            //         name  : '部者 : ',
-                   
-            //     },                                                                             
-            //     {
-            //         name  : '氏名 : ',
-                    
-            //     },
-            // ],
-            // valueOfInput : [
-            //     // workPlace = '',
-            //     // workPart = '',
-            //     // fullName = ''
-            // ],
-            fullName : "",
-            workPart : "",
-            workPlace : "",
-            //name : ''
-            user : []
+              
+          fullName : '',
+          workPart : '',
+          workPlace : '',
+          userName : '',
+          name : ''
         }
 
     }
 
-    // writeUserData = () => {
-    //     firebase.database().ref('/').set(this.state);
-    //     console.log('DATA SAVED');
-    // }
+    componentDidMount(){
+        this.getUserData();
+    }
 
-    // writeUserData(userId, fullName, workPart, workPlace, email,imageUrl) {
-    //     firebase.database().ref('users/' + userId).set({
-    //         fullName : fullName,
-    //         //typeUser : 0,
-    //         userId : userId,
-    //         workPart : workPart,
-    //         workPlace : workPlace,
-    //         //email : email,
-    //         //profile_picture : imageUrl
-    //     });
-    // }
-
-
-    // getUserData = () => {
-    //     let ref = firebase.database().ref('/');
-    //     ref.on('value', snapshot => {
-    //       const state = snapshot.val();
-    //       this.setState(state);
-    //     });
-    //     console.log('DATA RETRIEVED');
-    // }
-    // componentDidMount() {
-    //     this.getUserData();
-    // }
     // componentDidUpdate(prevProps, prevState) {
     //     // check on previous state
     //     // only write when it's different with the new state
@@ -77,20 +31,59 @@ class InputInfor extends React.Component {
     //       this.writeUserData();
     //     }
     // }
-    onSubmit = (event) => {
-        event.preventDefault();
+    
+    getUserData(){
         
-        //console.log(event);
-        var {fullName} = this.state;
-        var {workPart} = this.state;
-        var {workPlace} = this.state;
-        var {user} = this.state;
-        user.push(fullName,workPart,workPlace);
-        
-        //console.log(fullName,workPart,workPlace);
-        console.log(user);
-        
+        var uid = fireAuth.currentUser.uid;
+        // if(uid !=null){
+
+        // }
+        fireStore
+				.collection('User').get()
+				.then((snapshot) => {
+					
+					snapshot.forEach((doc) => {
+                        console.log(doc.id);
+                        if(uid === doc.id ){
+                            this.setState({
+                                fullName : doc.data().fullName,
+                                workPart : doc.data().workPart,
+                                workPlace : doc.data().workPlace,
+                                userName : doc.data().userName,
+                                //name : doc.data()
+                            });
+                        }
+						
+						
+						//console.log(doc.data());
+					});
+					
+				})
+					.catch((err) => {
+					console.log('Error getting documents', err);
+				});
     }
+
+    writeUserData(checked){
+        if(checked === false){
+            return false;
+        }
+        let userId = fireAuth.currentUser.uid;
+        let data = {
+            fullName : this.state.fullName,
+            typeUser : false,
+            workPart : this.state.workPart,
+            workPlace : this.state.workPlace,
+            userName : this.state.userName
+        }
+        let setDoc = fireStore.collection('User').doc(userId).set(data);
+        
+        return setDoc;
+
+    }
+    
+    
+    
       
     //   removeData = (developer) => {
     //     const { developers } = this.state;
@@ -106,8 +99,27 @@ class InputInfor extends React.Component {
     //     //this.refs.role.value = developer.role;
     // }
 
-    onHandleChange = (event) =>{
+    // checkJapanese(event){
+    //     event.preventDefault();
         
+    //     var regex = /[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g; 
+    //     var input = this.state.fullName; 
+    //     if(regex.test(input)) {
+    //         //this.writeUserData(true);
+    //         console.log("Japanese characters found")
+    //     }
+    //     else {
+    //         //this.writeUserData(false);
+    //         console.log("No Japanese characters");
+    //     }
+        
+    // }
+
+
+    onHandleChange = (event) =>{
+        // if(this.checkJapanese === true){
+        //     return false;
+        // }
         var target = event.target; 
         var name  = target.name;
         var value = target.value;
@@ -115,40 +127,29 @@ class InputInfor extends React.Component {
 		this.setState({ 
             [name] : value
         });
-        
-        //console.log(target);
 
-        //console.log(name - value);
         
-	}
+    }
+    onHandleSubmit = (e) => {
+
+        
+        e.preventDefault();
+        this.writeUserData();
+        
+
+        
+    }
 
     render() {
-        //const { developers } = this.state;
-        //const {inputs} = this.state;
-        //const {valueOfInput} = this.state;
-        // let elements = inputs.map((nameOfInput , index) => {
-        //     return (
-        //         <div key={index} className="line1">
-        //             <label className="text-right control-label">{nameOfInput.name}</label>
-        //             <input 
-        //                    key={index} 
-        //                    type="text" 
-        //                    className="form-underline" 
-        //                    name={nameOfInput.name}
-        //                    autoComplete = "off"
-        //                    onChange={this.handleChange}
-        //                    value = {valueOfInput}
-        //             />
-        //         </div>
-        //     );
-        // });
+        var {workPlace,workPart,fullName} = this.state;
+        
         return(
-        <form onSubmit={this.onSubmit}>
+        <form name="myForm" onSubmit={this.onSubmit}>
+
             <div className="col-sm-4" style={{paddingBottom : '20px'}}>
+
             <div className="allLine">
 
-                {/* {elements} */}
-         
                 <div  className="line1">
                     <label className="text-right control-label">事業所 : </label>
                     <input 
@@ -158,7 +159,7 @@ class InputInfor extends React.Component {
                            name="workPlace"
                            autoComplete = "off"
                            onChange={this.onHandleChange}
-                           value = {this.state.workPlace}
+                           value = {workPlace}
                     />
                 </div>
 
@@ -171,28 +172,27 @@ class InputInfor extends React.Component {
                            name="workPart"
                            autoComplete = "off"
                            onChange={this.onHandleChange}
-                           value = {this.state.workPart}
+                           value = {workPart}
                     />
                 </div>
 
                 <div  className="line1">
                     <label className="text-right control-label">氏名 : </label>
                     <input 
-                            
                            type="text" 
                            className="form-underline" 
                            name="fullName"
                            autoComplete = "off"
                            onChange={this.onHandleChange}
-                           value = {this.state.fullName}
+                           value = {fullName}
                     />
                 </div>
-                
+
                 
             </div>
 
             <div className="upload-form__submit">
-			    <button type="submit"  className="upload-form__submit__action" onClick={this.handleSubmit}>Upload Picture</button>
+			    <button type="submit"  className="upload-form__submit__action" onClick={this.onHandleSubmit}>Upload Picture</button>
             </div>
         </div>
         </form>    
