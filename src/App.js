@@ -72,16 +72,13 @@ class App extends React.Component{
 					</nav>
 
 					<Switch>
-            
-           <Route path="/login"  component={LoginPage} />  
-						<Route path="/timesheet"  render={() => <TimeSheet user={this.state.user}
-                                                              
-                                                        />} />
-            
-            
+						
+						<Route path="/login"  component={LoginPage} />  
+						<Route path="/timesheet"  render={() => <TimeSheet user={this.state.user}/>} />
 						<Route path="/register"  component={Register} />
-            <Route path="/successfull" component={Successfull} />
-						<Route component={NoMatch} />
+						<Route path="/successfull" component={Successfull} />
+						<Route path="/"  component={LoginPage} />  
+		  				<Route component={NoMatch} />
             
 					</Switch>
 				</div>
