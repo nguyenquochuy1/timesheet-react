@@ -1,5 +1,5 @@
 import React from 'react'
-// import {fireStore}  from '../firebase';
+import { fireStore , fireAuth } from '../firebase';
 
 
 const minOffset = 0;
@@ -24,9 +24,9 @@ constructor(prop) {
           thisDay : thisDay,
           selectedDay : thisDay + 1 ,
         
-          timeOfUser : [],
+          //timeOfUser : []
 
-          userId: ''
+        //   userId: ''
         }
     }
     onHandleChange = (event) => {
@@ -34,14 +34,11 @@ constructor(prop) {
         
         var target = event.target;
         var value = target.value;
-        
-
         this.setState({
             timeOfUser : value
         });
 
         
-
     };
 
     // getTasksData() {
@@ -62,12 +59,25 @@ constructor(prop) {
     //       });
     //   }
 
-    onClick = () => {
-        var timeOfUser = this.onHandleChange;
-        this.setState({
-            timeOfUser : timeOfUser
-        });
+    onHandleSubmit = (event) =>{
+        event.preventDefault();
+        var {thisYear , thisMonth , selectedMonth , thisDay , selectedDay } = this.state
+        console.log(thisYear - thisMonth - selectedMonth - thisDay - selectedDay  );
+        this.getTimeUser();
     }
+
+    getTimeUser(){
+        let userId = fireAuth.currentUser.uid;
+        let {thisYear, thisMonth, selectedMonth, thisDay, selectedDay  } = this.state;
+        let data = {
+            thisYear , thisMonth , selectedMonth, thisDay, selectedDay
+        }
+        let setDoc = fireStore.collection('TimeSheet').doc(userId).set(data);
+        
+        return setDoc;
+    }
+
+    
 
     
 
@@ -118,21 +128,23 @@ constructor(prop) {
     return(
             
         <div className="col-sm-8">
-                    <div className="form-group">
-                        <select value={this.selectedYear} onChange={this.onHandleChange}>
-                            <option>{this.state.thisYear}</option>
-                            {optionsYear}
-                        </select>
-                        <label>年</label>
+            <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                            <select value={this.selectedYear} onChange={this.onHandleChange}>
+                                <option>{this.state.thisYear}</option>
+                                {optionsYear}
+                            </select>
+                            <label>年</label>
 
-                        <select onChange={this.onHandleChange}>
-                            <option>{this.state.selectedMonth} </option>
-                            {optionsMonth}
-                        </select>
+                            <select onChange={this.onHandleChange}>
+                                <option>{this.state.selectedMonth} </option>
+                                {optionsMonth}
+                            </select>
 
-                        <label>月分</label>
-                    </div>
-                    <div className="inline col-sm-12">
+                            <label>月分</label>
+                </div>
+
+                <div className="inline col-sm-12">
                         <div className="sltFirstMonthDay col-sm-6">
                             <select onChange={this.onHandleChange}>
                                 <option>{this.state.thisMonth === 0 ? 12 : this.state.thisMonth}</option>
@@ -157,8 +169,10 @@ constructor(prop) {
                             </select>
                             <label>日</label>
                         </div>
-                </div>
-                <button onClick={this.onClick}>addd</button>
+                    </div>
+                    <button onClick={this.onHandleSubmit}>add</button>
+            </form>
+   
           </div>
             
         )

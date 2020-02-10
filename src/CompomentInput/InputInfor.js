@@ -1,8 +1,6 @@
 import React from 'react';
 import { fireStore , fireAuth } from '../firebase';
-// const name_column1 = '事業所' ;
-// const name_column2 = '部者';
-// const name_column3 = '氏名';
+
 
 class InputInfor extends React.Component {
     
@@ -12,10 +10,11 @@ class InputInfor extends React.Component {
         this.state = {
               
           fullName : '',
+          typeUser : false,
           workPart : '',
           workPlace : '',
-          userName : '',
-          name : ''
+          userName : ''
+          
         }
 
     }
@@ -34,7 +33,7 @@ class InputInfor extends React.Component {
     
     getUserData(){
         
-        var uid = fireAuth.currentUser.uid;
+        var userId = fireAuth.currentUser.uid;
         // if(uid !=null){
 
         // }
@@ -44,7 +43,7 @@ class InputInfor extends React.Component {
 					
 					snapshot.forEach((doc) => {
                         console.log(doc.id);
-                        if(uid === doc.id ){
+                        if(userId === doc.id ){
                             this.setState({
                                 fullName : doc.data().fullName,
                                 workPart : doc.data().workPart,
@@ -64,17 +63,20 @@ class InputInfor extends React.Component {
 				});
     }
 
-    writeUserData(checked){
-        if(checked === false){
-            return false;
-        }
+    writeUserData(){
+
+        // if(uid === uid){
+        //     return false;
+        // }
         let userId = fireAuth.currentUser.uid;
+        var {fullName, typeUser, workPart, workPlace ,userName } = this.state;
         let data = {
-            fullName : this.state.fullName,
-            typeUser : false,
-            workPart : this.state.workPart,
-            workPlace : this.state.workPlace,
-            userName : this.state.userName
+            // fullName : this.state.fullName, // ten cot trong bang : ten cua state
+            // typeUser : false,
+            // workPart : this.state.workPart,
+            // workPlace : this.state.workPlace,
+            // userName : this.state.userName
+            fullName , typeUser ,  workPart , workPlace, userName
         }
         let setDoc = fireStore.collection('User').doc(userId).set(data);
         
@@ -116,39 +118,36 @@ class InputInfor extends React.Component {
     // }
 
 
-    onHandleChange = (event) =>{
-        // if(this.checkJapanese === true){
-        //     return false;
-        // }
-        var target = event.target; 
-        var name  = target.name;
-        var value = target.value;
-        
-		this.setState({ 
-            [name] : value
-        });
+    onHandleChange = (e) =>{
+            
+        this.setState({[e.target.name]: e.target.value});
 
-        
     }
     onHandleSubmit = (e) => {
-
-        
         e.preventDefault();
-        this.writeUserData();
-        
-
-        
+        this.writeUserData();   
     }
 
     render() {
-        var {workPlace,workPart,fullName} = this.state;
+        var {workPlace,workPart,fullName,userName} = this.state;
         
         return(
-        <form name="myForm" onSubmit={this.onSubmit}>
+        
 
             <div className="col-sm-4" style={{paddingBottom : '20px'}}>
 
             <div className="allLine">
+                <div className="line1">
+                <input 
+            
+                        className="form-underline" 
+                        name="userName"
+                        autoComplete = "off"
+                        onChange={this.onHandleChange}
+                        value = {userName}
+     />
+                </div>
+            
 
                 <div  className="line1">
                     <label className="text-right control-label">事業所 : </label>
@@ -195,7 +194,7 @@ class InputInfor extends React.Component {
 			    <button type="submit"  className="upload-form__submit__action" onClick={this.onHandleSubmit}>Upload Picture</button>
             </div>
         </div>
-        </form>    
+      
           
            
         );

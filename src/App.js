@@ -12,7 +12,6 @@ import {fireAuth}   from './firebase';
 
 import Register from './CompomentRegister/Register';
 
-
 class App extends React.Component{
 
   constructor(prop){
@@ -20,11 +19,9 @@ class App extends React.Component{
     this.state = {
       status : false,
       isLoggedIn : true,
-      user: null,
-
-      
+	  user: null,      
     }
-    this.logOutUser = this.logOutUser.bind(this);
+	this.logOutUser = this.logOutUser.bind(this);
   }
 
   componentDidMount(){
@@ -46,12 +43,6 @@ class App extends React.Component{
 
 
   render() {
-    // var {user} = this.state;
-    // if (user === null) {
-    //   return LoginPage;
-    // }
-
-    
     
     return (
       
@@ -75,7 +66,7 @@ class App extends React.Component{
 						
 						<Route path="/login"  component={LoginPage} />  
 						<Route path="/timesheet"  render={() => <TimeSheet user={this.state.user}/>} />
-						<Route path="/register"  component={Register} />
+						<Route path="/register"  component={() =><Register username={this.state.username}/>} />
 						<Route path="/successfull" component={Successfull} />
 						<Route path="/"  component={LoginPage} />  
 		  				<Route component={NoMatch} />
