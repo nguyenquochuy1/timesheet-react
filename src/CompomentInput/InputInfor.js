@@ -42,7 +42,7 @@ class InputInfor extends React.Component {
 				.then((snapshot) => {
 					
 					snapshot.forEach((doc) => {
-                        console.log(doc.id);
+                        //console.log(doc.id);
                         if(userId === doc.id ){
                             this.setState({
                                 fullName : doc.data().fullName,

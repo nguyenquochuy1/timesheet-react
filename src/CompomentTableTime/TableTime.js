@@ -30,21 +30,23 @@ class TableTime extends React.Component {
     return endDay;
   }
 
-  checkTime(){
+  checkTime(value){
+    var parseNum = parseInt(value); 
     
-    //var timeChecker = moment().isValid();  moment().hour(NaN)
-    
-    //console.log(timeChecker);
+    var checkHour = moment(value,'HH').hour(parseNum).isValid();
+    var checkMin = moment(value,'mm').minute(parseNum).isValid();
+    console.log(checkHour  , checkMin);
   }
 
   onhandleChange = (event) => {
     var target = event.target;
     var time = target.name;
     var value = target.value;
+    this.checkTime(value);
     this.setState({
       [time]:value
     });
-    //console.log([time], value);
+    console.log([time], value);
   }
 
   handleClick = (data) => {
