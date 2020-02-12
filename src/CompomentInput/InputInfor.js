@@ -137,15 +137,18 @@ class InputInfor extends React.Component {
             <div className="col-sm-4" style={{paddingBottom : '20px'}}>
 
             <div className="allLine">
+                
                 <div className="line1">
-                <input 
-            
-                        className="form-underline" 
-                        name="userName"
-                        autoComplete = "off"
-                        onChange={this.onHandleChange}
-                        value = {userName}
-     />
+                    <label className="text-right control-label">ユーザー名 : </label>
+                    <input 
+                            type="text"
+                            className="form-underline" 
+                            name="userName"
+                            autoComplete = "off"
+                            onChange={this.onHandleChange}
+                            value = {userName}
+                            readOnly
+                    />
                 </div>
             
 
@@ -159,6 +162,7 @@ class InputInfor extends React.Component {
                            autoComplete = "off"
                            onChange={this.onHandleChange}
                            value = {workPlace}
+                           readOnly
                     />
                 </div>
 
@@ -172,6 +176,7 @@ class InputInfor extends React.Component {
                            autoComplete = "off"
                            onChange={this.onHandleChange}
                            value = {workPart}
+                           readOnly
                     />
                 </div>
 
@@ -184,15 +189,16 @@ class InputInfor extends React.Component {
                            autoComplete = "off"
                            onChange={this.onHandleChange}
                            value = {fullName}
+                           readOnly
                     />
                 </div>
 
                 
             </div>
 
-            <div className="upload-form__submit">
+            {/* <div className="upload-form__submit">
 			    <button type="submit"  className="upload-form__submit__action" onClick={this.onHandleSubmit}>Upload Picture</button>
-            </div>
+            </div> */}
         </div>
       
           

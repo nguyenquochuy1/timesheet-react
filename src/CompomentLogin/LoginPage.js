@@ -52,14 +52,14 @@ class LoginPage extends React.Component {
 				<p className="intro-text">Login to access your account</p>
 				{error && <p className="error-message">{error.message}</p>}
 				<form className="login-form" onSubmit={this.handleSubmit}>
-					<label htmlFor="email">Email address</label>
+					<label htmlFor="email">メールアドレス</label>
 					<input type="email" 
 						   name="email" 
 						   id="email" 
 						   placeholder="Email" 
 						   value={email} 
 						   onChange={this.handleChange} />
-					<label htmlFor="password">Password</label>
+					<label htmlFor="password">パスワード</label>
 					<input 
 						type="password"
 						name="password"
@@ -68,8 +68,8 @@ class LoginPage extends React.Component {
 						value={password}
 						onChange={this.handleChange}
 					/>
-					<button className="general-submit">Log in</button>
-					<p>Don't have an account yet? <Link className="login-btn" to="/register">Register here</Link></p>
+					<button className="general-submit">ログイン</button>
+					<p>まだアカウントを持っていないのですか？ <Link className="login-btn" to="/register">ここに登録</Link></p>
 				</form>
 			</div>
 		);;

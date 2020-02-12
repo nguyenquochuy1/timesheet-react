@@ -20,7 +20,9 @@ class TableTime extends React.Component {
       // type1 : "text",
       // type2 : "file",
       status : status,
-      time : []
+      startHour : '',
+      startMin : '',
+      name : ''
     }
   }
 
@@ -30,35 +32,72 @@ class TableTime extends React.Component {
     return endDay;
   }
 
-  checkTime(value){
-    var parseNum = parseInt(value); 
+  // checkTime(value){
+  //   var parseNum = parseInt(value); 
     
-    var checkHour = moment(value,'HH').hour(parseNum).isValid();
-    var checkMin = moment(value,'mm').minute(parseNum).isValid();
-    console.log(checkHour  , checkMin);
-  }
+  //   var checkHour = moment(value,'HH').hour(parseNum).isValid();
+  //   var checkMin = moment(value,'mm').minute(parseNum).isValid();
+  //   // console.log(checkHour  , checkMin);
+  // }
+
+  // isNumberKey = (evt,value) =>{
+  //   var charCode = (value) ? value : evt.keyCode
+  //   if (charCode > 31 && (charCode < 48 || charCode > 57))
+  //       return false;
+  //   return true;
+  // }
+
+
+  // checkOnlyNumber(value){
+  //   var letter=/^[0-9]+$/;
+  //   if(value.match(letter)){
+  //     console.log('ko phai so');
+  //     return null;
+      
+  //   }
+  //   console.log('la so')
+    // this.setState({
+    //   [name]: value
+    // });
+  //}
+  // onKeyPress = (event) => {
+  //   const keyCode = event.keyCode || event.which;
+  //   const keyValue = String.fromCharCode(keyCode);
+  //    if (/\+|-/.test(keyValue))
+  //      event.preventDefault();
+  //  }
+
 
   onhandleChange = (event) => {
-    var target = event.target;
-    var time = target.name;
-    var value = target.value;
-    this.checkTime(value);
-    this.setState({
-      [time]:value
-    });
-    console.log([time], value);
+    const value = event.target.value;
+    const name = event.target.name;
+    const re = /^[0-9\b]+$/;
+      if (value === '' || re.test(value)) {
+         this.setState({
+           [name]: value
+        })
+      }
+    
   }
 
-  handleClick = (data) => {
-    data.preventDefault();
-    //this.props.onSubmit(this.state);   
-    var {time} = this.state;
-    time.push(data);
-    this.setState({
-      time : data  // new : this.state.old kieu nhu update task
-    });
-    console.log(time);
+  s4(){
+    return Math.floor((1+Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
   }
+  generateID(){
+    return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +this.s4() + '-' + 
+    this.s4() + this.s4()  +this.s4() ;
+  }
+
+  // handleClick = (data) => {
+  //   data.preventDefault();
+  //   //this.props.onSubmit(this.state);   
+  //   var {time} = this.state;
+  //   time.push(data);
+  //   this.setState({
+  //     time : data  // new : this.state.old kieu nhu update task
+  //   });
+  //   console.log(time);
+  // }
 
    
   render() {
@@ -78,7 +117,7 @@ class TableTime extends React.Component {
         let startDay = 21;
         let endDay = 20;
         var dataRow = [];
-        var dataCol = [];
+        // var dataCol = [];
 
         var hourTimeStart = 9; // start hour work
         var hourTimeEnd = 17;   //end hour work
@@ -91,20 +130,20 @@ class TableTime extends React.Component {
          //console.log(moment().format("HH",startDateTime));
         let endDateTime = moment([nextMonthYear, nextMonth, endDay,hourTimeEnd,minTimeEnd]).unix();
          //console.log(moment().format("mm",endDateTime));
-        for (let index = 1; index < 10; index++) {
-          dataCol.push(
-                <td key={index}>
-                  <input onChange={this.onhandleChange} 
-                         className="inputTimes" 
-                         type="text" 
-                         maxLength={2} 
-                         name={`input_${index}`} 
+        // for (let index = 1; index < 10; index++) {
+        //   dataCol.push(
+        //         <td key={index}>
+        //           <input onChange={this.onhandleChange} 
+        //                  className="inputTimes" 
+        //                  type="text" 
+        //                  maxLength={2} 
+        //                  name={`input_${index}`} 
 
-                          />
-                </td>
-                );
-                //console.log(index);
-        }
+        //                   />
+        //         </td>
+        //         );
+        //         //console.log(index);
+        // }
 
         
 
@@ -113,14 +152,106 @@ class TableTime extends React.Component {
             day= moment.unix(day).add(1,"day").unix()) 
           {
             let rowDay = moment.unix(day);
-           
+            var{startHour,name} = this.state;
+            var inputName = this.generateID();
             dataRow.push(
             <tr key={day}>
 
               <td>{rowDay.get("date")}</td>
               <td>{rowDay.format("dd",rowDay.day())}</td>
 
-              {dataCol}
+              {/* {dataCol} */}
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name={`input_${inputName}`}
+                         value={this.state[name]}
+                         
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_2"
+
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_3" 
+
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_4" 
+
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_5" 
+                         readOnly
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_6" 
+
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_7" 
+
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_8" 
+
+                          />
+                </td>
+
+                <td>
+                  <input onChange={this.onhandleChange} 
+                         className="inputTimes" 
+                         type="text" 
+                         maxLength={2} 
+                         name="input_9" 
+
+                          />
+                </td>
 
               <td>
                   <input className="inputTimes" type="file" maxLength={2} />
@@ -133,6 +264,7 @@ class TableTime extends React.Component {
               </td>
 
             </tr>
+
             );          
           }
         
@@ -177,6 +309,8 @@ class TableTime extends React.Component {
                   
                     
                   {dataRow}
+
+                  
 
                   <tr>
                     <td colSpan={2} rowSpan={2}><p style={{margin: '0px', paddingTop : '20px'}}>当月</p><p>会計</p></td>

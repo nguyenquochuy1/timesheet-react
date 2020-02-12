@@ -1,5 +1,5 @@
 import React from 'react';
-import {fireAuth} from '../firebase';
+import { fireStore , fireAuth } from '../firebase';
 import {Link} from 'react-router-dom';
 
 class Register extends React.Component {
@@ -8,14 +8,39 @@ class Register extends React.Component {
 		
 		super(props);
 		this.state = {
-			username: '',
+			userName: '',
+			workPlace:'',
+			workPart : '',
+			fullName:'',
 			email: '',
 			password: '',
+			typeUser : false,
 			error: null
 		}
 
 		
 	}
+
+	writeUserData(){
+
+        // if(uid === uid){
+        //     return false;
+        // }
+        let userId = fireAuth.currentUser.uid;
+        var {fullName, typeUser, workPart, workPlace ,userName } = this.state;
+        let data = {
+            // fullName : this.state.fullName, // ten cot trong bang : ten cua state
+            // typeUser : false,
+            // workPart : this.state.workPart,
+            // workPlace : this.state.workPlace,
+            // userName : this.state.userName
+            fullName , typeUser ,  workPart , workPlace, userName
+        }
+        let setDoc = fireStore.collection('User').doc(userId).set(data);
+        
+        return setDoc;
+
+    }
 	
 
 	handleChange = e => {
@@ -35,10 +60,12 @@ class Register extends React.Component {
 		.catch(error => {
 			this.setState({error});
 		});	
+
+		this.writeUserData();  
 	}
 
 	render(){
-		const {email, username, password, error} = this.state;
+		const {email, userName, workPlace, workPart, fullName, password, error} = this.state;
 		return(
 			<div className="auth--container">
 				<img src="header_logo.png" alt="Smiley face" />
@@ -47,30 +74,63 @@ class Register extends React.Component {
 				
 				<form onSubmit={this.handleSubmit}>
 					
-					<label htmlFor="username">Username</label>
+					<label htmlFor="username">ユーザー名</label>
 					<input type="text" 
-						   name="username"
+						   name="userName"
 						   id="username" 
-						   value={username} 
-						   onChange={this.handleChange} />   
+						   value={userName}
+						   autoComplete = "off"
+						   required 
+						   onChange={this.handleChange} />
 
-					<label htmlFor="email">Email address</label>
+					<label htmlFor="workplace">事業所</label>
+					<input type="text" 
+						   name="workPlace"
+						   id="workplace" 
+						   value={workPlace}
+						   autoComplete = "off"
+						   required 
+						   onChange={this.handleChange} /> 
+
+					<label htmlFor="workpart">部者</label>
+					<input type="text" 
+						   name="workPart"
+						   id="workpart" 
+						   value={workPart}
+						   autoComplete = "off"
+						   required 
+						   onChange={this.handleChange} />
+
+					<label htmlFor="fullname">氏名 </label>
+					<input type="text" 
+						   name="fullName"
+						   id="fullname" 
+						   value={fullName}
+						   autoComplete = "off"
+						   required 
+						   onChange={this.handleChange} />    
+
+					<label htmlFor="email">メールアドレス</label>
 					<input type="text" 
 						   name="email" 
 						   id="email" 
 						   value={email} 
+						   autoComplete = "off"
+						   required
 						   onChange={this.handleChange} />
 
-					<label htmlFor="password">Choose a password</label>
+					<label htmlFor="password">パスワード</label>
 					<input
 						type="password"
 						name="password"
 						id="password"
 						value={password}
+						autoComplete = "off"
+						required
 						onChange={this.handleChange} />
-					<button className="general-submit" children="Sign up" />
+					<button className="general-submit" children="登録" />
 
-					<p>Already have an account? <Link className="login-btn" to="/login">Login here</Link></p>
+					<p>すでにアカウントをお持ちですか？ <Link className="login-btn" to="/login">ここでログイン</Link></p>
 				
 				</form>
 			</div>
