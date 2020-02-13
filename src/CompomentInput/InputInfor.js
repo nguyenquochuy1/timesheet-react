@@ -142,7 +142,7 @@ class InputInfor extends React.Component {
             <div className="allLine">
                 
                 <div className="line1">
-                    <label className="text-right control-label">ユーザー�? : </label>
+                    <label className="text-right control-label">ユーザー名 : </label>
                     <input 
                             type="text"
                             className="form-underline" 
@@ -170,7 +170,7 @@ class InputInfor extends React.Component {
                 </div>
 
                 <div  className="line1">
-                    <label className="text-right control-label">部�? : </label>
+                    <label className="text-right control-label">部分 : </label>
                     <input 
                             
                            type="text" 

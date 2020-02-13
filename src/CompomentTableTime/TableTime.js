@@ -22,7 +22,8 @@ class TableTime extends React.Component {
       status : status,
       startHour : '',
       startMin : '',
-      name : ''
+      input_1: '',
+      input_2 : ''
     }
   }
 
@@ -74,30 +75,31 @@ class TableTime extends React.Component {
     const re = /^[0-9\b]+$/;
       if (value === '' || re.test(value)) {
          this.setState({
-           [name]: value
+            [name]: value
+
         })
       }
     
   }
 
-  s4(){
-    return Math.floor((1+Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
-  }
-  generateID(){
-    return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +this.s4() + '-' + 
-    this.s4() + this.s4()  +this.s4() ;
-  }
-
-  // handleClick = (data) => {
-  //   data.preventDefault();
-  //   //this.props.onSubmit(this.state);   
-  //   var {time} = this.state;
-  //   time.push(data);
-  //   this.setState({
-  //     time : data  // new : this.state.old kieu nhu update task
-  //   });
-  //   console.log(time);
+  // s4(){
+  //   return Math.floor((1+Math.random()) * 0x10000).toString(16).substring(1); //floor la ham lam tron chu so.
   // }
+  // generateID(){
+  //   return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +this.s4() + '-' + 
+  //   this.s4() + this.s4()  +this.s4() ;
+  // }
+
+  onhandleClick = (data) => {
+    data.preventDefault();
+    //this.props.onSubmit(this.state);   
+    var {name} = this.state;
+    //name.push(data);
+    this.setState({
+      name : data  // new : this.state.old kieu nhu update task
+    });
+    console.log(name);
+  }
 
    
   render() {
@@ -153,7 +155,7 @@ class TableTime extends React.Component {
           {
             let rowDay = moment.unix(day);
             var{startHour,name} = this.state;
-            var inputName = this.generateID();
+            //var inputName = this.generateID();
             dataRow.push(
             <tr key={day}>
 
@@ -167,8 +169,8 @@ class TableTime extends React.Component {
                          className="inputTimes" 
                          type="text" 
                          maxLength={2} 
-                         name={`input_${inputName}`}
-                         value={this.state[name]}
+                         name='input_1'
+                         value={this.state.input_1}
                          
                           />
                 </td>
@@ -179,7 +181,7 @@ class TableTime extends React.Component {
                          type="text" 
                          maxLength={2} 
                          name="input_2"
-
+                         value={this.state.input_2}
                           />
                 </td>
 
@@ -342,7 +344,7 @@ class TableTime extends React.Component {
         </div>
 
             <div className="btn-group">
-                <button onClick={this.handleClick} type="button" className="btn btn-primary">Apple</button>
+                <button onClick={this.onhandleClick} type="button" className="btn btn-primary">Apple</button>
                 <button type="button" className="btn btn-primary">Samsung</button>
                 <button type="button" className="btn btn-primary">Sony</button>
             </div>
