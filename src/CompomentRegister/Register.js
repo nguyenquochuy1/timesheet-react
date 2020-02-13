@@ -26,7 +26,8 @@ class Register extends React.Component {
         // if(uid === uid){
         //     return false;
         // }
-        let userId = fireAuth.currentUser.uid;
+		let userId = fireAuth.currentUser.uid;
+		console.log(userId);
         var {fullName, typeUser, workPart, workPlace ,userName } = this.state;
         let data = {
             // fullName : this.state.fullName, // ten cot trong bang : ten cua state
@@ -44,7 +45,9 @@ class Register extends React.Component {
 	
 
 	handleChange = e => {
-		this.setState({[e.target.name]: e.target.value});
+		this.setState({
+			[e.target.name]: e.target.value
+		});
 	}
 
 	handleSubmit = (e) => {
@@ -74,7 +77,7 @@ class Register extends React.Component {
 				
 				<form onSubmit={this.handleSubmit}>
 					
-					<label htmlFor="username">ユーザー名</label>
+					<label htmlFor="username">ユーザー�?</label>
 					<input type="text" 
 						   name="userName"
 						   id="username" 
@@ -92,7 +95,7 @@ class Register extends React.Component {
 						   required 
 						   onChange={this.handleChange} /> 
 
-					<label htmlFor="workpart">部者</label>
+					<label htmlFor="workpart">部�?</label>
 					<input type="text" 
 						   name="workPart"
 						   id="workpart" 
@@ -119,7 +122,7 @@ class Register extends React.Component {
 						   required
 						   onChange={this.handleChange} />
 
-					<label htmlFor="password">パスワード</label>
+					<label htmlFor="password">パスワー�?</label>
 					<input
 						type="password"
 						name="password"
@@ -130,7 +133,7 @@ class Register extends React.Component {
 						onChange={this.handleChange} />
 					<button className="general-submit" children="登録" />
 
-					<p>すでにアカウントをお持ちですか？ <Link className="login-btn" to="/login">ここでログイン</Link></p>
+					<p>すでにアカウントをお持ちですか?�? <Link className="login-btn" to="/login">ここでログイン</Link></p>
 				
 				</form>
 			</div>

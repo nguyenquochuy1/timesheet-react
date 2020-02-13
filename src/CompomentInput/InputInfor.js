@@ -17,6 +17,8 @@ class InputInfor extends React.Component {
           
         }
 
+        
+
     }
 
     componentDidMount(){
@@ -40,7 +42,7 @@ class InputInfor extends React.Component {
         fireStore
 				.collection('User').get()
 				.then((snapshot) => {
-					
+
 					snapshot.forEach((doc) => {
                         //console.log(doc.id);
                         if(userId === doc.id ){
@@ -59,7 +61,7 @@ class InputInfor extends React.Component {
 					
 				})
 					.catch((err) => {
-					console.log('Error getting documents', err);
+                    console.log('Error getting documents', err);
 				});
     }
 
@@ -78,6 +80,7 @@ class InputInfor extends React.Component {
             // userName : this.state.userName
             fullName , typeUser ,  workPart , workPlace, userName
         }
+
         let setDoc = fireStore.collection('User').doc(userId).set(data);
         
         return setDoc;
@@ -139,7 +142,7 @@ class InputInfor extends React.Component {
             <div className="allLine">
                 
                 <div className="line1">
-                    <label className="text-right control-label">ユーザー名 : </label>
+                    <label className="text-right control-label">ユーザー�? : </label>
                     <input 
                             type="text"
                             className="form-underline" 
@@ -167,7 +170,7 @@ class InputInfor extends React.Component {
                 </div>
 
                 <div  className="line1">
-                    <label className="text-right control-label">部者 : </label>
+                    <label className="text-right control-label">部�? : </label>
                     <input 
                             
                            type="text" 
