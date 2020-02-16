@@ -63,16 +63,14 @@ class TableTime extends React.Component {
     let endDateTime = moment([nextMonthYear, nextMonth, endDay, hourTimeEnd, minTimeEnd]).unix();
     
 
-
-
     for (let day = startDateTime;
       day <= endDateTime;
       day = moment.unix(day).add(1, "day").unix()) {
-      let rowDay = moment.unix(day);
-
-      dataRow.push(
-        <DataRow day={day} rowDay={rowDay} />
-      );
+        
+        let rowDay = moment.unix(day);
+        dataRow.push(
+          <DataRow key={day} day={day} rowDay={rowDay} />
+        );
       
     }
 
