@@ -1,5 +1,8 @@
 import React from 'react';
 import moment from 'moment';
+import JapaneseHolidays from 'japanese-holidays';
+
+import '../App.css';
 
 export class DataRow extends React.Component {
     constructor(props){
@@ -15,9 +18,55 @@ export class DataRow extends React.Component {
             input_9 : '',
             inputPeople : '',
             inputWork: '',
-            inputTimes : ''
+            inputTimes : '',
+            
+            readOnly : false
+        }
+    }
+
+    componentDidMount() {
+		this.onCheckSatSun();
+    }
+	
+
+    onCheckSatSun = () =>{
+        const {rowDay,currentYear} = this.props;
+        var checkDay = rowDay.day();
+        var month = 0;
+        var date = 0;
+        // console.log(startDateTime.get('date'));
+        
+        var holidays = JapaneseHolidays.getHolidaysOf( currentYear );
+        holidays.forEach(function(holiday) {
+            month = holiday.month;
+            date = holiday.date;
+            //console.log(holiday.month);
+            //return dateOfHoliday = holiday;
+           // console.log(dateOfHoliday);
+            
+        
+            
+            // console.log(
+            //     currentYear + '年'+
+            //     holiday.month + "月" + 
+            //     holiday.date + "日は " +
+            //     holiday.name + " です"
+            // );
+        });
+        console.log(month , date);
+        if(month === 2 && date === 24){
+            //console.log(holidays , rowDay.get('date'));
+            return true;
+        }
+
+        // console.log(checkDay)
+        if(checkDay === 0 || checkDay === 6){
+            // console.log(checkDay);
+            return true;
+
             
         }
+        return false;
     }
 
 
@@ -96,7 +145,7 @@ export class DataRow extends React.Component {
         const {day,rowDay} = this.props;
         return (
             <tr key={day}>
-                <td>{rowDay.get("date")}</td>
+                <td className={this.onCheckSatSun() ? 'roundCricle' : '' }>{rowDay.get("date")}</td>
                 <td>{rowDay.format("dd", rowDay.day())}</td>
                 <td>
                     <input onChange={this.onhandleChange}

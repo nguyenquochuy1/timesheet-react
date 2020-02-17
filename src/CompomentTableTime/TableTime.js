@@ -47,8 +47,10 @@ class TableTime extends React.Component {
     let nextMonthDateYear = currentMonthDateYear.add(1, "month");
     let nextMonth = nextMonthDateYear.get("month");
     let nextMonthYear = nextMonthDateYear.get("year");
+    
     let startDay = 21;
     let endDay = 20;
+    
     var dataRow = [];
     
 
@@ -68,8 +70,14 @@ class TableTime extends React.Component {
       day = moment.unix(day).add(1, "day").unix()) {
         
         let rowDay = moment.unix(day);
+        //console.log(startDateTime, endDateTime);
         dataRow.push(
-          <DataRow key={day} day={day} rowDay={rowDay} />
+          <DataRow key={day} day={day} 
+                   rowDay={rowDay}
+                   currentYear={currentYear}
+                   startDateTime={startDateTime}
+                   endDateTime={endDateTime}
+                   />
         );
       
     }

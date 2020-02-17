@@ -29,6 +29,11 @@ constructor(prop) {
         //   userId: ''
         }
     }
+
+    componentDidMount(){
+        this.getUserData();
+    }
+    
     onHandleChange = (event) => {
         // Handle Change Here
         
@@ -75,6 +80,40 @@ constructor(prop) {
         let setDoc = fireStore.collection('TimeSheet').doc(userId).set(data);
         
         return setDoc;
+    }
+
+
+    getUserData(){
+        
+        var userId = fireAuth.currentUser.uid;
+        // if(uid !=null){
+
+        // }
+        fireStore
+				.collection('TimeSheet').get()
+				.then((snapshot) => {
+
+					snapshot.forEach((doc) => {
+                        //console.log(doc.id);
+                        if(userId === doc.id ){
+                            this.setState({
+                                selectedDay : doc.data().selectedDay,
+                                selectedMonth : doc.data().selectedMonth,
+                                thisDay : doc.data().thisDay,
+                                thisMonth : doc.data().thisMonth,
+                                thisYear : doc.data().thisYear
+                                //name : doc.data()
+                            });
+                        }
+						
+						
+						//console.log(doc.data());
+					});
+					
+				})
+					.catch((err) => {
+                    console.log('Error getting documents', err);
+				});
     }
 
     
