@@ -20,55 +20,26 @@ export class DataRow extends React.Component {
             inputWork: '',
             inputTimes : '',
             
-            readOnly : false
+            readOnlyStatus : false
         }
-    }
-
-    componentDidMount() {
-		this.onCheckSatSun();
     }
 	
-
     onCheckSatSun = () =>{
-        const {rowDay,currentYear} = this.props;
+        const {rowDay} = this.props;
         var checkDay = rowDay.day();
-        var month = 0;
-        var date = 0;
-        // console.log(startDateTime.get('date'));
-        
-        var holidays = JapaneseHolidays.getHolidaysOf( currentYear );
-        holidays.forEach(function(holiday) {
-            month = holiday.month;
-            date = holiday.date;
-            //console.log(holiday.month);
-            //return dateOfHoliday = holiday;
-           // console.log(dateOfHoliday);
+        var today = new Date(rowDay);
+        console.log(rowDay.get("date"));
+        var holiday = JapaneseHolidays.isHoliday(today);
+        if(holiday || (checkDay === 0 || checkDay === 6)) {
+            console.log("今日は " + holiday + " です");
             
-        
-            
-            // console.log(
-            //     currentYear + '年'+
-            //     holiday.month + "月" + 
-            //     holiday.date + "日は " +
-            //     holiday.name + " です"
-            // );
-        });
-        console.log(month , date);
-        if(month === 2 && date === 24){
-            //console.log(holidays , rowDay.get('date'));
             return true;
+        } else {
+            console.log("今日は祝日ではありません");
+            return false;
         }
-
-        // console.log(checkDay)
-        if(checkDay === 0 || checkDay === 6){
-            // console.log(checkDay);
-            return true;
-
-            
-        }
-        return false;
     }
-
+    
 
     onCheckJapanese = (event) => {
         event.preventDefault();
@@ -79,12 +50,12 @@ export class DataRow extends React.Component {
         var regex = /[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g; 
         //var input = "input string"; 
         if(regex.test(value)) {
+
           console.log("Japanese characters found");
           console.log(value)
-          this.setState({
-            
-            [name]: value
 
+          this.setState({
+            [name]: value
            });
         }
         else {
@@ -92,7 +63,6 @@ export class DataRow extends React.Component {
           console.log("No Japanese characters");
           this.setState({
             [name]: '',
-            
           })
         }
     }
@@ -108,7 +78,9 @@ export class DataRow extends React.Component {
         var checkHour = moment(value,'HH').hour(value).isValid();
         var checkMin = moment(value,'mm').minute(value).isValid();
 
-        const autoChangeTime = [0,1,2,3,4,5,6,7,8,9];
+        
+
+        //const autoChangeTime = [0,1,2,3,4,5,6,7,8,9];
 
         //const itemChange = autoChangeTime.map((item,index) => {return item[index]});
 
@@ -143,6 +115,7 @@ export class DataRow extends React.Component {
 
     render() {
         const {day,rowDay} = this.props;
+        const {readOnlyStatus} = this.state;
         return (
             <tr key={day}>
                 <td className={this.onCheckSatSun() ? 'roundCricle' : '' }>{rowDay.get("date")}</td>
@@ -152,7 +125,8 @@ export class DataRow extends React.Component {
                         className="inputTimes"
                         type="text"
                         maxLength={2}
-                        name='input_1'
+                        name="input_1"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_1}
 
                     />
@@ -164,6 +138,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_2"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_2}
                     />
                 </td>
@@ -174,6 +149,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_3"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_3}
                     />
                 </td>
@@ -184,6 +160,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_4"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_4}
                     />
                 </td>
@@ -194,7 +171,8 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_5"
-                        readOnly
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
+                        value={this.onCheckSatSun() ? '' : '60'}
 
                     />
                 </td>
@@ -205,6 +183,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_6"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_6}
                     />
                 </td>
@@ -215,6 +194,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_7"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_7}
 
                     />
@@ -226,6 +206,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_8"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_8}
 
                     />
@@ -237,6 +218,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_9"
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_9}
 
                     />
@@ -250,14 +232,17 @@ export class DataRow extends React.Component {
                            name='inputWork' 
                            className="inputWork" 
                            type="text" 
-                           maxLength={20} 
+                           maxLength={20}
+                           readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus} 
                            value={this.state.inputWork} />
                 </td>
                 <td>
                     <input onChange={this.onCheckJapanese} 
                            name='inputTimes' 
                            className="inputTimes" 
-                           type="text" maxLength={4} 
+                           type="text" 
+                           maxLength={4}
+                           readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus} 
                            value={this.state.inputTimes} />
                 </td>
 
