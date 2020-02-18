@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import JapaneseHolidays from 'japanese-holidays';
+import { storage } from '../firebase';
 
 import '../App.css';
 
@@ -20,22 +21,64 @@ export class DataRow extends React.Component {
             inputWork: '',
             inputTimes : '',
             
-            readOnlyStatus : false
+            readOnlyStatus : false,
+
+            image: null,
+            url: "",
+            progress: 0
         }
+    }
+
+
+    onFileSelectHanlder = (event) =>{
+        //console.log(event.target.files[0]);
+        if (event.target.files[0]) {
+            const image = event.target.files[0];
+            this.setState(() => ({ image }));
+        }
+    }
+
+    onFileUploadHandler = (event) =>{
+        const { image } = this.state;
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {
+                // progress function ...
+                const progress = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                this.setState({ progress });
+            },
+            error => {
+                // Error function ...
+                console.log(error);
+            },
+            () => {
+                // complete function ...
+                storage
+                    .ref("images")
+                    .child(image.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        this.setState({ url });
+                    });
+            }
+        );
     }
 	
     onCheckSatSun = () =>{
         const {rowDay} = this.props;
         var checkDay = rowDay.day();
         var today = new Date(rowDay);
-        console.log(rowDay.get("date"));
+        // console.log(rowDay.get("date"));
         var holiday = JapaneseHolidays.isHoliday(today);
-        if(holiday || (checkDay === 0 || checkDay === 6)) {
-            console.log("今日は " + holiday + " です");
+        if(holiday || checkDay === 0 || checkDay === 6) {
+            // console.log("今日は " + holiday + " です");
             
             return true;
         } else {
-            console.log("今日は祝日ではありません");
+            // console.log("今日は祝日ではありません");
             return false;
         }
     }
@@ -96,7 +139,7 @@ export class DataRow extends React.Component {
                }else{
                    this.setState({
                        [name] : ''
-                   })
+                   });
                }
         }
 
@@ -117,6 +160,7 @@ export class DataRow extends React.Component {
         const {day,rowDay} = this.props;
         const {readOnlyStatus} = this.state;
         return (
+
             <tr key={day}>
                 <td className={this.onCheckSatSun() ? 'roundCricle' : '' }>{rowDay.get("date")}</td>
                 <td>{rowDay.format("dd", rowDay.day())}</td>
@@ -225,7 +269,39 @@ export class DataRow extends React.Component {
                 </td>
 
                 <td>
-                    <input name="inputPeople" className="inputTimes" type="file" maxLength={2} defaultValue={this.state.inputPeople}  />
+                    {/* <div className="progress">
+                    <div className="progress-bar progress-bar-striped progress-bar-animated" value={this.state.progress}aria-valuemin="0" aria-valuemax="100"/>
+                    </div> */}
+                    
+                    
+                    {/* <img
+                        refs='images'
+                        src={this.state.url || "https://via.placeholder.com/100x200"}
+                        alt="Uploaded Images"
+                        height="2"
+                        width="4"
+                        /> */}
+                    {this.state.image == null ? 
+                        <input
+                        onChange={this.onFileSelectHanlder} 
+                        name="inputPeople" 
+                        className="inputTimes" 
+                        type="file" maxLength={2}
+                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus} 
+                        defaultValue={this.state.image}
+                        
+                    /> : <button onClick={this.onFileUploadHandler} className="waves-effect waves-light btn">Upload</button> 
+
+                            // <img
+                            // refs='images'
+                            // src={this.state.url || "https://via.placeholder.com/100x200"}
+                            // alt="Uploaded Images"
+                            // height="70"
+                            // width="73"
+                            // /> : <button onClick={this.onFileUploadHandler} className="waves-effect waves-light btn">Upload</button>
+                    }
+
+                    
                 </td>
                 <td>
                     <input onChange={this.onCheckJapanese} 

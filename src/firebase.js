@@ -3,6 +3,7 @@
 var app = require("firebase/app");
  require("firebase/auth");
  require("firebase/firestore");
+ require("firebase/storage");
 
   // Your web app's Firebase configuration
   var config = {
@@ -20,5 +21,6 @@ const firebase =   app.initializeApp(config);
 
 export const fireAuth = firebase.auth();
 export const fireStore = firebase.firestore();
+export const storage = firebase.storage();
 
 export default firebase;
