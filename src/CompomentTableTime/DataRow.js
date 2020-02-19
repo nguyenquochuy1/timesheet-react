@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import moment, { duration } from 'moment';
 import JapaneseHolidays from 'japanese-holidays';
 import { storage } from '../firebase';
 
@@ -15,8 +15,8 @@ export class DataRow extends React.Component {
             input_4 : '',
             input_6 : '',
             input_7 : '',
-            input_8 : '',
-            input_9 : '',
+            input_8 : 0,
+            input_9 : 0,
             inputPeople : '',
             inputWork: '',
             inputTimes : '',
@@ -112,7 +112,7 @@ export class DataRow extends React.Component {
 
 
     onhandleChange = (event) => {
-
+        event.preventDefault();
         var target = event.target;
         var name = target.name;
         var value = target.value;
@@ -121,26 +121,20 @@ export class DataRow extends React.Component {
         var checkHour = moment(value,'HH').hour(value).isValid();
         var checkMin = moment(value,'mm').minute(value).isValid();
 
-        
-
-        //const autoChangeTime = [0,1,2,3,4,5,6,7,8,9];
-
-        //const itemChange = autoChangeTime.map((item,index) => {return item[index]});
-
-        
-        // console.log(itemChange);
-
         if(name === 'input_1' || name === 'input_3' || name === 'input_6' || name === 'input_8'){
             if (checkHour && (value === '' || re.test(value))) {
                 
                 this.setState({
                    [name]: value
                   });
-               }else{
+                
+               }
+               else{
                    this.setState({
                        [name] : ''
                    });
                }
+             
         }
 
         if(name === 'input_2' || name === 'input_4' || name === 'input_7' || name === 'input_9'){
@@ -148,13 +142,56 @@ export class DataRow extends React.Component {
                 this.setState({
                    [name]: value
                   });
+                
                }else{
                    this.setState({
                        [name] : ''
                    })
                }
+            
         }
+
+        this.onAutoCalculate();
     }
+
+    onAutoCalculate(){
+
+        var {input_1, input_3, input_2, input_4} = this.state;
+        var hourToMinStart = parseInt(input_1) * 60;
+        var allMinStart = hourToMinStart + parseInt(input_2) ; 
+        var hourToMinEnd = parseInt(input_3) * 60 ;
+        var allMinEnd = hourToMinEnd + parseInt(input_4) ;
+
+        var minWork = allMinEnd - allMinStart ;
+
+        var hours = (minWork / 60);
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+        
+        this.setState({
+            input_6 : rhours,
+            input_7  : rminutes
+        });
+            // var minWorkStart = minStart + input_3 ;
+            // console.log(minWorkStart);
+        // if(input_3 > input_1){
+        //     var minStart = moment().minute(input_1);
+        //     var minWorkStart = minStart + input_3 ;
+        //     console.log(minWorkStart);
+        //     // this.setState({
+        //     //     input_6 : hourWork
+        //     // });
+        // }if (input_4 > input_2) {
+        //     var minWork = input_4 - input_2 ;
+        //     console.log(minWork);
+        //     this.setState({
+        //         input_7 : minWork
+        //     });
+        // }
+    }
+
+
 
     render() {
         const {day,rowDay} = this.props;
@@ -228,7 +265,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_6"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_6}
+                        value={this.onCheckSatSun() ? '' : this.state.input_6}
                     />
                 </td>
 
@@ -239,7 +276,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_7"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_7}
+                        value={this.onCheckSatSun() ? '' : this.state.input_7}
 
                     />
                 </td>
@@ -251,7 +288,8 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_8"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_8}
+                        // value={this.state.input_8}
+                        value = {0}
 
                     />
                 </td>
@@ -263,7 +301,8 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_9"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_9}
+                        // value={this.state.input_9}
+                        value = {0}
 
                     />
                 </td>
