@@ -29,6 +29,12 @@ export class DataRow extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState){
+       if (this.state.input_4 !== prevState.input_4) {
+        this.onAutoCalculate();
+      }
+    }
+
 
     onFileSelectHanlder = (event) =>{
         //console.log(event.target.files[0]);
@@ -125,9 +131,8 @@ export class DataRow extends React.Component {
             if (checkHour && (value === '' || re.test(value))) {
                 
                 this.setState({
-                   [name]: value
-                  });
-                
+                      [name]: value
+                  });  // co the truyen () => this.onAutoCalculate(); sau dấu }, 
                }
                else{
                    this.setState({
@@ -146,12 +151,12 @@ export class DataRow extends React.Component {
                }else{
                    this.setState({
                        [name] : ''
-                   })
+                   });
                }
             
         }
 
-        this.onAutoCalculate();
+        // this.onAutoCalculate();
     }
 
     onAutoCalculate(){
@@ -288,8 +293,8 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_8"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        // value={this.state.input_8}
-                        value = {0}
+                        value={this.state.input_8}
+                        // value = {0}
 
                     />
                 </td>
@@ -301,8 +306,8 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_9"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        // value={this.state.input_9}
-                        value = {0}
+                        value={this.state.input_9}
+                        // value = {0}
 
                     />
                 </td>
@@ -320,6 +325,7 @@ export class DataRow extends React.Component {
                         height="2"
                         width="4"
                         /> */}
+
                     {this.state.image == null ? 
                         <input
                         onChange={this.onFileSelectHanlder} 
