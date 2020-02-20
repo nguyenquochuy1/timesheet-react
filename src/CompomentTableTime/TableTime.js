@@ -6,6 +6,7 @@ import moment from 'moment';
 import 'moment/locale/ja';
 
 import { DataRow } from './DataRow'
+import TimeSheet from '../CompomentTimeSheet/TimeSheet';
 
 class TableTime extends React.Component {
 
@@ -24,6 +25,14 @@ class TableTime extends React.Component {
     const getendDay = new Date(thisYear, thisMonth, 0);
     const endDay = getendDay.getDate();
     return endDay;
+  }
+
+  onClickPopup = () => {
+    var newTimeSheet = new TimeSheet();
+    var onTurnOnPopup = newTimeSheet.togglePopup();
+
+    return onTurnOnPopup;
+
   }
 
   // checkTime(value){
@@ -156,8 +165,12 @@ class TableTime extends React.Component {
         </div>
 
         <div className="btn-group">
-          <button onClick={this.onhandleClick} type="button" className="btn btn-primary">Apple</button>
-          <button type="button" className="btn btn-primary">Samsung</button>
+          <button onClick={this.onClickPopup} type="button" className="btn btn-primary">Apple</button> 
+          <br/>
+          <br/>
+          <button type="button" className="btn btn-primary">Samsung</button>  
+          <br/>
+          <br/>
           <button type="button" className="btn btn-primary">Sony</button>
         </div>
 

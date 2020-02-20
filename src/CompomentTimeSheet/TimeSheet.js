@@ -7,6 +7,7 @@ import Warning from '../ComponentWarning/Warning';
 import ProsessingTest from '../CompomentProssesTest/ProsessingTest';
 import TableAgree from '../CompomentTableAgreement/TableAgree';
 import LoginPage from '../CompomentLogin/LoginPage';
+import Popup from '../CompomentPopup/Popup';
 
 
 
@@ -17,10 +18,17 @@ class TimeSheet extends React.Component{
         this.state = {
           
           status : false,
+          showPopup : false
         //   isLoggedIn : true
         }
 
     }
+
+    togglePopup = () => {  
+		this.setState({  
+			 showPopup: !this.state.showPopup  
+		});  
+	}  
 
     render(){
         // var {aaa} = this.state;
@@ -44,13 +52,28 @@ class TimeSheet extends React.Component{
                             </div>
                         </div>
                     </div>
+
+                    <button onClick={this.togglePopup}> Click To Launch Popup</button>  
+                        {this.state.showPopup ?  
+                        <Popup  
+                            text='Click "Close Button" to hide popup'  
+                            closePopup={this.togglePopup}  
+                        />  
+                        : null  
+                }
+
                 </div>
             );
         }else{
            return(
-            <div className="disallow-chat">
-            {/* <p><Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!</p> */}
+            <div>
+                
+
+                <div className="disallow-chat">
+                {/* <p><Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!</p> */}
                 <LoginPage/>
+                </div>
+
             </div>
            );
         }

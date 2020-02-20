@@ -313,8 +313,6 @@ export class DataRow extends React.Component {
                         name="input_8"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_8}
-                        // value = {0}
-
                     />
                 </td>
 
@@ -326,8 +324,6 @@ export class DataRow extends React.Component {
                         name="input_9"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.state.input_9}
-                        // value = {0}
-
                     />
                 </td>
 
