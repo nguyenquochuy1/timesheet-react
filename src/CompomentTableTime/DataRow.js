@@ -13,10 +13,11 @@ export class DataRow extends React.Component {
             input_2 : '',
             input_3 : '',
             input_4 : '',
-            input_6 : '',
-            input_7 : '',
-            input_8 : 0,
-            input_9 : 0,
+            input_5 : 60,
+            input_6 : null,
+            input_7 : null,
+            input_8 : '',
+            input_9 : '',
             inputPeople : '',
             inputWork: '',
             inputTimes : '',
@@ -29,11 +30,11 @@ export class DataRow extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState){
-       if (this.state.input_4 !== prevState.input_4) {
-        this.onAutoCalculate();
-      }
-    }
+    // componentDidUpdate(prevProps, prevState){
+    //    if (this.state.input_4 !== prevState.input_4) {
+    //     this.onAutoCalculate();
+    //   }
+    // }
 
 
     onFileSelectHanlder = (event) =>{
@@ -129,15 +130,14 @@ export class DataRow extends React.Component {
 
         if(name === 'input_1' || name === 'input_3' || name === 'input_6' || name === 'input_8'){
             if (checkHour && (value === '' || re.test(value))) {
-                
                 this.setState({
                       [name]: value
-                  });  // co the truyen () => this.onAutoCalculate(); sau dấu }, 
+                  },() => this.onAutoCalculate());  // co the truyen () => this.onAutoCalculate(); sau dấu }, 
                }
                else{
                    this.setState({
                        [name] : ''
-                   });
+                   },() => this.onAutoCalculate());
                }
              
         }
@@ -146,12 +146,12 @@ export class DataRow extends React.Component {
             if (checkMin && (value === '' || re.test(value))) {
                 this.setState({
                    [name]: value
-                  });
+                  },() => this.onAutoCalculate());
                 
                }else{
                    this.setState({
                        [name] : ''
-                   });
+                   },() => this.onAutoCalculate());
                }
             
         }
@@ -161,46 +161,64 @@ export class DataRow extends React.Component {
 
     onAutoCalculate(){
 
-        var {input_1, input_3, input_2, input_4} = this.state;
+        var {input_1, input_3, input_2, input_4, input_5} = this.state;
         var hourToMinStart = parseInt(input_1) * 60;
         var allMinStart = hourToMinStart + parseInt(input_2) ; 
         var hourToMinEnd = parseInt(input_3) * 60 ;
         var allMinEnd = hourToMinEnd + parseInt(input_4) ;
+        var relaxTime = input_5;
+        //var minWorkOverTime = parseInt(input_6) * 60 + parseInt(input_7);
 
-        var minWork = allMinEnd - allMinStart ;
+        var minWork = allMinEnd - allMinStart - relaxTime ; 
 
         var hours = (minWork / 60);
         var rhours = Math.floor(hours);
         var minutes = (hours - rhours) * 60;
         var rminutes = Math.round(minutes);
+    
+        if((rhours < 0) || (rminutes < 0)){
+            alert("時間は間違えました！！！");
+            this.setState({
+                input_8 : 0 ,
+                input_9 : 0 
+            });
+            return null;
+            
+        } else{
+            this.setState({
+                input_6 : rhours,
+                input_7  : rminutes
+            });
+        }
         
-        this.setState({
-            input_6 : rhours,
-            input_7  : rminutes
-        });
-            // var minWorkStart = minStart + input_3 ;
-            // console.log(minWorkStart);
-        // if(input_3 > input_1){
-        //     var minStart = moment().minute(input_1);
-        //     var minWorkStart = minStart + input_3 ;
-        //     console.log(minWorkStart);
-        //     // this.setState({
-        //     //     input_6 : hourWork
-        //     // });
-        // }if (input_4 > input_2) {
-        //     var minWork = input_4 - input_2 ;
-        //     console.log(minWork);
-        //     this.setState({
-        //         input_7 : minWork
-        //     });
-        // }
+
+        if(minWork > 465){
+            var minWorkOverTime = minWork - 465;
+            var hourOverTime = (minWorkOverTime / 60);
+            var rhourOverTime = Math.floor(hourOverTime);
+            var minutesOverTime = (hourOverTime - rhourOverTime) * 60;
+            var rminutesOverTime = Math.round(minutesOverTime);
+
+            this.setState({
+                input_6 : 7,
+                input_7 : 45,
+                input_8 : rhourOverTime,
+                input_9 : rminutesOverTime
+            });
+        }else if(minWork  <= 465 ){
+            this.setState({
+                input_8 : 0 ,
+                input_9 : 0 
+            });
+        }
+        
     }
 
 
 
     render() {
         const {day,rowDay} = this.props;
-        const {readOnlyStatus} = this.state;
+        const {readOnlyStatus,input_6} = this.state;
         return (
 
             <tr key={day}>
@@ -258,7 +276,8 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_5"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.onCheckSatSun() ? '' : '60'}
+                        value={this.onCheckSatSun() ? '' : this.state.input_5}
+                        
 
                     />
                 </td>
@@ -270,7 +289,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_6"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.onCheckSatSun() ? '' : this.state.input_6}
+                        value={this.onCheckSatSun() ? '' : input_6}
                     />
                 </td>
 
@@ -313,18 +332,7 @@ export class DataRow extends React.Component {
                 </td>
 
                 <td>
-                    {/* <div className="progress">
-                    <div className="progress-bar progress-bar-striped progress-bar-animated" value={this.state.progress}aria-valuemin="0" aria-valuemax="100"/>
-                    </div> */}
                     
-                    
-                    {/* <img
-                        refs='images'
-                        src={this.state.url || "https://via.placeholder.com/100x200"}
-                        alt="Uploaded Images"
-                        height="2"
-                        width="4"
-                        /> */}
 
                     {this.state.image == null ? 
                         <input
@@ -336,25 +344,16 @@ export class DataRow extends React.Component {
                         defaultValue={this.state.image}
                         
                     /> : <button onClick={this.onFileUploadHandler} className="waves-effect waves-light btn">Upload</button> 
-
-                            // <img
-                            // refs='images'
-                            // src={this.state.url || "https://via.placeholder.com/100x200"}
-                            // alt="Uploaded Images"
-                            // height="70"
-                            // width="73"
-                            // /> : <button onClick={this.onFileUploadHandler} className="waves-effect waves-light btn">Upload</button>
                     }
 
-                    
                 </td>
+
                 <td>
                     <input onChange={this.onCheckJapanese} 
                            name='inputWork' 
                            className="inputWork" 
                            type="text" 
                            maxLength={20}
-                           readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus} 
                            value={this.state.inputWork} />
                 </td>
                 <td>
@@ -362,8 +361,7 @@ export class DataRow extends React.Component {
                            name='inputTimes' 
                            className="inputTimes" 
                            type="text" 
-                           maxLength={4}
-                           readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus} 
+                           maxLength={4} 
                            value={this.state.inputTimes} />
                 </td>
 
