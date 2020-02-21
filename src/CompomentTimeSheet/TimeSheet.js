@@ -20,11 +20,13 @@ class TimeSheet extends React.Component{
           status : false,
           showPopup : false
         //   isLoggedIn : true
+        
         }
+        this.togglePopup = this.togglePopup.bind(this);
 
     }
 
-    togglePopup = () => {  
+    togglePopup(){  
 		this.setState({  
 			 showPopup: !this.state.showPopup  
 		});  

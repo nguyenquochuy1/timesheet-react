@@ -29,9 +29,9 @@ class TableTime extends React.Component {
 
   onClickPopup = () => {
     var newTimeSheet = new TimeSheet();
-    var onTurnOnPopup = newTimeSheet.togglePopup();
+   
 
-    return onTurnOnPopup;
+    return newTimeSheet.togglePopup;
 
   }
 
