@@ -16,26 +16,57 @@ class TimeSheet extends React.Component{
     constructor(prop){
         super(prop);
         this.state = {
+
+          input_1 : '',
+          input_2 : '',
+          input_3 : '',
+          input_4 : '',
+          inputWork: '',
+          inputTimes : '',
           
           status : false,
-          showPopup : false
+          showPopup : false,
+
+          dataPopup : {}
         //   isLoggedIn : true
         
         }
-        this.togglePopup = this.togglePopup.bind(this);
-
+        this.myRefPopup = React.createRef();
+    }
+        
+    dataPopup = (input_1, input_2, input_3, input_4, content, workplace) => {
+        // event.preventDefault();
+        // var copyNode = this.myRefPopup.current.state;
+        // this.setState({
+        //     copyNode : copyNode
+        // });
+        // console.log(copyNode); //??????????
+        console.log(input_1);
+        // this.setState({
+        //     input_1 : input_1 , 
+        // });
+        this.setState({
+            dataPopup: {
+                data1: input_1,
+                data2: input_2,
+                data3: input_3,
+                data4: input_4,
+                dataContent: content,
+                dataWorkplace: workplace
+            }
+        })
     }
 
-    togglePopup(){  
+    togglePopup = () =>{ 
 		this.setState({  
 			 showPopup: !this.state.showPopup  
-		});  
+        });
+        // console.log(this.dataPopup()); 
 	}  
 
     render(){
-        // var {aaa} = this.state;
-        var {status, email} = this.state; // var status = this.state.status;
-        var {user} = this.props;   // var user = this.props.user;
+        var {status} = this.state; // var status = this.state.status; web dau
+        var {user,copyNode} = this.props;   // var user = this.props.user;
         // var {isLoggedIn} = this.state;
         if (user) {
             return (
@@ -44,25 +75,28 @@ class TimeSheet extends React.Component{
                     <div className="container">
                         <div className={status === false ?'statusRender':'row'}>
                             <Time taskTaskTime/>
-                            <InputInfor userName ={email} />
-                            <TableTime status = {this.state.status} />
+                            <InputInfor />
+                            <TableTime dataPopup={this.state.dataPopup} 
+                                       status = {this.state.status} 
+                                       copyNode = {copyNode} 
+                                       input_1 ={this.state.input_1}
+                                       />
                             <Warning/>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <ProsessingTest/>
                                 <TableAgree/>
-                            
                             </div>
                         </div>
                     </div>
-
-                    <button onClick={this.togglePopup}> Click To Launch Popup</button>  
-                        {this.state.showPopup ?  
-                        <Popup  
-                            text='Click "Close Button" to hide popup'  
-                            closePopup={this.togglePopup}  
+                    
+                    {this.state.showPopup ?  
+                        <Popup   
+                            closePopup={this.togglePopup}
+                            ref={this.myRefPopup}
+                            dataPopup ={this.dataPopup}
                         />  
                         : null  
-                }
+                    }
 
                 </div>
             );

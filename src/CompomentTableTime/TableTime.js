@@ -6,18 +6,29 @@ import moment from 'moment';
 import 'moment/locale/ja';
 
 import { DataRow } from './DataRow'
-import TimeSheet from '../CompomentTimeSheet/TimeSheet';
+
+
 
 class TableTime extends React.Component {
 
 
   constructor(props) {
     super(props);
-    var { status } = this.props;
+    var { status  } = this.props;
     this.state = {
-  
       status: status,
+     //dataPopup : this.props, cái quần gì đây
+      copyNode : '',
+      dataPopup: props.dataPopup
+    }
+  }
 
+  //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.dataPopup !== this.state.dataPopup){
+      this.setState({
+        dataPopup: nextProps.dataPopup
+      })
     }
   }
 
@@ -27,21 +38,17 @@ class TableTime extends React.Component {
     return endDay;
   }
 
-  onClickPopup = () => {
-    var newTimeSheet = new TimeSheet();
-   
-
-    return newTimeSheet.togglePopup;
-
+  onClickPopup = (event) => {
+      event.preventDefault();
+      // var copyNode = this.myRefPopup.current.state.value;
+      this.props.copyNode();
+      // this.setState({
+      //   copyNode : copyNode
+      // });
   }
 
-  // checkTime(value){
-  //   var parseNum = parseInt(value); 
 
-  //   var checkHour = moment(value,'HH').hour(parseNum).isValid();
-  //   var checkMin = moment(value,'mm').minute(parseNum).isValid();
-  //   // console.log(checkHour  , checkMin);
-  // }
+
   render() {
 
     // Thích bắt đầu từ tháng nào thì sửa số trong hàm dưới này
@@ -86,6 +93,7 @@ class TableTime extends React.Component {
                    currentYear={currentYear}
                    startDateTime={startDateTime}
                    endDateTime={endDateTime}
+                   dataPopup={this.state.dataPopup}
                    />
         );
       
@@ -96,7 +104,9 @@ class TableTime extends React.Component {
       <div>
         <div className="matchTable">
           <table id="tablecss" className="table table-responsive newtable">
+
             <tbody>
+
               <tr className="titlteTable">
                 <td colSpan={2}>※就業日</td>
                 <td colSpan={2}>※始業時刻</td>

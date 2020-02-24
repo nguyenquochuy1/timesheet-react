@@ -1,8 +1,7 @@
 import React from 'react';
-import moment, { duration } from 'moment';
+import moment from 'moment';
 import JapaneseHolidays from 'japanese-holidays';
 import { storage } from '../firebase';
-
 import '../App.css';
 
 export class DataRow extends React.Component {
@@ -14,8 +13,8 @@ export class DataRow extends React.Component {
             input_3 : '',
             input_4 : '',
             input_5 : 60,
-            input_6 : null,
-            input_7 : null,
+            input_6 : '',
+            input_7 : '',
             input_8 : '',
             input_9 : '',
             inputPeople : '',
@@ -30,10 +29,35 @@ export class DataRow extends React.Component {
         }
     }
 
+    //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.dataPopup)
+        const {dataPopup} = nextProps
+        this.setState({
+            input_1: dataPopup.data1,
+            input_2: dataPopup.data2,
+            input_3: dataPopup.data3,
+            input_4: dataPopup.data4,
+            inputWork : dataPopup.dataContent,
+            inputTimes : dataPopup.dataWorkplace
+
+        },() => this.onAutoCalculate());
+    }
     // componentDidUpdate(prevProps, prevState){
     //    if (this.state.input_4 !== prevState.input_4) {
     //     this.onAutoCalculate();
     //   }
+    // }
+
+    // onDataPopup = () => {
+    //     var {dataPopup} = this.props;
+    //     // this.setState({
+    //     //     input_1 : 
+    //     // });
+
+    //     console.log(dataPopup); giờ m muốn set gì
+
+
     // }
 
 
@@ -207,7 +231,7 @@ export class DataRow extends React.Component {
             });
         }else if(minWork  <= 465 ){
             this.setState({
-                input_8 : 0 ,
+                input_8 : 0,
                 input_9 : 0 
             });
         }
@@ -231,7 +255,9 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_1"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_1}
+                        value={this.onCheckSatSun() ? '' : this.state.input_1}
+
+                        //value={this.onDataPopup}
 
                     />
                 </td>
@@ -243,7 +269,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_2"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_2}
+                        value={this.onCheckSatSun() ? '' : this.state.input_2}
                     />
                 </td>
 
@@ -254,7 +280,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_3"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_3}
+                        value={this.onCheckSatSun() ? '' : this.state.input_3}
                     />
                 </td>
 
@@ -265,7 +291,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_4"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_4}
+                        value={this.onCheckSatSun() ? '' : this.state.input_4}
                     />
                 </td>
 
@@ -312,7 +338,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_8"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_8}
+                        value={this.onCheckSatSun() ? '' : this.state.input_8}
                     />
                 </td>
 
@@ -323,7 +349,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_9"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.state.input_9}
+                        value={this.onCheckSatSun() ? '' : this.state.input_9}
                     />
                 </td>
 
@@ -350,15 +376,17 @@ export class DataRow extends React.Component {
                            className="inputWork" 
                            type="text" 
                            maxLength={20}
-                           value={this.state.inputWork} />
+                           readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
+                           value={this.onCheckSatSun() ? '' : this.state.inputWork} />
                 </td>
                 <td>
                     <input onChange={this.onCheckJapanese} 
                            name='inputTimes' 
                            className="inputTimes" 
                            type="text" 
-                           maxLength={4} 
-                           value={this.state.inputTimes} />
+                           maxLength={4}
+                           readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus} 
+                           value={this.onCheckSatSun() ? '' : this.state.inputTimes} />
                 </td>
 
             </tr>

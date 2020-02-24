@@ -25,6 +25,15 @@ class App extends React.Component {
 			showPopup : false
 		}
 		this.logOutUser = this.logOutUser.bind(this);
+		this.myRef = React.createRef();
+		// this.copyNode = this.copyNode.bind(this);
+		
+	}
+
+	copyNode = () => {
+		
+		//console.log(node);
+		this.myRef.current.togglePopup();
 	}
 
 	componentDidMount() {
@@ -35,6 +44,11 @@ class App extends React.Component {
 				});
 			}
 		});
+
+		// this.myRef.current.togglePopup();
+
+		
+		
 	}
 
 	logOutUser = () => {
@@ -64,7 +78,7 @@ class App extends React.Component {
 					<Switch>
 
 						<Route path="/login" component={LoginPage} />
-						<Route path="/timesheet" render={() => <TimeSheet showPopup={this.state.showPopup} user={this.state.user} />} />
+						<Route path="/timesheet" render={() => <TimeSheet copyNode = {this.copyNode} showPopup={this.state.showPopup} user={this.state.user} ref={this.myRef} />} />
 						<Route path="/register" component={() => <Register username={this.state.username} />} />
 						<Route path="/successfull" component={Successfull} />
 						<Route path="/" component={LoginPage} />
@@ -78,6 +92,7 @@ class App extends React.Component {
 		);
 	}
 }
+
 const NoMatch = ({ location }) => <div>No route match for {location.pathname}</div>;
 const Successfull = () => <div> Successfull  </div>;
 export default App;

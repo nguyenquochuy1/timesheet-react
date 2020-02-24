@@ -8,17 +8,12 @@ class InputInfor extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-              
           fullName : '',
           typeUser : false,
           workPart : '',
           workPlace : '',
           userName : ''
-          
         }
-
-        
-
     }
 
     componentDidMount(){
@@ -65,27 +60,27 @@ class InputInfor extends React.Component {
 				});
     }
 
-    writeUserData(){
+    // writeUserData(){
 
-        // if(uid === uid){
-        //     return false;
-        // }
-        let userId = fireAuth.currentUser.uid;
-        var {fullName, typeUser, workPart, workPlace ,userName } = this.state;
-        let data = {
-            // fullName : this.state.fullName, // ten cot trong bang : ten cua state
-            // typeUser : false,
-            // workPart : this.state.workPart,
-            // workPlace : this.state.workPlace,
-            // userName : this.state.userName
-            fullName , typeUser ,  workPart , workPlace, userName
-        }
+    //     // if(uid === uid){
+    //     //     return false;
+    //     // }
+    //     let userId = fireAuth.currentUser.uid;
+    //     var {fullName, typeUser, workPart, workPlace ,userName } = this.state;
+    //     let data = {
+    //         // fullName : this.state.fullName, // ten cot trong bang : ten cua state
+    //         // typeUser : false,
+    //         // workPart : this.state.workPart,
+    //         // workPlace : this.state.workPlace,
+    //         // userName : this.state.userName
+    //         fullName , typeUser ,  workPart , workPlace, userName
+    //     }
 
-        let setDoc = fireStore.collection('User').doc(userId).set(data);
+    //     let setDoc = fireStore.collection('User').doc(userId).set(data);
         
-        return setDoc;
+    //     return setDoc;
 
-    }
+    // }
     
     
     
@@ -126,10 +121,10 @@ class InputInfor extends React.Component {
         this.setState({[e.target.name]: e.target.value});
 
     }
-    onHandleSubmit = (e) => {
-        e.preventDefault();
-        this.writeUserData();   
-    }
+    // onHandleSubmit = (e) => {
+    //     e.preventDefault();
+    //     this.writeUserData();   
+    // }
 
     render() {
         var {workPlace,workPart,fullName,userName} = this.state;
