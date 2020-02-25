@@ -25,7 +25,8 @@ class Popup extends React.Component {
 		event.preventDefault();
 		var {input_1 , input_2 , input_3 ,input_4 ,content , workplace} = this.state;
 		console.log(input_1 , input_2 , input_3, input_4 ,content , workplace);
-		this.props.dataPopup(input_1, input_2, input_3, input_4, content, workplace) // m truyen ca ngay cungx dc
+		this.props.dataPopup(input_1, input_2, input_3, input_4, content, workplace);
+		this.props.closePopup();
 	}
 
 
@@ -105,7 +106,7 @@ class Popup extends React.Component {
 		<div className='popup'>  
         <div className='popup_inner'>  
             {/* <h1>{this.props.text}</h1>   */}
-            <button onClick={this.props.closePopup}>close me</button>
+            <div class="text-right mb-3"><button type="button" class="btn btn-primary" onClick={this.props.closePopup}data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
 			<div className="auth--container">
 			<form>
 					

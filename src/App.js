@@ -18,11 +18,20 @@ class App extends React.Component {
 
 	constructor(prop) {
 		super(prop);
+		// let authUser = null;
+		// var storageId = 'firebase:uid';
+		// for (let key in localStorage) {
+		// 	if (key === storageId) {
+		// 	  authUser = {};
+		// 	  break;
+		// 	}
+		// }
+
 		this.state = {
 			status: false,
 			isLoggedIn: true,
 			user: null,
-			showPopup : false
+			showPopup : false,
 		}
 		this.logOutUser = this.logOutUser.bind(this);
 		this.myRef = React.createRef();
@@ -45,10 +54,6 @@ class App extends React.Component {
 			}
 		});
 
-		// this.myRef.current.togglePopup();
-
-		
-		
 	}
 
 	logOutUser = () => {

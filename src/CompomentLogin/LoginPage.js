@@ -2,7 +2,7 @@ import React from 'react';
 import '../LoginPage.css';
 
 import { Link } from 'react-router-dom';
-import { fireAuth } from '../firebase'
+import { fireAuth , fireStore } from '../firebase'
 
 
 
@@ -15,6 +15,7 @@ class LoginPage extends React.Component {
             email: '',
 			password: '',
 			error: null,
+			onNoRefresh : false
         }
         this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,19 +34,40 @@ class LoginPage extends React.Component {
 		fireAuth
 			.signInWithEmailAndPassword(email, password)
 			.then(() => {
-				this.props.history.push('/timesheet');
+				
+				this.onNoRefresh();
+				return this.props.history.push('/timesheet');
+				
+					
 			})
 			.catch(error => {
 				this.setState({error});
 			});
 
-		
+		// fireAuth
+		// 	.setPersistence(fireAuth.SESSION)
+		// 	.then(() => {
+		// 		// var provider = new fireAuth.GoogleAuthProvider();
+		// 		return fireAuth.signInWithEmailAndPassword(email, password);
+		// 	})
+	}
+	onNoRefresh = () => {
+		var userid = fireAuth.currentUser.uid;
+		var useridLocal = localStorage.setItem('firebase:uid',userid);
+		if (userid === useridLocal) {
+			this.setState({
+				onNoRefresh : true
+			});
+		}
 	}
 
     render() {
         
-        const {email, password, error} = this.state;
+		const {email, password, error,onNoRefresh} = this.state;
+		// if (onNoRefresh) {	
+		
 		return(
+			
 			<div className="auth--container">
 				{/* <h1>Login</h1> */}
                 <img src="header_logo.png" alt="Smiley face" />

@@ -26,25 +26,15 @@ class TimeSheet extends React.Component{
           
           status : false,
           showPopup : false,
-
           dataPopup : {}
-        //   isLoggedIn : true
+
         
         }
         this.myRefPopup = React.createRef();
     }
         
     dataPopup = (input_1, input_2, input_3, input_4, content, workplace) => {
-        // event.preventDefault();
-        // var copyNode = this.myRefPopup.current.state;
-        // this.setState({
-        //     copyNode : copyNode
-        // });
-        // console.log(copyNode); //??????????
-        console.log(input_1);
-        // this.setState({
-        //     input_1 : input_1 , 
-        // });
+        // console.log(input_1);
         this.setState({
             dataPopup: {
                 data1: input_1,
@@ -54,7 +44,7 @@ class TimeSheet extends React.Component{
                 dataContent: content,
                 dataWorkplace: workplace
             }
-        })
+        });
     }
 
     togglePopup = () =>{ 
@@ -65,9 +55,9 @@ class TimeSheet extends React.Component{
 	}  
 
     render(){
-        var {status} = this.state; // var status = this.state.status; web dau
-        var {user,copyNode} = this.props;   // var user = this.props.user;
-        // var {isLoggedIn} = this.state;
+        var {status} = this.state; 
+        var {user,copyNode} = this.props; 
+    
         if (user) {
             return (
                 <div className="container-fluid newstyle">
@@ -79,7 +69,6 @@ class TimeSheet extends React.Component{
                             <TableTime dataPopup={this.state.dataPopup} 
                                        status = {this.state.status} 
                                        copyNode = {copyNode} 
-                                       input_1 ={this.state.input_1}
                                        />
                             <Warning/>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
