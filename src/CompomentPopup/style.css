@@ -13,13 +13,13 @@
     position: absolute;  
     left: 25%;  
     right: 25%;  
-    top: 2%;  
+    top:100px;  
     bottom: 0%;  
     /* margin: auto; */
     margin-top: 0px;
     margin-bottom: 100px; 
     background: white;
-    height: 600px;
+    height: 610px;
   }
 
   .auth--container{
