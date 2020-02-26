@@ -165,7 +165,8 @@ export class DataRow extends React.Component {
                    });
                }
 
-               console.log(typeof(value));
+            //    console.log(typeof(value));
+
              
         }
 
@@ -180,7 +181,6 @@ export class DataRow extends React.Component {
                        [name] : ''
                    });
                }
-               console.log(typeof(value));
             
         }
 
@@ -189,11 +189,18 @@ export class DataRow extends React.Component {
 
     onAutoCalculate(){
 
-        var {input_1, input_3, input_2, input_4, input_5} = this.state;
-        var hourToMinStart = parseInt(input_1) * 60;
-        var allMinStart = hourToMinStart + parseInt(input_2) ; 
-        var hourToMinEnd = parseInt(input_3) * 60 ;
-        var allMinEnd = hourToMinEnd + parseInt(input_4) ;
+        var {input_1,input_2,input_3,input_4, input_5} = this.state;
+        var hourStart,minStart,hourEnd,minEnd;  
+        if(typeof(input_1) === 'number' || typeof(input_2) === 'number' || typeof(input_3) === 'number' || typeof(input_4) === 'number' ){
+            var hourStart = parseInt(input_1);
+            var minStart = parseInt(input_2);
+            var hourEnd = parseInt(input_3);
+            var minEnd = parseInt(input_4);
+        }
+        var hourToMinStart = hourStart * 60;
+        var allMinStart = hourToMinStart + minStart; 
+        var hourToMinEnd = hourEnd * 60 ;
+        var allMinEnd = hourToMinEnd + minEnd;
         var relaxTime = input_5;
         //var minWorkOverTime = parseInt(input_6) * 60 + parseInt(input_7);
 
