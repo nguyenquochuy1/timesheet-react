@@ -17,10 +17,6 @@ class Popup extends React.Component {
 		}
 	}
 
-	// componentDidMount() {
-    //     this.setState({foo: "works"});
-    // }
-
 	onClick = (event) => {
 		event.preventDefault();
 		var {input_1 , input_2 , input_3 ,input_4 ,content , workplace} = this.state;

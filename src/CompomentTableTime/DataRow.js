@@ -152,21 +152,24 @@ export class DataRow extends React.Component {
         var checkHour = moment(value,'HH').hour(value).isValid();
         var checkMin = moment(value,'mm').minute(value).isValid();
 
-        if(name === 'input_1' || name === 'input_3' || name === 'input_6' || name === 'input_8'){
+        if(name === 'input_1' || name === 'input_3'){
             if (checkHour && (value === '' || re.test(value))) {
                 this.setState({
                       [name]: value
                   },() => this.onAutoCalculate());  // co the truyen () => this.onAutoCalculate(); sau dấu }, 
                }
+               
                else{
                    this.setState({
                        [name] : ''
-                   },() => this.onAutoCalculate());
+                   });
                }
+
+               console.log(typeof(value));
              
         }
 
-        if(name === 'input_2' || name === 'input_4' || name === 'input_7' || name === 'input_9'){
+        if(name === 'input_2' || name === 'input_4'){
             if (checkMin && (value === '' || re.test(value))) {
                 this.setState({
                    [name]: value
@@ -175,8 +178,9 @@ export class DataRow extends React.Component {
                }else{
                    this.setState({
                        [name] : ''
-                   },() => this.onAutoCalculate());
+                   });
                }
+               console.log(typeof(value));
             
         }
 
@@ -196,22 +200,24 @@ export class DataRow extends React.Component {
         var minWork = allMinEnd - allMinStart - relaxTime ; 
 
         var hours = (minWork / 60);
-        var rhours = Math.floor(hours);
+        var rhours = (Math.floor(hours)).toString();
         var minutes = (hours - rhours) * 60;
-        var rminutes = Math.round(minutes);
+        var rminutes = (Math.round(minutes)).toString();
     
         if((rhours < 0) || (rminutes < 0)){
             alert("時間は間違えました！！！");
             this.setState({
-                input_8 : 0 ,
-                input_9 : 0 
+                input_6 : '' ,
+                input_7 : '' ,
+                input_8 : '' ,
+                input_9 : '' ,
             });
             return null;
             
         } else{
             this.setState({
                 input_6 : rhours,
-                input_7  : rminutes
+                input_7 : rminutes
             });
         }
         
@@ -224,15 +230,15 @@ export class DataRow extends React.Component {
             var rminutesOverTime = Math.round(minutesOverTime);
 
             this.setState({
-                input_6 : 7,
-                input_7 : 45,
+                input_6 : '7',
+                input_7 : '45',
                 input_8 : rhourOverTime,
                 input_9 : rminutesOverTime
             });
         }else if(minWork  <= 465 ){
             this.setState({
-                input_8 : 0,
-                input_9 : 0 
+                input_8 : '0',
+                input_9 : '0' 
             });
         }
         
@@ -314,8 +320,8 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_6"
-                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.onCheckSatSun() ? '' : input_6}
+                        readOnly={!readOnlyStatus}
+                        value={input_6}
                     />
                 </td>
 
@@ -325,8 +331,8 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_7"
-                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        value={this.onCheckSatSun() ? '' : this.state.input_7}
+                        readOnly={!readOnlyStatus}
+                        value={this.state.input_7}
 
                     />
                 </td>
