@@ -164,10 +164,7 @@ export class DataRow extends React.Component {
                        [name] : ''
                    });
                }
-
             //    console.log(typeof(value));
-
-             
         }
 
         if(name === 'input_2' || name === 'input_4'){
@@ -181,22 +178,42 @@ export class DataRow extends React.Component {
                        [name] : ''
                    });
                }
-            
         }
 
         // this.onAutoCalculate();
     }
 
+    onCheckAnNum(input_1,input_2,input_3,input_4){
+        // var hourStart,minStart,hourEnd,minEnd;
+        if(input_1 !== ''){
+            let number = parseInt(input_1);
+            if(Number.isInteger(number)){
+                // console.log(number);
+                console.log(typeof(number));
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }  
+        
+    }
+
     onAutoCalculate(){
 
         var {input_1,input_2,input_3,input_4, input_5} = this.state;
-        var hourStart,minStart,hourEnd,minEnd;  
-        if(typeof(input_1) === 'number' || typeof(input_2) === 'number' || typeof(input_3) === 'number' || typeof(input_4) === 'number' ){
-            var hourStart = parseInt(input_1);
-            var minStart = parseInt(input_2);
-            var hourEnd = parseInt(input_3);
-            var minEnd = parseInt(input_4);
-        }
+    
+        if(!this.onCheckAnNum(input_1) || !this.onCheckAnNum(input_2) || !this.onCheckAnNum(input_3) || !this.onCheckAnNum(input_4)){
+            return null;
+        }    
+        //console.log(this.onCheckAnNum(input_1));
+
+        var hourStart = parseInt(input_1);
+        var minStart = parseInt(input_2);
+        var hourEnd = parseInt(input_3);
+        var minEnd = parseInt(input_4);
+
         var hourToMinStart = hourStart * 60;
         var allMinStart = hourToMinStart + minStart; 
         var hourToMinEnd = hourEnd * 60 ;
@@ -328,7 +345,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_6"
                         readOnly={!readOnlyStatus}
-                        value={input_6}
+                        value={this.onCheckSatSun() ? '' : this.state.input_6}
                     />
                 </td>
 
@@ -339,7 +356,7 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_7"
                         readOnly={!readOnlyStatus}
-                        value={this.state.input_7}
+                        value={this.onCheckSatSun() ? '' : this.state.input_7}
 
                     />
                 </td>
