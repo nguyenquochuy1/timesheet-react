@@ -25,13 +25,16 @@ export class DataRow extends React.Component {
 
             image: null,
             url: "",
-            progress: 0
+            progress: 0,
+
+            countWorkDay : 0
         }
+        this.myRefWorkedDay = React.createRef();
     }
 
     //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.dataPopup)
+        // console.log(nextProps.dataPopup)
         const {dataPopup} = nextProps
         this.setState({
             input_1: dataPopup.data1,
@@ -43,75 +46,108 @@ export class DataRow extends React.Component {
 
         },() => this.onAutoCalculate());
     }
-    // componentDidUpdate(prevProps, prevState){
-    //    if (this.state.input_4 !== prevState.input_4) {
-    //     this.onAutoCalculate();
-    //   }
+    
+
+
+    // onFileSelectHanlder = (event) =>{
+    //     //console.log(event.target.files[0]);
+    //     if (event.target.files[0]) {
+    //         const image = event.target.files[0];
+    //         this.setState(() => ({ image }));
+    //     }
     // }
 
-    // onDataPopup = () => {
-    //     var {dataPopup} = this.props;
-    //     // this.setState({
-    //     //     input_1 : 
-    //     // });
-
-    //     console.log(dataPopup); giờ m muốn set gì
-
-
+    // onFileUploadHandler = (event) =>{
+    //     const { image } = this.state;
+    //     const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    //     uploadTask.on(
+    //         "state_changed",
+    //         snapshot => {
+    //             // progress function ...
+    //             const progress = Math.round(
+    //             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //             );
+    //             this.setState({ progress });
+    //         },
+    //         error => {
+    //             // Error function ...
+    //             console.log(error);
+    //         },
+    //         () => {
+    //             // complete function ...
+    //             storage
+    //                 .ref("images")
+    //                 .child(image.name)
+    //                 .getDownloadURL()
+    //                 .then(url => {
+    //                     this.setState({ url });
+    //                 });
+    //         }
+    //     );
     // }
-
-
-    onFileSelectHanlder = (event) =>{
-        //console.log(event.target.files[0]);
-        if (event.target.files[0]) {
-            const image = event.target.files[0];
-            this.setState(() => ({ image }));
-        }
-    }
-
-    onFileUploadHandler = (event) =>{
-        const { image } = this.state;
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        uploadTask.on(
-            "state_changed",
-            snapshot => {
-                // progress function ...
-                const progress = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
-                this.setState({ progress });
-            },
-            error => {
-                // Error function ...
-                console.log(error);
-            },
-            () => {
-                // complete function ...
-                storage
-                    .ref("images")
-                    .child(image.name)
-                    .getDownloadURL()
-                    .then(url => {
-                        this.setState({ url });
-                    });
-            }
-        );
-    }
 	
     onCheckSatSun = () =>{
         const {rowDay} = this.props;
         var checkDay = rowDay.day();
         var today = new Date(rowDay);
-        // console.log(rowDay.get("date"));
         var holiday = JapaneseHolidays.isHoliday(today);
+
         if(holiday || checkDay === 0 || checkDay === 6) {
-            // console.log("今日は " + holiday + " です");
-            
+            // console.log("今日は " + holiday + " です"); 
             return true;
         } else {
             // console.log("今日は祝日ではありません");
             return false;
         }
+        
+    }
+
+    copyNode = () => {
+		
+		//console.log(node);
+		this.myRefWorkedDay.current.onCountWorkDay();
+    }
+    
+
+    onCountWorkDay = () => {
+
+        
+
+        const checkWorkDay = this.onCheckSatSun();
+        
+        var {dataRow,rowDay} = this.props;
+        var countedWorkDay = 0;
+        var countHoliday = 0;
+        var resultDay = 0;
+        for (var index = 0; index < dataRow.length; index++) {
+            
+            const element = dataRow[index];
+            var checkedDay = element.props.rowDay.format("dd", rowDay.day());
+            var checkedDay2 = element.props.rowDay;
+            var today = new Date(checkedDay2);
+            var holiday = JapaneseHolidays.isHoliday(today);
+            // console.log(checkedDay);
+            
+          
+
+            if(holiday){
+                countHoliday = ++countHoliday;
+                console.log(countHoliday);
+            }
+            
+            
+            if(checkedDay !== '土' && checkedDay !== '日'){
+                countedWorkDay = ++countedWorkDay;
+                
+            }
+
+            resultDay = countedWorkDay - countHoliday;
+
+            
+        }
+
+        return resultDay;
+        
     }
     
 
@@ -183,7 +219,7 @@ export class DataRow extends React.Component {
         // this.onAutoCalculate();
     }
 
-    onCheckAnNum(input_1,input_2,input_3,input_4){
+    onCheckAnNum(input_1){
         // var hourStart,minStart,hourEnd,minEnd;
         if(input_1 !== ''){
             let number = parseInt(input_1);
@@ -272,11 +308,11 @@ export class DataRow extends React.Component {
 
     render() {
         const {day,rowDay} = this.props;
-        const {readOnlyStatus,input_6} = this.state;
+        const {readOnlyStatus} = this.state;
         return (
 
-            <tr key={day}>
-                <td className={this.onCheckSatSun() ? 'roundCricle' : '' }>{rowDay.get("date")}</td>
+            <tr id={this.onCheckSatSun() ? 'roundCricle' : '' } key={day}>
+                <td  className={this.onCheckSatSun() ? 'roundCricle' : '' }>{rowDay.get("date")}</td>
                 <td>{rowDay.format("dd", rowDay.day())}</td>
                 <td>
                     <input onChange={this.onhandleChange}
@@ -286,9 +322,6 @@ export class DataRow extends React.Component {
                         name="input_1"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_1}
-
-                        //value={this.onDataPopup}
-
                     />
                 </td>
 
@@ -333,8 +366,6 @@ export class DataRow extends React.Component {
                         name="input_5"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_5}
-                        
-
                     />
                 </td>
 

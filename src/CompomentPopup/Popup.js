@@ -20,7 +20,8 @@ class Popup extends React.Component {
 	onClick = (event) => {
 		event.preventDefault();
 		var {input_1 , input_2 , input_3 ,input_4 ,content , workplace} = this.state;
-		console.log(input_1 , input_2 , input_3, input_4 ,content , workplace);
+		// console.log(input_1 , input_2 , input_3, input_4 ,content , workplace);
+		
 		this.props.dataPopup(input_1, input_2, input_3, input_4, content, workplace);
 		this.props.closePopup();
 	}
@@ -102,7 +103,7 @@ class Popup extends React.Component {
 		<div className='popup'>  
         <div className='popup_inner'>  
             {/* <h1>{this.props.text}</h1>   */}
-            <div class="text-right mb-3"><button type="button" class="btn btn-primary" onClick={this.props.closePopup}data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+            <div className="text-right mb-3"><button type="button" className="btn btn-primary" onClick={this.props.closePopup}data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
 			<div className="auth--container">
 			<form>
 					

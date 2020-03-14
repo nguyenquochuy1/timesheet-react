@@ -5,7 +5,8 @@ import moment from 'moment';
 
 import 'moment/locale/ja';
 
-import { DataRow } from './DataRow'
+import { DataRow } from './DataRow';
+
 
 
 
@@ -17,10 +18,11 @@ class TableTime extends React.Component {
     var { status  } = this.props;
     this.state = {
       status: status,
-     //dataPopup : this.props, cái quần gì đây
       copyNode : '',
-      dataPopup: props.dataPopup
+      dataPopup: props.dataPopup,
+      dataWorkedDay : 0
     }
+    this.myRef = React.createRef();
   }
 
   //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
@@ -39,15 +41,23 @@ class TableTime extends React.Component {
   }
 
   onClickPopup = (event) => {
-      event.preventDefault();
-      // var copyNode = this.myRefPopup.current.state.value;
-      this.props.copyNode();
-      // this.setState({
-      //   copyNode : copyNode
-      // });
+    event.preventDefault();
+    // var copyNode = this.myRefPopup.current.state.value;
+    this.props.copyNode();
+    // this.setState({
+    //   copyNode : copyNode
+    // });
   }
 
-
+  copyNode = () => {
+		
+    //console.log(node);
+    var resultWorkDay = this.myRef.current.onCountWorkDay();
+    this.setState({
+      dataWorkedDay : resultWorkDay
+    });
+		
+	}
 
   render() {
 
@@ -66,6 +76,9 @@ class TableTime extends React.Component {
     
     let startDay = 21;
     let endDay = 20;
+
+    // let startDay = 1;
+    // let endDay = 30;   //render 2 thang liền nhau
     
     var dataRow = [];
     
@@ -79,8 +92,10 @@ class TableTime extends React.Component {
 
     let startDateTime = moment([currentYear, currentMonth, startDay, hourTimeStart, minTimeStart]).unix();
     let endDateTime = moment([nextMonthYear, nextMonth, endDay, hourTimeEnd, minTimeEnd]).unix();
-    
 
+    // console.log(startDateTime - endDateTime);
+
+    
     for (let day = startDateTime;
       day <= endDateTime;
       day = moment.unix(day).add(1, "day").unix()) {
@@ -94,6 +109,8 @@ class TableTime extends React.Component {
                    startDateTime={startDateTime}
                    endDateTime={endDateTime}
                    dataPopup={this.state.dataPopup}
+                   dataRow = {dataRow}
+                   ref={this.myRef}
                    />
         );
       
@@ -148,7 +165,7 @@ class TableTime extends React.Component {
               <tr>
                 <td colSpan={2} rowSpan={2}><p style={{ margin: '0px', paddingTop: '20px' }}>当月</p><p>会計</p></td>
                 <td>出勤日数</td>
-                <td colSpan={2} style={{ textAlign: 'right' }}>日</td>
+                <td colSpan={2} style={{ textAlign: 'right' }}><div style={{ display: 'inline-flex' }}><p>{this.state.dataWorkedDay}</p><p>日</p></div></td>
                 <td colSpan={2}>時間外勤務</td>
                 <td colSpan={3}><div style={{ display: 'inline-flex' }}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
                 <td>欠勤</td>
@@ -159,7 +176,7 @@ class TableTime extends React.Component {
 
               <tr>
                 <td>所定労働日数</td>
-                <td colSpan={2} style={{ textAlign: 'right' }}>日</td>
+                <td colSpan={2} style={{ textAlign: 'right' }}><p>{this.state.dataWorkedDay}日</p></td>
                 <td colSpan={2}>遅刻・早退</td>
                 <td colSpan={3}><div style={{ display: 'inline-flex' }}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
                 <td>有給</td>
@@ -178,7 +195,7 @@ class TableTime extends React.Component {
           <button onClick={this.onClickPopup} type="button" className="btn btn-primary">Apple</button> 
           <br/>
           <br/>
-          <button type="button" className="btn btn-primary">Samsung</button>  
+          <button onClick={this.copyNode} type="button" className="btn btn-primary">Samsung</button>  
           <br/>
           <br/>
           <button type="button" className="btn btn-primary">Sony</button>
