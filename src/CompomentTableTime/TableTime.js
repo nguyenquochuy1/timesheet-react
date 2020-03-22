@@ -18,15 +18,17 @@ class TableTime extends React.Component {
     var { status  } = this.props;
     this.state = {
       status: status,
-      copyNode : '',
+      // copyNode : '',
       dataPopup: props.dataPopup,
-      dataWorkedDay : 0
+      dataWorkedDay : 0,
+      dataWorkHourOverTime : 0,
+      dataWorkMinOverTime : 0
     }
     this.myRef = React.createRef();
   }
 
   //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if(nextProps.dataPopup !== this.state.dataPopup){
       this.setState({
         dataPopup: nextProps.dataPopup
@@ -50,13 +52,42 @@ class TableTime extends React.Component {
   }
 
   copyNode = () => {
-		
-    //console.log(node);
-    var resultWorkDay = this.myRef.current.onCountWorkDay();
-    this.setState({
-      dataWorkedDay : resultWorkDay
-    });
-		
+    // var {dataPopup,dataWorkedDay} = this.state;
+    var stateTotalHourOverTime = this.myRef.current.state.totalHourOverTime;
+    var stateTotalMinOverTime = this.myRef.current.state.totalMinOverTime;
+
+    var totalHourOverTime = 0;
+    var totalMinOverTime = 0;
+
+    totalHourOverTime += stateTotalHourOverTime;
+    totalMinOverTime += stateTotalMinOverTime;
+
+    // console.log(dataPopup);
+
+    console.log(totalHourOverTime , totalMinOverTime);
+    // console.log(node);
+
+    //Check doi tuong co phai la doi tuong rong hay khong.
+    // function isEmpty(obj) {
+    //   return Object.keys(obj).length === 0;
+    // }
+
+    // if(!isEmpty(dataPopup) && dataPopup.data1 !== '' ){
+    //   var resultWorkDay = this.myRef.current.onCountWorkDay();
+    //   // var resultWorkOverTime = this.myRef.current.onCountWorkOverTime();
+    //   this.setState({
+    //     dataWorkedDay : resultWorkDay,
+    //     // dataWorkOverTime : resultWorkOverTime
+    //   });
+    // }else{
+    //   this.setState({
+    //     dataWorkedDay : dataWorkedDay,
+    //     dataWorkHourOverTime : totalHourOverTime,
+    //     dataWorkMinOverTime  : totalMinOverTime
+    //   });
+    // }
+
+
 	}
 
   render() {
@@ -74,8 +105,8 @@ class TableTime extends React.Component {
     let nextMonth = nextMonthDateYear.get("month");
     let nextMonthYear = nextMonthDateYear.get("year");
     
-    let startDay = 21;
-    let endDay = 20;
+    let startDay = 21; // ngay 21 cua thang nay 
+    let endDay = 20;   // ngay 20 cua thang sau
 
     // let startDay = 1;
     // let endDay = 30;   //render 2 thang liền nhau
@@ -88,6 +119,8 @@ class TableTime extends React.Component {
 
     var minTimeStart = 0;
     var minTimeEnd = 45;
+
+    
 
 
     let startDateTime = moment([currentYear, currentMonth, startDay, hourTimeStart, minTimeStart]).unix();
@@ -167,7 +200,7 @@ class TableTime extends React.Component {
                 <td>出勤日数</td>
                 <td colSpan={2} style={{ textAlign: 'right' }}><div style={{ display: 'inline-flex' }}><p>{this.state.dataWorkedDay}</p><p>日</p></div></td>
                 <td colSpan={2}>時間外勤務</td>
-                <td colSpan={3}><div style={{ display: 'inline-flex' }}><p>10</p><p>時間</p><p>10</p><p>分</p></div></td>
+                <td colSpan={3}><div style={{ display: 'inline-flex' }}><p>{this.state.dataWorkHourOverTime}</p><p>時間</p><p>{this.state.dataWorkMinOverTime}</p><p>分</p></div></td>
                 <td>欠勤</td>
                 <td style={{ textAlign: 'right' }}>日</td>
                 <td>振休</td>

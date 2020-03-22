@@ -58,13 +58,21 @@ class Popup extends React.Component {
         var target = event.target;
         var name = target.name;
         var value = target.value;
-		this.setState({
-			[name] : value
-		});
+		// this.setState({
+		// 	[name] : value
+		// });
 
 		const re = /^[0-9\b]+$/;
         var checkHour = moment(value,'HH').hour(value).isValid();
-        var checkMin = moment(value,'mm').minute(value).isValid();
+		var checkMin = moment(value,'mm').minute(value).isValid();
+		
+		// if(name === 'input_1' || name === 'input_3' || name === 'input_2' || name === 'input_4'){
+		// 	if(value === ''){
+		// 		this.setState({
+		// 			input_6 : ''
+		// 		});
+		// 	}
+		// }
 
         if(name === 'input_1' || name === 'input_3'){
             if (checkHour && (value === '' || re.test(value))) {
@@ -92,7 +100,7 @@ class Popup extends React.Component {
                    });
                }
             
-        }
+		}
 	}
 
 

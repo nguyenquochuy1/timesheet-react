@@ -2,7 +2,7 @@ import React from 'react';
 import '../LoginPage.css';
 
 import { Link } from 'react-router-dom';
-import { fireAuth , fireStore } from '../firebase'
+import { fireAuth } from '../firebase'
 
 
 
@@ -63,7 +63,7 @@ class LoginPage extends React.Component {
 
     render() {
         
-		const {email, password, error,onNoRefresh} = this.state;
+		const {email, password, error} = this.state;
 		// if (onNoRefresh) {	
 		
 		return(
