@@ -19,8 +19,9 @@ var app = require("firebase/app");
   // Initialize Firebase
 const firebase =   app.initializeApp(config);
 
+
 export const fireAuth = firebase.auth();
 export const fireStore = firebase.firestore();
 export const storage = firebase.storage();
 
-export default firebase;
+export default firebase.auth().languageCode = 'JP';

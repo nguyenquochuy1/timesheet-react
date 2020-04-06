@@ -21,13 +21,13 @@ class Register extends React.Component {
 		
 	}
 
-	writeUserData(){
+	writeUserData(userId){
 
         // if(uid === uid){
         //     return false;
         // }
-		let userId = fireAuth.currentUser.uid;
-		console.log(userId);
+		
+		// console.log(userId);
         var {fullName, typeUser, workPart, workPlace ,userName } = this.state;
         let data = {
             // fullName : this.state.fullName, // ten cot trong bang : ten cua state
@@ -54,25 +54,32 @@ class Register extends React.Component {
 		e.preventDefault();
 		var {email,password} = this.state;
 		
-		
 		fireAuth
 			.createUserWithEmailAndPassword(email, password)
 			.then(() => {
-				this.props.history.push('/successfull');
-			})
+				let userId = fireAuth.currentUser.uid;
+				this.writeUserData(userId);
+				alert('ban da dang ky thanh cong');  
+				
+			},() => {return this.props.history.push('/timesheet')})
 		.catch(error => {
 			this.setState({error});
 		});	
 
-		this.writeUserData();  
+		
 	}
+
+	// signInUser = () => {
+	// 	this.handleSubmit()
+	// 		.then(window.location = "/successfull");
+	// }
 
 	render(){
 		const {email, userName, workPlace, workPart, fullName, password, error} = this.state;
 		return(
 			<div className="auth--container">
 				<img src="header_logo.png" alt="Smiley face" />
-				<p className="intro-text">Sing up to make new your account</p>
+				<p className="intro-text">Sign up to make new your account</p>
 				{error && <p className="error-message">{error.message}</p>}
 				
 				<form onSubmit={this.handleSubmit}>
@@ -142,4 +149,3 @@ class Register extends React.Component {
 }
 
 export default Register;
-//exports.api = functions.region("asia-east2").https.onRequest(app);

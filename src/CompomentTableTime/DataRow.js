@@ -28,11 +28,12 @@ export class DataRow extends React.Component {
 
             countWorkDay : 0,
 
-            totalHourOverTime : 0,
-            totalMinOverTime : 0
+            // totalHourOverTime : 0,
+            // totalMinOverTime : 0
         }
-        this.myRefWorkedDay = React.createRef();
+        // this.myRefWorkedDay = React.createRef();
         // this.myRefWorkedDay2 = React.createRef();
+        
     }
 
     //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps 
@@ -124,12 +125,12 @@ export class DataRow extends React.Component {
         
     }
 
-    copyNode = () => {
+    // copyNode = () => {
 		
-		//console.log(node);
-        this.myRefWorkedDay.current.onCountWorkDay();
-        // this.myRefWorkedDay2.current.onCountWorkOverTime();
-    }
+	// 	//console.log(node);
+    //     this.myRefWorkedDay.current.onCountWorkDay();
+    //     // this.myRefWorkedDay2.current.onCountWorkOverTime();
+    // }
     
 
     onCountWorkDay = () => {
@@ -142,7 +143,7 @@ export class DataRow extends React.Component {
         var resultDay = 0;
         var resultDay2 = 0; 
         for (var index = 0; index < dataRow.length; index++) {
-            
+       
             const element = dataRow[index];
             var checkedDay = element.props.rowDay.format("dd", rowDay.day());
             var checkedDay2 = element.props.rowDay;
@@ -154,7 +155,7 @@ export class DataRow extends React.Component {
 
             if(holiday){
                 countHoliday = ++countHoliday;
-                console.log(countHoliday);
+                // console.log(countHoliday);
             }
             
             // if(inputTimes === '有休'){
@@ -164,15 +165,15 @@ export class DataRow extends React.Component {
             
             if(checkedDay !== '土' && checkedDay !== '日'){
                 countedWorkDay = ++countedWorkDay;
-                
             }
+
             resultDay  = countedWorkDay - countHoliday;
             resultDay2 = resultDay - sickedDay;
-            // console.log(resultDay2);
+            // console.log(countedWorkDay);
             
         }
-
-        return resultDay2;
+        console.log(resultDay);
+        return resultDay;
         
     }
     
@@ -232,7 +233,7 @@ export class DataRow extends React.Component {
             if (checkMin && (value === '' || re.test(value))) {
                 this.setState({
                    [name]: value
-                  },() => this.onAutoCalculate());
+                  },() => this.onAutoCalculate(),() =>this.name(value));
                 
                }else{
                    this.setState({
@@ -241,8 +242,20 @@ export class DataRow extends React.Component {
                }
         }
 
-        // this.onAutoCalculate();
+        
+    
+       // this.onAutoCalculate();
     }
+
+    async name(rhourOverTime) {
+        // let a = await this.onhandleChange();
+        await this.onhandleChange();
+        this.props.updateOverTimesHour(this.props.day,rhourOverTime);    
+    }
+
+    
+
+    
 
     onCheckAnNum(input_1){
         // var hourStart,minStart,hourEnd,minEnd;
@@ -264,8 +277,8 @@ export class DataRow extends React.Component {
     onAutoCalculate(){
 
         var {input_1,input_2,input_3,input_4, input_5} = this.state;
-        var totalHourOverTime = 0;
-        var totalMinOverTime = 0;
+        // var totalHourOverTime = 0;
+        // var totalMinOverTime = 0;
         if(input_1 === '' || input_2 === '' || input_3 === '' || input_4 === '' ){
             this.setState({
                 input_6 : '' ,
@@ -330,30 +343,34 @@ export class DataRow extends React.Component {
             var rminutesOverTime = Math.round(minutesOverTime);
             
             
-            totalHourOverTime += rhourOverTime;
-            totalMinOverTime += rminutesOverTime; 
+            // totalHourOverTime += rhourOverTime;
+            // totalMinOverTime += rminutesOverTime; 
             
 
             this.setState({
-                input_6 : 7,
-                input_7 : 45,
+                input_6 : '7',
+                input_7 : '45',
                 input_8 : rhourOverTime,
                 input_9 : rminutesOverTime,
-                totalHourOverTime : totalHourOverTime,
-                totalMinOverTime : totalMinOverTime
+                // totalHourOverTime : totalHourOverTime,
+                // totalMinOverTime : totalMinOverTime
             });
+            // this.name(rhourOverTime);
+            // this.props.updateOverTimesHour(this.props.day,rhourOverTime);
 
             
             
         }else if(minWork  <= 465 ){
             this.setState({
+                input_6 : '0',
+                input_7 : '0',
                 input_8 : '0',
                 input_9 : '0' 
             });
             
         }
 
-        console.log(totalHourOverTime , totalMinOverTime);
+        // console.log(totalHourOverTime , totalMinOverTime);
         
     }
 
@@ -377,6 +394,8 @@ export class DataRow extends React.Component {
     render() {
         const {day,rowDay} = this.props;
         const {readOnlyStatus} = this.state;
+        
+
         return (
 
             <tr id={this.onCheckSatSun() ? 'roundCricle' : '' } key={day}>
@@ -478,8 +497,8 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_9"
-                        readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
-                        // readOnly={!readOnlyStatus}
+                        // readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
+                        readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_9}
                     />
                 </td>

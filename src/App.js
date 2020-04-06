@@ -49,7 +49,7 @@ class App extends React.Component {
 		fireAuth.onAuthStateChanged(user => {
 			if (user) {
 				this.setState({
-					user
+					user : user
 				});
 			}
 		});
@@ -81,13 +81,14 @@ class App extends React.Component {
 					</nav>
 
 					<Switch>
-
+						
 						<Route path="/login" component={LoginPage} />
 						<Route path="/timesheet" render={() => <TimeSheet copyNode = {this.copyNode} showPopup={this.state.showPopup} user={this.state.user} ref={this.myRef} />} />
-						<Route path="/register" component={() => <Register username={this.state.username} />} />
-						<Route path="/successfull" component={Successfull} />
+						<Route path="/register" component={() => <Register />} />
+						{/* <Route path="/successfull" component={Successfull} /> */}
 						<Route path="/" component={LoginPage} />
-						<Route component={NoMatch} />
+						{/* <Route component={NoMatch} /> */}
+						
 						
 
 					</Switch>
@@ -98,6 +99,6 @@ class App extends React.Component {
 	}
 }
 
-const NoMatch = ({ location }) => <div>No route match for {location.pathname}</div>;
+// const NoMatch = ({ location }) => <div>No route match for {location.pathname}</div>;
 const Successfull = () => <div> Successfull  </div>;
 export default App;

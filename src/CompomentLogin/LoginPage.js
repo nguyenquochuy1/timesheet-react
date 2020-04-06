@@ -34,22 +34,13 @@ class LoginPage extends React.Component {
 		fireAuth
 			.signInWithEmailAndPassword(email, password)
 			.then(() => {
-				
 				this.onNoRefresh();
-				return this.props.history.push('/timesheet');
-				
-					
+				return this.props.history.push('/timesheet');	
 			})
 			.catch(error => {
+				console.log(error);
 				this.setState({error});
 			});
-
-		// fireAuth
-		// 	.setPersistence(fireAuth.SESSION)
-		// 	.then(() => {
-		// 		// var provider = new fireAuth.GoogleAuthProvider();
-		// 		return fireAuth.signInWithEmailAndPassword(email, password);
-		// 	})
 	}
 	onNoRefresh = () => {
 		var userid = fireAuth.currentUser.uid;
