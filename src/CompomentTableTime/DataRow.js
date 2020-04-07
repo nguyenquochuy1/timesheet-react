@@ -33,6 +33,8 @@ export class DataRow extends React.Component {
         }
         // this.myRefWorkedDay = React.createRef();
         // this.myRefWorkedDay2 = React.createRef();
+
+        // this._handleKeyPress = this._handleKeyPress.bind(this);
         
     }
 
@@ -67,6 +69,14 @@ export class DataRow extends React.Component {
         }
         
     }
+
+    // componentDidMount() {
+    //     for (let x in this.refs) {
+    //       this.refs[x].onkeypress = (e) => 
+    //         this._handleKeyPress(e, this.refs[x]);
+    //     }
+    //     this.refs.name.focus;
+    // }
     
 
 
@@ -203,25 +213,51 @@ export class DataRow extends React.Component {
         }
     }
 
+    checkedKeyBoard = (event)=>{
+        var countedTab = 0 ;
+        if (event.keyCode === 9) {
+            // console.log('aaaaa');
+            // countedTab += 1 ;
+            // if (countedTab === 4) {
+                
+            // }
+
+            console.log('sssss')
+        }
+        return false;
+    }
+
+    // _handleKeyPress(e, field) {
+    //     // If enter key is pressed, focus next input field.
+    //     if (e.keyCode === 13) {
+    //       e.preventDefault();
+    //       let next = this.refs[field.name].nextSibling;
+    //       if (next && next.tagName === "INPUT") {
+    //         this.refs[field.name].nextSibling.focus();
+    //       }
+    //     }
+    // }
+
 
     onhandleChange = (event) => {
+
+       
         event.preventDefault();
         var target = event.target;
         var name = target.name;
         var value = target.value;
 
-        const re = /^[0-9\b]+$/;
         var checkHour = moment(value,'HH').hour(value).isValid();
         var checkMin = moment(value,'mm').minute(value).isValid();
 
         if(name === 'input_1' || name === 'input_3'){
-            if (checkHour && (value === '' || re.test(value))) {
+            if (checkHour) {
                 this.setState({
                       [name]: value
                   },() => this.onAutoCalculate());  // co the truyen () => this.onAutoCalculate(); sau dấu }, 
-               }
+                }
                
-               else{
+            else{
                    this.setState({
                        [name] : ''
                    });
@@ -230,12 +266,12 @@ export class DataRow extends React.Component {
         }
 
         if(name === 'input_2' || name === 'input_4'){
-            if (checkMin && (value === '' || re.test(value))) {
+            if (checkMin) {    
                 this.setState({
                    [name]: value
-                  },() => this.onAutoCalculate(),() =>this.name(value));
-                
-               }else{
+                  },() => this.onAutoCalculate());
+                }
+            else{
                    this.setState({
                        [name] : ''
                    });
@@ -244,14 +280,14 @@ export class DataRow extends React.Component {
 
         
     
-       // this.onAutoCalculate();
+       
     }
 
-    async name(rhourOverTime) {
-        // let a = await this.onhandleChange();
-        await this.onhandleChange();
-        this.props.updateOverTimesHour(this.props.day,rhourOverTime);    
-    }
+    // async name(rhourOverTime) {
+    //     // let a = await this.onhandleChange();
+    //     await this.onhandleChange();
+    //     this.props.updateOverTimesHour(this.props.day,rhourOverTime);    
+    // }
 
     
 
@@ -356,9 +392,13 @@ export class DataRow extends React.Component {
                 // totalMinOverTime : totalMinOverTime
             });
             // this.name(rhourOverTime);
-            // this.props.updateOverTimesHour(this.props.day,rhourOverTime);
 
-            
+            document.addEventListener("keydown", this.checkedKeyBoard, false);
+            let checkPressedTab = this.checkedKeyBoard();
+            if (checkPressedTab) {
+                
+                this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+            }
             
         }else if(minWork  <= 465 ){
             this.setState({
@@ -407,6 +447,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_1"
+                        ref="input_1"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_1}
                     />
@@ -418,6 +459,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_2"
+                        ref="input_2"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_2}
                     />
@@ -429,6 +471,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_3"
+                        ref="input_3"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_3}
                     />
@@ -440,6 +483,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_4"
+                        ref="input_4"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_4}
                     />
@@ -451,6 +495,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_5"
+                        ref="input_5"
                         readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_5}
                     />
@@ -462,6 +507,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_6"
+                        ref="input_6"
                         readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_6}
                     />
@@ -473,6 +519,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_7"
+                        ref="input_7"
                         readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_7}
 
@@ -485,6 +532,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_8"
+                        ref="input_8"
                         // readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_8}
@@ -497,6 +545,7 @@ export class DataRow extends React.Component {
                         type="text"
                         maxLength={2}
                         name="input_9"
+                        ref="input_9"
                         // readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_9}
