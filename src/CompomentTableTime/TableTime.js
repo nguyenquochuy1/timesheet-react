@@ -161,7 +161,7 @@ class TableTime extends React.Component {
                    startDateTime={startDateTime}
                    endDateTime={endDateTime}
                    dataPopup={this.state.dataPopup}
-                   dataRow = {dataRow} //cai nồi gì đây, này e code hả?  dạ để truyển vào trong datarow ok kệ đi, code như shit
+                   dataRow = {dataRow} 
                    ref={this.myRef}
                    updateOverTimesHour={this.updateOverTimesHour}
                    />

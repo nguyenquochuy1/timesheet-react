@@ -67,8 +67,11 @@ export class DataRow extends React.Component {
                 inputTimes : '',
             });
         }
-        
     }
+
+    // componentDidMount(){
+    //     document.addEventListener("keydown", this.checkedKeyBoard, false);
+    // }
 
     // componentDidMount() {
     //     for (let x in this.refs) {
@@ -213,7 +216,7 @@ export class DataRow extends React.Component {
         }
     }
 
-    checkedKeyBoard = (event)=>{
+    checkedKeyBoard = (event,name)=>{
         var countedTab = 0 ;
         if (event.keyCode === 9) {
             // console.log('aaaaa');
@@ -222,9 +225,9 @@ export class DataRow extends React.Component {
                 
             // }
 
-            console.log('sssss')
+            console.log('sssss');
         }
-        return false;
+        
     }
 
     // _handleKeyPress(e, field) {
@@ -241,7 +244,6 @@ export class DataRow extends React.Component {
 
     onhandleChange = (event) => {
 
-       
         event.preventDefault();
         var target = event.target;
         var name = target.name;
@@ -271,16 +273,15 @@ export class DataRow extends React.Component {
                    [name]: value
                   },() => this.onAutoCalculate());
                 }
+
             else{
                    this.setState({
                        [name] : ''
                    });
                }
+            
         }
-
         
-    
-       
     }
 
     // async name(rhourOverTime) {
@@ -293,10 +294,10 @@ export class DataRow extends React.Component {
 
     
 
-    onCheckAnNum(input_1){
+    onCheckAnNum(input){
         // var hourStart,minStart,hourEnd,minEnd;
-        if(input_1 !== ''){
-            let number = parseInt(input_1);
+        if(input !== ''){
+            let number = parseInt(input);
             if(Number.isInteger(number)){
                 // console.log(number);
                 // console.log(typeof(number));
@@ -310,7 +311,7 @@ export class DataRow extends React.Component {
         
     }
 
-    onAutoCalculate(){
+    onAutoCalculate = () =>{
 
         var {input_1,input_2,input_3,input_4, input_5} = this.state;
         // var totalHourOverTime = 0;
@@ -344,9 +345,9 @@ export class DataRow extends React.Component {
         var minWork = allMinEnd - allMinStart - relaxTime ; 
 
         var hours = (minWork / 60);
-        var rhours = (Math.floor(hours)).toString();
+        var rhours = Math.floor(hours);
         var minutes = (hours - rhours) * 60;
-        var rminutes = (Math.round(minutes)).toString();
+        var rminutes = Math.round(minutes);
         
         // if(hourStart >= hourEnd){
         //     alert("時間は間違えました！！！");
@@ -363,12 +364,14 @@ export class DataRow extends React.Component {
             });
             // return null;
             
-        } else{
-            this.setState({
-                input_6 : rhours,
-                input_7 : rminutes
-            });
-        }
+        } 
+        // else{
+        //     this.setState({
+        //         input_6 : rhours,
+        //         input_7 : rminutes
+        //     });
+        // }
+        
         
 
         if(minWork > 465){
@@ -393,12 +396,14 @@ export class DataRow extends React.Component {
             });
             // this.name(rhourOverTime);
 
-            document.addEventListener("keydown", this.checkedKeyBoard, false);
-            let checkPressedTab = this.checkedKeyBoard();
-            if (checkPressedTab) {
+            
+            // let checkPressedTab = this.checkedKeyBoard();
+            // if (checkPressedTab) {
                 
-                this.props.updateOverTimesHour(this.props.day,rhourOverTime);
-            }
+            //     this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+            // }
+
+            
             
         }else if(minWork  <= 465 ){
             this.setState({
@@ -410,9 +415,13 @@ export class DataRow extends React.Component {
             
         }
 
+        // this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+
         // console.log(totalHourOverTime , totalMinOverTime);
         
     }
+
+    
 
     // onCountWorkOverTime(){
     //     var {input_8,countWorkOverTime} = this.state;
