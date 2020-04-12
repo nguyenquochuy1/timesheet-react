@@ -41,8 +41,13 @@ export class DataRow extends React.Component {
     //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps 
     componentWillReceiveProps(nextProps) {
         // console.log(nextProps.dataPopup)
-        const {dataPopup} = nextProps
-        if(dataPopup.data1 !=='' && dataPopup.data2 !=='' && dataPopup.data3 !=='' && dataPopup.data4 !==''){
+        const {dataPopup} = nextProps;
+
+        const isPopupDate_1 = (dataPopup.data1 !== undefined) && (dataPopup.data1 !== '');
+
+        const isPopupData = isPopupDate_1 === true && !!dataPopup.data2 && !!dataPopup.data3 && !!dataPopup.data4;
+
+        if(isPopupData){
             this.setState({
                 input_1: dataPopup.data1,
                 input_2: dataPopup.data2,
@@ -52,20 +57,6 @@ export class DataRow extends React.Component {
                 inputTimes : dataPopup.dataWorkplace
     
             },() => this.onAutoCalculate());
-        }else{
-            this.setState({
-                input_1 : '',
-                input_2 : '',
-                input_3 : '',
-                input_4 : '',
-                input_6 : '',
-                input_7 : '',
-                input_8 : '',
-                input_9 : '',
-                inputPeople : '',
-                inputWork: '',
-                inputTimes : '',
-            });
         }
     }
 
@@ -402,6 +393,8 @@ export class DataRow extends React.Component {
                 
             //     this.props.updateOverTimesHour(this.props.day,rhourOverTime);
             // }
+            console.log(rhourOverTime);
+            this.props.updateOverTimesHour(this.props.day,rhourOverTime);
 
             
             
@@ -415,7 +408,7 @@ export class DataRow extends React.Component {
             
         }
 
-        // this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+        
 
         // console.log(totalHourOverTime , totalMinOverTime);
         

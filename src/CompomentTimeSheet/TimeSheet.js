@@ -35,16 +35,23 @@ class TimeSheet extends React.Component{
         
     dataPopup = (input_1, input_2, input_3, input_4, content, workplace) => {
         // console.log(input_1);
-        this.setState({
-            dataPopup: {
-                data1: input_1,
-                data2: input_2,
-                data3: input_3,
-                data4: input_4,
-                dataContent: content,
-                dataWorkplace: workplace
+        this.setState(
+            {
+                dataPopup: {
+                    data1: input_1,
+                    data2: input_2,
+                    data3: input_3,
+                    data4: input_4,
+                    dataContent: content,
+                    dataWorkplace: workplace
+                }
+            },
+            () => {
+                this.setState({
+                    dataPopup: {}
+                });
             }
-        });
+        );
     }
 
     togglePopup = () =>{ 

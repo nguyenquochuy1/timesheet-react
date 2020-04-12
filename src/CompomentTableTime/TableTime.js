@@ -178,9 +178,9 @@ class TableTime extends React.Component {
 
     let totalHourLamthemgio = Object.values(this.state.overTimesHour).reduce((total, item) => {
       return total + item;
-    },0)
+    },0);
 
-    // console.log(aaa);
+    // console.log(this.state.overTimesHour);
 
     return (
 
