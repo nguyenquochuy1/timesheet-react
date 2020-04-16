@@ -71,7 +71,6 @@ class TableTime extends React.Component {
     var {dataPopup,dataWorkedDay} = this.state;
     var totalHourOverTime;
     var totalMinOverTime;
-    var dataWorkedDay = 0;
     // var stateTotalHourOverTime = this.myRef.current.state.input_8;
     // var stateTotalMinOverTime = this.myRef.current.state.input_9;
 
@@ -86,20 +85,16 @@ class TableTime extends React.Component {
 
     // console.log(stateTotalHourOverTime , stateTotalMinOverTime);
     // console.log(node);
-
-    //Check doi tuong co phai la doi tuong rong hay khong.
-    function isEmpty(obj) {
-      return Object.keys(obj).length === 0;
-    }
-
-    if(!isEmpty(dataPopup) && dataPopup.data1 !== '' ){
+    
+    if(((Object.entries(dataPopup).length === 0)) && dataPopup.data1 !== ''){
+      
       var resultWorkDay = this.myRef.current.onCountWorkDay(); //lấy kết quả của hàm onCountWorkDay trong compoment DataRow 
       // var resultWorkOverTime = this.myRef.current.onCountWorkOverTime();
       this.setState({
         dataWorkedDay : resultWorkDay,
         // dataWorkOverTime : resultWorkOverTime
       });
-    }else if(dataPopup.data1 === '' ){
+    }else if(dataPopup.data1 !== '' ){
       this.setState({
         dataWorkedDay : dataWorkedDay,
         dataWorkHourOverTime : totalHourOverTime,
