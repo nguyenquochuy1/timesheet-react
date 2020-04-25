@@ -62,7 +62,6 @@ class Popup extends React.Component {
 		// 	[name] : value
 		// });
 
-		const re = /^[0-9\b]+$/;
         var checkHour = moment(value,'HH').hour(value).isValid();
 		var checkMin = moment(value,'mm').minute(value).isValid();
 		
@@ -75,7 +74,7 @@ class Popup extends React.Component {
 		// }
 
         if(name === 'input_1' || name === 'input_3'){
-            if (checkHour && (value === '' || re.test(value))) {
+            if (checkHour) {
                 this.setState({
                       [name]: value
                   });  // co the truyen () => this.onAutoCalculate(); sau dấu }, 
@@ -89,7 +88,7 @@ class Popup extends React.Component {
 		}
 		
 		if(name === 'input_2' || name === 'input_4'){
-            if (checkMin && (value === '' || re.test(value))) {
+            if (checkMin) {
                 this.setState({
                    [name]: value
                   });

@@ -28,25 +28,20 @@ export class DataRow extends React.Component {
 
             countWorkDay : 0,
 
-            // totalHourOverTime : 0,
-            // totalMinOverTime : 0
         }
-        // this.myRefWorkedDay = React.createRef();
-        // this.myRefWorkedDay2 = React.createRef();
-
-        // this._handleKeyPress = this._handleKeyPress.bind(this);
+       
         
     }
 
     //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         // console.log(nextProps.dataPopup)
         const {dataPopup} = nextProps;
 
         const isPopupDate_1 = (dataPopup.data1 !== undefined) && (dataPopup.data1 !== '');
 
         const isPopupData = isPopupDate_1 === true && !!dataPopup.data2 && !!dataPopup.data3 && !!dataPopup.data4;
-
+        
         if(isPopupData){
             this.setState({
                 input_1: dataPopup.data1,
@@ -128,24 +123,14 @@ export class DataRow extends React.Component {
         }
         
     }
-
-    // copyNode = () => {
-		
-	// 	//console.log(node);
-    //     this.myRefWorkedDay.current.onCountWorkDay();
-    //     // this.myRefWorkedDay2.current.onCountWorkOverTime();
-    // }
     
-
     onCountWorkDay = () => {
 
         // const checkWorkDay = this.onCheckSatSun();
-        var {dataRow,rowDay} = this.props;
+        var {dataRow,rowDay,dataRowLength} = this.props;
         var countedWorkDay = 0;
-        var countHoliday = 0;
-        var sickedDay = 0;
+        //var sickedDay = 0;
         var resultDay = 0;
-        var resultDay2 = 0; 
         for (var index = 0; index < dataRow.length; index++) {
        
             const element = dataRow[index];
@@ -153,27 +138,12 @@ export class DataRow extends React.Component {
             var checkedDay2 = element.props.rowDay;
             var today = new Date(checkedDay2);
             var holiday = JapaneseHolidays.isHoliday(today);
-            // console.log(checkedDay);
-            
-          
-
-            if(holiday){
-                countHoliday = ++countHoliday;
-                // console.log(countHoliday);
-            }
-            
-            // if(inputTimes === '有休'){
-            //     sickedDay = ++sickedDay;
-            //     console.log(sickedDay);
-            // }
-            
-            if(checkedDay !== '土' && checkedDay !== '日'){
+        
+            if(checkedDay === '土' || checkedDay === '日' || holiday){
                 countedWorkDay = ++countedWorkDay;
             }
 
-            resultDay  = countedWorkDay - countHoliday;
-            resultDay2 = resultDay - sickedDay;
-            // console.log(countedWorkDay);
+            resultDay  = dataRowLength -  countedWorkDay;
             
         }
         console.log(resultDay);
@@ -206,31 +176,6 @@ export class DataRow extends React.Component {
           })
         }
     }
-
-    checkedKeyBoard = (event,name)=>{
-        var countedTab = 0 ;
-        if (event.keyCode === 9) {
-            // console.log('aaaaa');
-            // countedTab += 1 ;
-            // if (countedTab === 4) {
-                
-            // }
-
-            console.log('sssss');
-        }
-        
-    }
-
-    // _handleKeyPress(e, field) {
-    //     // If enter key is pressed, focus next input field.
-    //     if (e.keyCode === 13) {
-    //       e.preventDefault();
-    //       let next = this.refs[field.name].nextSibling;
-    //       if (next && next.tagName === "INPUT") {
-    //         this.refs[field.name].nextSibling.focus();
-    //       }
-    //     }
-    // }
 
 
     onhandleChange = (event) => {
@@ -275,16 +220,6 @@ export class DataRow extends React.Component {
         
     }
 
-    // async name(rhourOverTime) {
-    //     // let a = await this.onhandleChange();
-    //     await this.onhandleChange();
-    //     this.props.updateOverTimesHour(this.props.day,rhourOverTime);    
-    // }
-
-    
-
-    
-
     onCheckAnNum(input){
         // var hourStart,minStart,hourEnd,minEnd;
         if(input !== ''){
@@ -300,6 +235,14 @@ export class DataRow extends React.Component {
             return false;
         }  
         
+    }
+
+    textLength(input_4){
+        var maxLength = 2;
+        if (input_4.length === maxLength) {
+            return true;
+        }
+        return false;
     }
 
     onAutoCalculate = () =>{
@@ -320,95 +263,72 @@ export class DataRow extends React.Component {
             return null;
         }    
         //console.log(this.onCheckAnNum(input_1));
-
-        var hourStart = parseInt(input_1);
-        var minStart = parseInt(input_2);
-        var hourEnd = parseInt(input_3);
-        var minEnd = parseInt(input_4);
-
-        var hourToMinStart = hourStart * 60;
-        var allMinStart = hourToMinStart + minStart; 
-        var hourToMinEnd = hourEnd * 60 ;
-        var allMinEnd = hourToMinEnd + minEnd;
-        var relaxTime = input_5;
-        //var minWorkOverTime = parseInt(input_6) * 60 + parseInt(input_7);
-
-        var minWork = allMinEnd - allMinStart - relaxTime ; 
-
-        var hours = (minWork / 60);
-        var rhours = Math.floor(hours);
-        var minutes = (hours - rhours) * 60;
-        var rminutes = Math.round(minutes);
         
-        // if(hourStart >= hourEnd){
-        //     alert("時間は間違えました！！！");
-        // }
-        
-        if((rhours < 0) || (rminutes < 0)){
-            // alert("時間は間違えました！！！");
-            
-            this.setState({
-                input_6 : '' ,
-                input_7 : '' ,
-                input_8 : '' ,
-                input_9 : '' ,
-            });
-            // return null;
-            
-        } 
-        // else{
-        //     this.setState({
-        //         input_6 : rhours,
-        //         input_7 : rminutes
-        //     });
-        // }
-        
-        
+        if(this.textLength(input_4)){
+            var hourStart = parseInt(input_1);
+            var minStart = parseInt(input_2);
+            var hourEnd = parseInt(input_3);
+            var minEnd = parseInt(input_4);
 
-        if(minWork > 465){
-            var minWorkOverTime = minWork - 465;
-            var hourOverTime = (minWorkOverTime / 60);
-            var rhourOverTime = Math.floor(hourOverTime);
-            var minutesOverTime = (hourOverTime - rhourOverTime) * 60;
-            var rminutesOverTime = Math.round(minutesOverTime);
-            
-            
-            // totalHourOverTime += rhourOverTime;
-            // totalMinOverTime += rminutesOverTime; 
-            
+            var hourToMinStart = hourStart * 60;
+            var allMinStart = hourToMinStart + minStart; 
+            var hourToMinEnd = hourEnd * 60 ;
+            var allMinEnd = hourToMinEnd + minEnd;
+            var relaxTime = input_5;
+            //var minWorkOverTime = parseInt(input_6) * 60 + parseInt(input_7);
 
-            this.setState({
-                input_6 : '7',
-                input_7 : '45',
-                input_8 : rhourOverTime,
-                input_9 : rminutesOverTime,
-                // totalHourOverTime : totalHourOverTime,
-                // totalMinOverTime : totalMinOverTime
-            });
-            // this.name(rhourOverTime);
+            var minWork = allMinEnd - allMinStart - relaxTime ; 
 
+            var hours = (minWork / 60);
+            var rhours = Math.floor(hours);
+            var minutes = (hours - rhours) * 60;
+            var rminutes = Math.round(minutes);
             
-            // let checkPressedTab = this.checkedKeyBoard();
-            // if (checkPressedTab) {
-                
-            //     this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+            // if(hourStart >= hourEnd){
+            //     alert("時間は間違えました！！！");
             // }
-            console.log(rhourOverTime);
-            this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+            
+            if((rhours < 0) || (rminutes < 0)){
+                // alert("時間は間違えました！！！");
+                
+                this.setState({
+                    input_6 : '' ,
+                    input_7 : '' ,
+                    input_8 : '' ,
+                    input_9 : '' ,
+                });
+    
+            } 
+            
+            
+            
 
-            
-            
-        }else if(minWork  <= 465 ){
-            this.setState({
-                input_6 : '0',
-                input_7 : '0',
-                input_8 : '0',
-                input_9 : '0' 
-            });
-            
-        }
-
+            if(minWork > 465){
+                var minWorkOverTime = minWork - 465;
+                var hourOverTime = (minWorkOverTime / 60);
+                var rhourOverTime = Math.floor(hourOverTime);
+                var minutesOverTime = (hourOverTime - rhourOverTime) * 60;
+                var rminutesOverTime = Math.round(minutesOverTime);
         
+                this.setState({
+                    input_6 : '7',
+                    input_7 : '45',
+                    input_8 : rhourOverTime,
+                    input_9 : rminutesOverTime,
+                    
+                });
+                this.props.updateOverTimesHour(this.props.day,rhourOverTime);
+                this.props.updateOverTimesMin(this.props.day,rminutesOverTime);   
+            }else if(minWork  <= 465 ){
+                this.setState({
+                    input_6 : '0',
+                    input_7 : '0',
+                    input_8 : '0',
+                    input_9 : '0' 
+                });
+                
+            }
+        }
 
         // console.log(totalHourOverTime , totalMinOverTime);
         
@@ -535,7 +455,6 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_8"
                         ref="input_8"
-                        // readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_8}
                     />
@@ -548,7 +467,6 @@ export class DataRow extends React.Component {
                         maxLength={2}
                         name="input_9"
                         ref="input_9"
-                        // readOnly={this.onCheckSatSun() ? !readOnlyStatus : readOnlyStatus}
                         readOnly={!readOnlyStatus}
                         value={this.onCheckSatSun() ? '' : this.state.input_9}
                     />

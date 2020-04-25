@@ -45,12 +45,12 @@ class TimeSheet extends React.Component{
                     dataContent: content,
                     dataWorkplace: workplace
                 }
-            },
-            () => {
-                this.setState({
-                    dataPopup: {}
-                });
             }
+            // () => {
+            //     this.setState({
+            //         dataPopup: {}
+            //     });
+            // }
         );
     }
 
@@ -75,7 +75,8 @@ class TimeSheet extends React.Component{
                             <InputInfor />
                             <TableTime dataPopup={this.state.dataPopup} 
                                        status = {this.state.status} 
-                                       copyNode = {copyNode} 
+                                       copyNode = {copyNode}
+                                       inputHourStart = {this.state.input_1} 
                                        />
                             <Warning/>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">

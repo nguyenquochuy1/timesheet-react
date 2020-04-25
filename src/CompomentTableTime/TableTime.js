@@ -15,31 +15,43 @@ class TableTime extends React.Component {
 
   constructor(props) {
     super(props);
-    var { status  } = this.props;
+    var {status ,dataPopup} = this.props;
     this.state = {
       status: status,
-      // copyNode : '',
-      dataPopup: props.dataPopup,
+      dataPopup: dataPopup,
       dataWorkedDay : 0,
       dataWorkHourOverTime : 0,
       dataWorkMinOverTime : 0,
 
       totalHourOverTime : 0,
       totalMinOverTime : 0,
-      overTimesHour: {}
+      overTimesHour: {},
+      overTimesMin : {}
     }
     this.myRef = React.createRef();
    
   }
 
   updateOverTimesHour = (day, value) =>{
-    console.log(day,value)
+    console.log(day,value);
     this.setState({
       overTimesHour: {
+        ...this.state.overTimesHour, // update đối tượng bằng dấu chấm ... -> giá trị day: value sẽ 
         [day]: value,
-        ...this.state.overTimesHour // 
       }
-    })
+    });
+    //console.log(this.state.overTimesHour);
+  }
+
+  updateOverTimesMin = (day, value) =>{
+    console.log(day,value);
+    this.setState({
+      overTimesMin: {
+        ...this.state.overTimesMin, // update đối tượng bằng dấu chấm ... -> giá trị day: value sẽ 
+        [day]: value,
+      }
+    });
+    //console.log(this.state.overTimesMin);
   }
 
   //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
@@ -69,40 +81,18 @@ class TableTime extends React.Component {
 
   copyNode = () => {
     var {dataPopup,dataWorkedDay} = this.state;
-    var totalHourOverTime;
-    var totalMinOverTime;
-    // var stateTotalHourOverTime = this.myRef.current.state.input_8;
-    // var stateTotalMinOverTime = this.myRef.current.state.input_9;
+    //var {inputHourStart} = this.props;
 
-    // totalHourOverTime += stateTotalHourOverTime;
-    // totalMinOverTime += stateTotalMinOverTime;
-
-    // this.setState({
-    //   totalHourOverTime : totalHourOverTime,
-    //   totalMinOverTime : totalMinOverTime
-    // });
-    // // console.log(dataPopup);
-
-    // console.log(stateTotalHourOverTime , stateTotalMinOverTime);
-    // console.log(node);
-    
-    if(((Object.entries(dataPopup).length === 0)) && dataPopup.data1 !== ''){
-      
+    if(dataPopup.data1 !== ''){
       var resultWorkDay = this.myRef.current.onCountWorkDay(); //lấy kết quả của hàm onCountWorkDay trong compoment DataRow 
-      // var resultWorkOverTime = this.myRef.current.onCountWorkOverTime();
       this.setState({
         dataWorkedDay : resultWorkDay,
-        // dataWorkOverTime : resultWorkOverTime
       });
-    }else if(dataPopup.data1 !== '' ){
+    }else if(dataPopup.data1 === '' ){
       this.setState({
-        dataWorkedDay : dataWorkedDay,
-        dataWorkHourOverTime : totalHourOverTime,
-        dataWorkMinOverTime  : totalMinOverTime
+        dataWorkedDay : dataWorkedDay
       });
     }
-
-
   }
 
   render() {
@@ -140,7 +130,6 @@ class TableTime extends React.Component {
     let endDateTime = moment([nextMonthYear, nextMonth, endDay, hourTimeEnd, minTimeEnd]).unix();
 
     // console.log(startDateTime - endDateTime);
-
     
     for (let day = startDateTime;
       day <= endDateTime;
@@ -148,6 +137,9 @@ class TableTime extends React.Component {
         
         let rowDay = moment.unix(day);
         //console.log(startDateTime, endDateTime);
+        let dataRowLength = dataRow.length + 1;
+
+        
         dataRow.push(
           <DataRow key={day} 
                    day={day} 
@@ -157,8 +149,10 @@ class TableTime extends React.Component {
                    endDateTime={endDateTime}
                    dataPopup={this.state.dataPopup}
                    dataRow = {dataRow} 
+                   dataRowLength = {dataRowLength}
                    ref={this.myRef}
                    updateOverTimesHour={this.updateOverTimesHour}
+                   updateOverTimesMin = {this.updateOverTimesMin}
                    />
         );
       
@@ -172,6 +166,9 @@ class TableTime extends React.Component {
     // });
 
     let totalHourLamthemgio = Object.values(this.state.overTimesHour).reduce((total, item) => {
+      return total + item;
+    },0);
+    let totalMinLamthemgio = Object.values(this.state.overTimesMin).reduce((total, item) => {
       return total + item;
     },0);
 
@@ -226,9 +223,9 @@ class TableTime extends React.Component {
               <tr>
                 <td colSpan={2} rowSpan={2}><p style={{ margin: '0px', paddingTop: '20px' }}>当月</p><p>会計</p></td>
                 <td>出勤日数</td>
-                <td colSpan={2} style={{ textAlign: 'right' }}><div style={{ display: 'inline-flex' }}><p>{this.state.dataWorkedDay}</p><p>日</p></div></td>
+                <td colSpan={2} style={{ textAlign: 'right' }}><div style={{ display: 'inline-flex' }}><p>{0}</p><p>日</p></div></td>
                 <td colSpan={2}>時間外勤務</td>
-                <td colSpan={3}><div style={{ display: 'inline-flex' }}><p>{totalHourLamthemgio}</p><p>時間</p><p>{this.state.dataWorkMinOverTime}</p><p>分</p></div></td>
+                <td colSpan={3}><div style={{ display: 'inline-flex' }}><p>{totalHourLamthemgio}</p><p>時間</p><p>{totalMinLamthemgio}</p><p>分</p></div></td>
                 <td>欠勤</td>
                 <td style={{ textAlign: 'right' }}>日</td>
                 <td>振休</td>
