@@ -15,6 +15,7 @@ class TimeSheet extends React.Component{
 
     constructor(prop){
         super(prop);
+        var {togglePopup} = this.props;
         this.state = {
 
           input_1 : '',
@@ -23,14 +24,12 @@ class TimeSheet extends React.Component{
           input_4 : '',
           inputWork: '',
           inputTimes : '',
-          
           status : false,
-          showPopup : false,
-          dataPopup : {}
-
-        
+          showPopup : togglePopup,
+          dataPopup : {},
         }
-        this.myRefPopup = React.createRef();
+        
+        
     }
         
     dataPopup = (input_1, input_2, input_3, input_4, content, workplace) => {
@@ -44,26 +43,21 @@ class TimeSheet extends React.Component{
                     data4: input_4,
                     dataContent: content,
                     dataWorkplace: workplace
-                }
+                },
             }
-            // () => {
-            //     this.setState({
-            //         dataPopup: {}
-            //     });
-            // }
         );
     }
 
     togglePopup = () =>{ 
 		this.setState({  
-			 showPopup: !this.state.showPopup  
+             showPopup: !this.state.showPopup
         });
         // console.log(this.dataPopup()); 
 	}  
 
     render(){
         var {status} = this.state; 
-        var {user,copyNode} = this.props; 
+        var {user} = this.props; 
     
         if (user) {
             return (
@@ -75,8 +69,8 @@ class TimeSheet extends React.Component{
                             <InputInfor />
                             <TableTime dataPopup={this.state.dataPopup} 
                                        status = {this.state.status} 
-                                       copyNode = {copyNode}
-                                       inputHourStart = {this.state.input_1} 
+                                       togglePopup = {this.togglePopup}
+                                       
                                        />
                             <Warning/>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -86,10 +80,9 @@ class TimeSheet extends React.Component{
                         </div>
                     </div>
                     
-                    {this.state.showPopup ?  
+                    {!this.state.showPopup ?  
                         <Popup   
                             closePopup={this.togglePopup}
-                            ref={this.myRefPopup}
                             dataPopup ={this.dataPopup}
                         />  
                         : null  

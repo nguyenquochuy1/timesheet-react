@@ -21,11 +21,21 @@ class Popup extends React.Component {
 		event.preventDefault();
 		var {input_1 , input_2 , input_3 ,input_4 ,content , workplace} = this.state;
 		// console.log(input_1 , input_2 , input_3, input_4 ,content , workplace);
-		
 		this.props.dataPopup(input_1, input_2, input_3, input_4, content, workplace);
 		this.props.closePopup();
 	}
 
+	onSetDefaultValue = (event) =>{
+		event.preventDefault();
+		this.setState({
+			input_1 : '09',
+			input_2 :'00',
+			input_3 : '17',
+			input_4 :'45',
+			content : '日本語とIT技術',
+			workplace : '尼崎',
+		},);
+	}
 
 	onCheckJapanese = (event) => {
         event.preventDefault();
@@ -57,11 +67,8 @@ class Popup extends React.Component {
 		event.preventDefault();
         var target = event.target;
         var name = target.name;
-        var value = target.value;
-		// this.setState({
-		// 	[name] : value
-		// });
-
+		var value = target.value;
+		
         var checkHour = moment(value,'HH').hour(value).isValid();
 		var checkMin = moment(value,'mm').minute(value).isValid();
 		
@@ -104,7 +111,7 @@ class Popup extends React.Component {
 
 
   	render() {
-		var {input_1, input_2, input_3, input_4, content, workplace} = this.state;  
+		var {input_1, input_2, input_3, input_4, content, workplace} = this.state; 
 		return (  
     
 		<div className='popup'>  
@@ -119,7 +126,7 @@ class Popup extends React.Component {
 							name="input_1"
 							value={input_1}
 							maxLength={2}
-							required 
+							//required oninvalid="this.setCustomValidity('User ID is a must')"
 							onChange={this.onhandleChange} />
 
 						<label htmlFor="minStart">始業分</label>
@@ -127,7 +134,7 @@ class Popup extends React.Component {
 							name="input_2" 
 							value={input_2}
 							maxLength={2}
-							required 
+							//required 
 							onChange={this.onhandleChange} /> 
 
 						<label htmlFor="hourEnd">終業時</label>
@@ -135,7 +142,7 @@ class Popup extends React.Component {
 							name="input_3"
 							value={input_3}
 							maxLength={2}
-							required 
+							//required 
 							onChange={this.onhandleChange} />
 
 						<label htmlFor="minEnd">終業分</label>
@@ -144,7 +151,7 @@ class Popup extends React.Component {
 							id="fullname" 
 							value={input_4}
 							maxLength={2}
-							required 
+							//required 
 							onChange={this.onhandleChange} />    
 
 						<label htmlFor="content">業務内容</label>
@@ -154,7 +161,7 @@ class Popup extends React.Component {
 							id="email" 
 							value={content}
 							maxLength={40} 
-							required
+							//required
 							onChange={this.onCheckJapanese}  />
 
 						<label htmlFor="text">勤怠状況</label>
@@ -163,11 +170,11 @@ class Popup extends React.Component {
 							name="workplace"
 							value={workplace}
 							maxLength={4}
-							required
+							//required
 							onChange={this.onCheckJapanese}  />
 						
-						<button onClick={this.onClick}  className="general-submit" children="OK" />
-
+						<button onClick={this.onClick}  className="general-submit button-ok" children="OK" />
+						<button onClick={this.onSetDefaultValue}  className="general button-default" children="Default" />
 					
 					</form>
 				</div>

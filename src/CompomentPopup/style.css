@@ -59,3 +59,10 @@
   .auth--container button:hover{
     background: #5D8CAE;
   }
+
+  .button-ok{
+    margin:  0px 0px 0px 20px;
+  }
+   .button-default{
+    margin: 0px 20px 0px 20px;
+  }
